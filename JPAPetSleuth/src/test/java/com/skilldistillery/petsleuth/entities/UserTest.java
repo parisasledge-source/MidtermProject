@@ -46,18 +46,23 @@ class UserTest {
 	void test() {
 		
 //		mysql> SELECT * FROM user;
-//		+----+----------+----------+------------+------------+
-//		| id | username | password | pets_found | contact_id |
-//		+----+----------+----------+------------+------------+
-//		|  1 | admin    | admin    |          1 |       NULL |
-//		+----+----------+----------+------------+------------+
+//		+----+----------+----------+-------------+--------+------+------------+-----------+-----------+-----------+
+//		| id | username | password | location_id | active | role | first_name | last_name | biography | photo_url |
+//		+----+----------+----------+-------------+--------+------+------------+-----------+-----------+-----------+
+//		|  1 | admin    | admin    |           1 |      1 | NULL | NULL       | NULL      | NULL      | NULL      |
+//		+----+----------+----------+-------------+--------+------+------------+-----------+-----------+-----------+
+
 
 		
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
 		assertEquals("admin", user.getPassword());
-		assertEquals(1, user.getPetsFound());
-		assertEquals(null, user.getContactId());
+		//assertTrue(user.isActive());
+		assertEquals(null, user.getRole());
+		assertEquals(null, user.getFirstName());
+		assertEquals(null, user.getLastName());
+		assertEquals(null, user.getBiography());
+		assertEquals(null, user.getPhotoURL());
 	}
 
 }

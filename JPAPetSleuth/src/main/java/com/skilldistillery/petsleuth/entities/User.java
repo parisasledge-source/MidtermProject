@@ -17,12 +17,20 @@ public class User {
 	
 	private String username;
 	private String password;
+	private boolean active;
+	private String role;
 	
-	@Column(name = "pets_found")
-	private Integer petsFound;
-
-	@Column(name = "contact_id")
-	private Integer contactId;
+	@Column(name = "first_name")
+	private String firstName;
+	
+	@Column(name = "last_name")
+	private String lastName;
+	
+	private String biography;
+	
+	@Column(name = "photo_url")
+	private String photoURL;
+	
 	
 	//methods
 	
@@ -53,20 +61,52 @@ public class User {
 		this.password = password;
 	}
 
-	public Integer getPetsFound() {
-		return petsFound;
+	public boolean isActive() {
+		return active;
 	}
 
-	public void setPetsFound(Integer petsFound) {
-		this.petsFound = petsFound;
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
-	public Integer getContactId() {
-		return contactId;
+	public String getRole() {
+		return role;
 	}
 
-	public void setContactId(Integer contactId) {
-		this.contactId = contactId;
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getBiography() {
+		return biography;
+	}
+
+	public void setBiography(String biography) {
+		this.biography = biography;
+	}
+
+	public String getPhotoURL() {
+		return photoURL;
+	}
+
+	public void setPhotoURL(String photoURL) {
+		this.photoURL = photoURL;
 	}
 
 	@Override
