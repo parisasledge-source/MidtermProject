@@ -6,6 +6,7 @@
     </provider>
     
     <!-- Begin Entities Here -->
+    <class>com.skilldistillery.petsleuth.entities.Pet</class>
     <class>com.skilldistillery.petsleuth.entities.User</class>
     <class>com.skilldistillery.petsleuth.entities.Post</class>
    
