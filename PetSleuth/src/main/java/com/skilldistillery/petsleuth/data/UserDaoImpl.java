@@ -1,6 +1,5 @@
 package com.skilldistillery.petsleuth.data;
 
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -22,4 +21,12 @@ public class UserDaoImpl implements UserDAO {
 		return em.find(User.class, userId);
 	}
 
+	@Override
+	public User createNewUser(User user) {
+		User newUser = user;
+		em.persist(newUser);
+		return newUser;
+	}
+		
+	
 }
