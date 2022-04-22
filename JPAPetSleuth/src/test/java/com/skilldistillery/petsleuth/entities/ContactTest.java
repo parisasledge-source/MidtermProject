@@ -55,7 +55,7 @@ class ContactTest {
 		
 		assertNotNull(contact);
 		assertEquals("phone", contact.getContacPreference());
-		assertEquals("admin", contact.getEmail());
+		assertEquals(null, contact.getEmail());
 		assertEquals(null, contact.getPhotoNumber());
 		assertEquals(null, contact.getContactInfo());
 		
