@@ -44,9 +44,20 @@ class UserTest {
 	@Test
 	@DisplayName("Testing SQL connection")
 	void test() {
+		
+//		mysql> SELECT * FROM user;
+//		+----+----------+----------+------------+------------+
+//		| id | username | password | pets_found | contact_id |
+//		+----+----------+----------+------------+------------+
+//		|  1 | admin    | admin    |          1 |       NULL |
+//		+----+----------+----------+------------+------------+
+
+		
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
 		assertEquals("admin", user.getPassword());
+		assertEquals(1, user.getPetsFound());
+		assertEquals(null, user.getContactId());
 	}
 
 }
