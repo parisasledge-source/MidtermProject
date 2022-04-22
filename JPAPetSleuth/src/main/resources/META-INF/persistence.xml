@@ -7,6 +7,7 @@
     
     <!-- Begin Entities Here -->
     <class>com.skilldistillery.petsleuth.entities.User</class>
+    <class>com.skilldistillery.petsleuth.entities.Location</class>
    
     
     
