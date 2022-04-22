@@ -2,18 +2,30 @@ package com.skilldistillery.petsleuth.entities;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 @Entity
 public class User {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String username;
 	private String password;
+	
+	@Column(name = "pets_found")
+	private Integer petsFound;
 
+	@Column(name = "contact_id")
+	private Integer contactId;
+	
+	//methods
+	
 	public User() {
 	}
 
@@ -39,6 +51,22 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Integer getPetsFound() {
+		return petsFound;
+	}
+
+	public void setPetsFound(Integer petsFound) {
+		this.petsFound = petsFound;
+	}
+
+	public Integer getContactId() {
+		return contactId;
+	}
+
+	public void setContactId(Integer contactId) {
+		this.contactId = contactId;
 	}
 
 	@Override
