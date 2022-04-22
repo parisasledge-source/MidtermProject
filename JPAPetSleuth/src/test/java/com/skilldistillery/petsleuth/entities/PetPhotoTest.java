@@ -41,7 +41,7 @@ class PetPhotoTest {
 
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		assertNotNull(petPhoto);
 	}
 
 }
