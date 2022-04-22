@@ -21,7 +21,7 @@ class ContactTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		 emf = Persistence.createEntityManagerFactory("JPAContactSleuth");
+		 emf = Persistence.createEntityManagerFactory("JPAPetSleuth");
 
 	}
 
