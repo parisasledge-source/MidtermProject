@@ -10,6 +10,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class PostTest {
@@ -40,8 +41,13 @@ class PostTest {
 	}
 
 	@Test
+	@DisplayName("Mapping post entity")
 	void test() {
-		fail("Not yet implemented");
+		assertNotNull(post);
+		assertEquals(2022,post.getPostingDate().getYear());
+		assertEquals(4,post.getPostingDate().getMonthValue());
+		assertEquals(20,post.getPostingDate().getDayOfMonth());
+		
 	}
 
 }
