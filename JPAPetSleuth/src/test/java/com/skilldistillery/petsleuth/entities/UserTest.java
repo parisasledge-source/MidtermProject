@@ -2,7 +2,7 @@ package com.skilldistillery.petsleuth.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -56,7 +56,7 @@ class UserTest {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
 		assertEquals("admin", user.getPassword());
-		// assertTrue(user.isActive());
+		assertTrue(user.isActive());
 		assertEquals(null, user.getRole());
 		assertEquals(null, user.getFirstName());
 		assertEquals(null, user.getLastName());
