@@ -19,32 +19,33 @@ class UserTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private User user;
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		 emf = Persistence.createEntityManagerFactory("JPAPetSleuth");
+		emf = Persistence.createEntityManagerFactory("JPAPetSleuth");
 	}
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
-		 emf.close();
+		emf.close();
 	}
 
 	@BeforeEach
 	void setUp() throws Exception {
-		   em = emf.createEntityManager();
-		   user = em.find(User.class, 1);
+		em = emf.createEntityManager();
+		user = em.find(User.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		 em.close();
-		    user = null;
+		em.close();
+		user = null;
 	}
 
 	@Test
 	@DisplayName("Testing SQL connection")
 	void test() {
-		
+
 //		mysql> SELECT * FROM user;
 //		+----+----------+----------+-------------+--------+------+------------+-----------+-----------+-----------+
 //		| id | username | password | location_id | active | role | first_name | last_name | biography | photo_url |
@@ -52,12 +53,10 @@ class UserTest {
 //		|  1 | admin    | admin    |           1 |      1 | NULL | NULL       | NULL      | NULL      | NULL      |
 //		+----+----------+----------+-------------+--------+------+------------+-----------+-----------+-----------+
 
-
-		
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
 		assertEquals("admin", user.getPassword());
-		//assertTrue(user.isActive());
+		// assertTrue(user.isActive());
 		assertEquals(null, user.getRole());
 		assertEquals(null, user.getFirstName());
 		assertEquals(null, user.getLastName());
