@@ -7,6 +7,7 @@
 <title>Pet Sleuth</title>
 </head>
 <body>
+	${DEBUG}
 
 </body>
 </html>
