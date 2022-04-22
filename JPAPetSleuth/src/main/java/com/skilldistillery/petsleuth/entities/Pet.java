@@ -22,13 +22,13 @@ public class Pet {
 
 	private String description;
 	
-	private boolean chip;
+	private Boolean chip;
 	
 	private String color;
 	
 	private String gender;
 
-	private boolean neutered;
+	private Boolean neutered;
 	
 	private String age;
 
@@ -89,12 +89,12 @@ public class Pet {
 	}
 
 
-	public boolean isChip() {
+	public Boolean isChip() {
 		return chip;
 	}
 
 
-	public void setChip(boolean chip) {
+	public void setChip(Boolean chip) {
 		this.chip = chip;
 	}
 
@@ -119,12 +119,12 @@ public class Pet {
 	}
 
 
-	public boolean isNeutered() {
+	public Boolean isNeutered() {
 		return neutered;
 	}
 
 
-	public void setNeutered(boolean neutered) {
+	public void setNeutered(Boolean neutered) {
 		this.neutered = neutered;
 	}
 
