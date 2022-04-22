@@ -11,6 +11,7 @@
     <class>com.skilldistillery.petsleuth.entities.Location</class>
     <class>com.skilldistillery.petsleuth.entities.Post</class>
     <class>com.skilldistillery.petsleuth.entities.PetPhoto</class>
+    <class>com.skilldistillery.petsleuth.entities.PostComment</class>
    
     
     
