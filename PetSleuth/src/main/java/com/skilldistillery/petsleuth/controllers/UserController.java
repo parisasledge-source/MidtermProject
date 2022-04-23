@@ -15,13 +15,13 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 	
-	@RequestMapping( path = {"signup.do"}, method = RequestMethod.POST)
+	@RequestMapping( path = {"signupPage.do"})
 	public String user(Model model) {
 		return "signup";
 		
 	}	
 	
-	@RequestMapping( path = {"signupPage.do"})
+	@RequestMapping( path = {"signup.do"}, method = RequestMethod.POST)
 	public String home(Model model, User user) {
 		model.addAttribute("user", userDao.createNewUser(user));
 		return "signupResult";
