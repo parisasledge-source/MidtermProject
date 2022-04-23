@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +26,10 @@ public class PetPhoto {
 	
 	@Column(name="date_added")
 	private LocalDate dateAdded;
+	
+	@OneToOne
+	@JoinColumn(name = "pet_id")
+	private Pet petId;
 	
 	public PetPhoto() {}
 
@@ -59,11 +65,20 @@ public class PetPhoto {
 		this.dateAdded = dateAdded;
 	}
 
+	public Pet getPetId() {
+		return petId;
+	}
+	
+	public void setPetId(Pet petId) {
+		this.petId = petId;
+	}
+	
 	@Override
 	public String toString() {
 		return "PetPhoto [id=" + id + ", photoUrl=" + photoUrl + ", description=" + description + ", dateAdded="
 				+ dateAdded + "]";
 	}
+
 
 	@Override
 	public int hashCode() {
