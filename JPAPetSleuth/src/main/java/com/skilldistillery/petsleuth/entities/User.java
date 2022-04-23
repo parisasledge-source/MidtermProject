@@ -37,21 +37,21 @@ public class User {
 	
 	@OneToOne
 	@JoinColumn(name = "location_id")
-	private Location locationId;
+	private Location location;
 	
-	@OneToMany(mappedBy="userId")
+	@OneToMany(mappedBy="user")
 	private List<Contact> contacts;
 	
-	@OneToMany(mappedBy="userId")
+	@OneToMany(mappedBy="user")
 	private List<Pet> pets;
 	
-	@OneToMany(mappedBy="userId")
+	@OneToMany(mappedBy="user")
 	private List<PostComment> comments;
 	
-	@OneToMany(mappedBy="userId")
+	@OneToMany(mappedBy="user")
 	private List<Post> posts;
 	
-	@OneToMany(mappedBy="userId")
+	@OneToMany(mappedBy="user")
 	private List<Post> finderPosts;
 	
 	//methods
@@ -131,12 +131,12 @@ public class User {
 		this.photoURL = photoURL;
 	}
 
-	public Location getLocationId() {
-		return locationId;
+	public Location getLocation() {
+		return location;
 	}
 
-	public void setLocationId(Location locationId) {
-		this.locationId = locationId;
+	public void setLocation(Location locationId) {
+		this.location = locationId;
 	}
 
 	public List<Contact> getContacts() {

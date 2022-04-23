@@ -63,5 +63,37 @@ class UserTest {
 		assertEquals(null, user.getBiography());
 		assertEquals(null, user.getPhotoURL());
 	}
+	
+	@Test
+	@DisplayName("Testing relationship from User to Location")
+	void test2() {
+
+		assertNotNull(user.getLocation());
+		assertEquals(1, user.getLocation().getId());
+	}
+	
+	@Test
+	@DisplayName("Testing relationship from User to Contact")
+	void test3() {
+
+		assertTrue(user.getContacts().size() > 0);
+		assertEquals(1, user.getContacts().size());
+	}
+	
+	@Test
+	@DisplayName("Testing relationship from User to Pet")
+	void test4() {
+
+		assertTrue(user.getPets().size() > 0);
+		assertEquals(1, user.getPets().size());
+	}
+	
+	@Test
+	@DisplayName("Testing relationship from User to Post")
+	void test5() {
+
+		assertTrue(user.getPosts().size() > 0);
+		assertEquals(1, user.getPosts().size());
+	}
 
 }

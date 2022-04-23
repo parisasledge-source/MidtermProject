@@ -33,6 +33,10 @@ public class Post {
 	@JoinColumn(name= "contact_id")
 	private Contact contact;
 	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
 	//methods
 	
 	public Post() {}
