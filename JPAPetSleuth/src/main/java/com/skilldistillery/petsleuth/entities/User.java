@@ -1,5 +1,6 @@
 package com.skilldistillery.petsleuth.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -37,6 +39,20 @@ public class User {
 	@JoinColumn(name = "location_id")
 	private Location locationId;
 	
+	@OneToMany(mappedBy="userId")
+	private List<Contact> contacts;
+	
+	@OneToMany(mappedBy="userId")
+	private List<Pet> pets;
+	
+	@OneToMany(mappedBy="userId")
+	private List<PostComment> comments;
+	
+	@OneToMany(mappedBy="userId")
+	private List<Post> posts;
+	
+	@OneToMany(mappedBy="userId")
+	private List<Post> finderPosts;
 	
 	//methods
 	
@@ -121,6 +137,46 @@ public class User {
 
 	public void setLocationId(Location locationId) {
 		this.locationId = locationId;
+	}
+
+	public List<Contact> getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(List<Contact> contacts) {
+		this.contacts = contacts;
+	}
+
+	public List<Pet> getPets() {
+		return pets;
+	}
+
+	public void setPets(List<Pet> pets) {
+		this.pets = pets;
+	}
+
+	public List<PostComment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<PostComment> comments) {
+		this.comments = comments;
+	}
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
+	public List<Post> getFinderPosts() {
+		return finderPosts;
+	}
+
+	public void setFinderPosts(List<Post> finderPosts) {
+		this.finderPosts = finderPosts;
 	}
 
 	@Override
