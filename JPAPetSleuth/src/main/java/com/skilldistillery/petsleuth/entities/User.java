@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -30,6 +32,10 @@ public class User {
 	
 	@Column(name = "photo_url")
 	private String photoURL;
+	
+	@OneToOne
+	@JoinColumn(name = "location_id")
+	private Location locationId;
 	
 	
 	//methods
@@ -107,6 +113,14 @@ public class User {
 
 	public void setPhotoURL(String photoURL) {
 		this.photoURL = photoURL;
+	}
+
+	public Location getLocationId() {
+		return locationId;
+	}
+
+	public void setLocationId(Location locationId) {
+		this.locationId = locationId;
 	}
 
 	@Override
