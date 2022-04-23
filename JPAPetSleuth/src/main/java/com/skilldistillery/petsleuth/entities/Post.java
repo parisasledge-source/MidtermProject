@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Post {
@@ -26,6 +28,12 @@ public class Post {
 	private Integer rating;
 	@Column(name = "rating_comment")
 	private String ratingComment;
+	
+	@ManyToOne
+	@JoinColumn(name= "contact_id")
+	private Contact contact;
+	
+	//methods
 	
 	public Post() {}
 	
