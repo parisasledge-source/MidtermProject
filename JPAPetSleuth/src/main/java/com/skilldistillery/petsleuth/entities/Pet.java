@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Pet {
@@ -22,6 +24,10 @@ public class Pet {
 
 	private String description;
 	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+	
 	private Boolean chip;
 	
 	private String color;
@@ -31,6 +37,7 @@ public class Pet {
 	private Boolean neutered;
 	
 	private String age;
+	
 
 	
 	//Default Constructor
@@ -89,7 +96,7 @@ public class Pet {
 	}
 
 
-	public Boolean isChip() {
+	public Boolean getChip() {
 		return chip;
 	}
 
@@ -119,7 +126,7 @@ public class Pet {
 	}
 
 
-	public Boolean isNeutered() {
+	public Boolean getNeutered() {
 		return neutered;
 	}
 
@@ -138,12 +145,19 @@ public class Pet {
 		this.age = age;
 	}
 
-	//toString
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
 		return "Pet [id=" + id + ", species=" + species + ", name=" + name + ", breed=" + breed + ", description="
 				+ description + ", chip=" + chip + ", color=" + color + ", gender=" + gender + ", neutered=" + neutered
-				+ ", age=" + age + "]";
+				+ ", age=" + age + ", user=" + user + "]";
 	}
 
 	//hashCode & equals
