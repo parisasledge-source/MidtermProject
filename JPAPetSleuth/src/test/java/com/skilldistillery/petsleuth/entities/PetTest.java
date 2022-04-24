@@ -53,10 +53,24 @@ class PetTest {
 |  1 | Dog     | Max  | NULL  | NULL        |       1 | NULL | NULL  | NULL   |     NULL | NULL |
 		 */
 		assertNotNull(pet);
-		assertEquals("Dog",pet.getSpecies());
-		assertEquals("Max",pet.getName());
-		
-		;
+		assertEquals("Dog", pet.getSpecies());
+		assertEquals("Max", pet.getName());
 	}
+	
+	@Test
+	@DisplayName("Testing Pet to User ManyToOne mapping")
+	/*
+	 * SELECT username FROM user JOIN pet ON user.id = pet.user_id WHERE pet.user_id = 1;
++----------+
+| username |
++----------+
+| admin    |
++----------+
+	 */
+	void test2() {
+		assertNotNull(pet);
+		assertEquals("admin", pet.getUser().getUsername());
+	}
+	
 
 }
