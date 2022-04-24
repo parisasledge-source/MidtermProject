@@ -2,6 +2,7 @@ package com.skilldistillery.petsleuth.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -59,18 +60,49 @@ class PetTest {
 	
 	@Test
 	@DisplayName("Testing Pet to User ManyToOne mapping")
-	/*
-	 * SELECT username FROM user JOIN pet ON user.id = pet.user_id WHERE pet.user_id = 1;
+	void test2() {
+		/*
+		 * SELECT username FROM user JOIN pet ON user.id = pet.user_id WHERE pet.id = 1;
 +----------+
 | username |
 +----------+
-| admin    |
+| jiles    |
 +----------+
-	 */
-	void test2() {
+		 */
 		assertNotNull(pet);
-		assertEquals("admin", pet.getUser().getUsername());
+		assertEquals("jiles", pet.getUser().getUsername());
 	}
 
+	@Test
+	@DisplayName("Testing Pet to PetPhoto OneToMany mapping")
+	void test3() {
+		/*
+		 * SELECT * FROM pet_photo WHERE id = 1;
++----+---------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------+--------+
+| id | photo_url                                                                                                                                   | description | date_added          | pet_id |
++----+---------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------+--------+
+|  1 | https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2016/06/24151048/Beagle-standing-in-a-frosty-field-on-a-cold-morning.jpg | beagel      | 2022-04-20 00:00:00 |      1 |
++----+---------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------------------+--------+
+		 */
+		assertNotNull(pet);
+		assertNotNull(pet.getPhotos());
+		assertTrue(pet.getPhotos().size() > 0);
+	}
+	
+	@Test
+	@DisplayName("Testing Pet to Post OneToMany mapping")
+	void test4() {
+		/*
+		 * SELECT * FROM post WHERE id = 1;
++----+---------------------+---------------------+-------------------------------------------------+--------+--------+--------+---------+------------+-------------+-----------+------------+--------+----------------+
+| id | posting_date        | last_seen           | description                                     | active | reward | pet_id | user_id | contact_id | location_id | finder_id | date_found | rating | rating_comment |
++----+---------------------+---------------------+-------------------------------------------------+--------+--------+--------+---------+------------+-------------+-----------+------------+--------+----------------+
+|  1 | 2022-04-20 00:00:00 | 2022-03-30 00:00:00 | My dog got out of the house and hasn't returned |      1 | 100    |      1 |       2 |          1 |           1 |      NULL | NULL       |   NULL | NULL           |
++----+---------------------+---------------------+-------------------------------------------------+--------+--------+--------+---------+------------+-------------+-----------+------------+--------+----------------+
+		 */
+		assertNotNull(pet);
+		assertNotNull(pet.getPost());
+		assertTrue(pet.getPost().size() > 0);
+	}
 	
 }

@@ -84,7 +84,7 @@ public class PostComment {
 		return inReplyToCommentId;
 	}
 
-	public void setInReplyToCommenId(int inReplyToCommentId) {
+	public void setInReplyToCommentId(int inReplyToCommentId) {
 		this.inReplyToCommentId = inReplyToCommentId;
 	}
 
