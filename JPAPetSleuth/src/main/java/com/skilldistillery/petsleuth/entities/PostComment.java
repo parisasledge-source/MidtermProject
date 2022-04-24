@@ -80,11 +80,11 @@ public class PostComment {
 		this.post = post;
 	}
 
-	public int getReplyId() {
+	public int getInReplyToCommentId() {
 		return inReplyToCommentId;
 	}
 
-	public void setReplyId(int inReplyToCommentId) {
+	public void setInReplyToCommentId(int inReplyToCommentId) {
 		this.inReplyToCommentId = inReplyToCommentId;
 	}
 
