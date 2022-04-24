@@ -44,7 +44,24 @@ class PostCommentTest {
 	@DisplayName("Testing basic PostComment mapping")
 	void test() {
 		
+		assertNotNull(postComment);
+		assertEquals("Think I saw you dog down the road", postComment.getContent());
+	}
+	
+	@Test
+	@DisplayName("Testing relationship between PostComment and User")
+	void test2() {
 		
+		assertNotNull(postComment.getUser());
+		assertEquals(2, postComment.getUser().getId());
+	}
+	
+	@Test
+	@DisplayName("Testing relationship between PostComment and Post")
+	void test3() {
+		
+		assertNotNull(postComment.getPost());
+		assertEquals(1, postComment.getPost().getId());
 	}
 
 }
