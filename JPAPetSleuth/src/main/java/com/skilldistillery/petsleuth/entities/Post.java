@@ -39,6 +39,10 @@ public class Post {
 	@JoinColumn(name="user_id")
 	private User user;
 
+	@ManyToOne
+	@JoinColumn(name="finder_id")
+	private User finder;
+	
 	@OneToMany(mappedBy = "post")
 	private List<PostComment> postComments;
 
@@ -148,6 +152,14 @@ public class Post {
 
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+
+	public User getFinder() {
+		return finder;
+	}
+
+	public void setFinder(User finder) {
+		this.finder = finder;
 	}
 
 	@Override

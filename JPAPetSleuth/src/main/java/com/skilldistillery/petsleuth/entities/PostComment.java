@@ -1,6 +1,7 @@
 package com.skilldistillery.petsleuth.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -33,9 +35,25 @@ public class PostComment {
 	@Column(name = "comment_date")
 	private LocalDateTime commentDate;
 	
-	@Column(name = "in_reply_to_id")
-	private Integer inReplyToCommentId;
+	@ManyToOne
+	@JoinColumn(name = "in_reply_to_id")
+	private PostComment inReplyToCommentId;
 	
+	@OneToMany(mappedBy = "inReplyToCommentId")
+	private List<PostComment> replies;
+	
+	public List<PostComment> getReplies() {
+		return replies;
+	}
+
+	public void setReplies(List<PostComment> replies) {
+		this.replies = replies;
+	}
+
+	public void setInReplyToCommentId(PostComment inReplyToCommentId) {
+		this.inReplyToCommentId = inReplyToCommentId;
+	}
+
 	//Default Constructor
 	public PostComment() {}
 
@@ -80,12 +98,8 @@ public class PostComment {
 		this.post = post;
 	}
 
-	public Integer getInReplyToCommentId() {
+	public PostComment getInReplyToCommentId() {
 		return inReplyToCommentId;
-	}
-
-	public void setInReplyToCommentId(Integer inReplyToCommentId) {
-		this.inReplyToCommentId = inReplyToCommentId;
 	}
 
 	//hashcode and equals
