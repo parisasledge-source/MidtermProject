@@ -93,16 +93,16 @@ class PetTest {
 	@DisplayName("Testing Pet to Post OneToMany mapping")
 	void test4() {
 		/*
-		 * SELECT * FROM post WHERE id = 1;
-+----+---------------------+---------------------+-------------------------------------------------+--------+--------+--------+---------+------------+-------------+-----------+------------+--------+----------------+
-| id | posting_date        | last_seen           | description                                     | active | reward | pet_id | user_id | contact_id | location_id | finder_id | date_found | rating | rating_comment |
-+----+---------------------+---------------------+-------------------------------------------------+--------+--------+--------+---------+------------+-------------+-----------+------------+--------+----------------+
-|  1 | 2022-04-20 00:00:00 | 2022-03-30 00:00:00 | My dog got out of the house and hasn't returned |      1 | 100    |      1 |       2 |          1 |           1 |      NULL | NULL       |   NULL | NULL           |
-+----+---------------------+---------------------+-------------------------------------------------+--------+--------+--------+---------+------------+-------------+-----------+------------+--------+----------------+
+		 * SELECT description FROM post WHERE id = 1;
++-------------------------------------------------+
+| description                                     |
++-------------------------------------------------+
+| My dog got out of the house and hasn't returned |
++-------------------------------------------------+
 		 */
 		assertNotNull(pet);
-		assertNotNull(pet.getPost());
-		assertTrue(pet.getPost().size() > 0);
+		assertNotNull(pet.getPosts());
+		assertTrue(pet.getPosts().size() > 0);
 	}
 	
 }

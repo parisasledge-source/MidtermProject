@@ -46,7 +46,7 @@ public class Pet {
 	private List<PetPhoto> photos;
 
 	@OneToMany(mappedBy = "pet")
-	private List<Post> post;
+	private List<Post> posts;
 	
 	//Default Constructor
 	public Pet() {
@@ -169,12 +169,12 @@ public class Pet {
 		this.photos = photos;
 	}
 
-	public List<Post> getPost() {
-		return post;
+	public List<Post> getPosts() {
+		return posts;
 	}
 
-	public void setPost(List<Post> post) {
-		this.post = post;
+	public void setPosts(List<Post> post) {
+		this.posts = post;
 	}
 
 
