@@ -230,7 +230,12 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `petsleuthdb`;
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (1, NULL, 'Denver', 'CO', NULL);
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (1, 'Skylark Holt', 'Denver', 'CO', '80219');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (2, 'Regent Edge', 'Denver', 'CO', '80123');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (3, 'Twyford', 'Seattle', 'WA', '98101');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (4, 'Ibberson Ave', 'Seattle', 'WA', '98105');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (5, 'Hinxworth Road', 'Austin', 'TX', '73301');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (6, 'Bacton Road', 'Austin', 'TX', '78660');
 
 COMMIT;
 
@@ -241,6 +246,11 @@ COMMIT;
 START TRANSACTION;
 USE `petsleuthdb`;
 INSERT INTO `user` (`id`, `username`, `password`, `location_id`, `active`, `role`, `first_name`, `last_name`, `biography`, `photo_url`) VALUES (1, 'admin', 'admin', 1, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `location_id`, `active`, `role`, `first_name`, `last_name`, `biography`, `photo_url`) VALUES (2, 'jiles', 'jiles', 1, 1, NULL, 'Jae', 'Iles', 'Like to go on walks with my dog.', 'https://images.unsplash.com/photo-1582610285985-a42d9193f2fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fHdvbWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80');
+INSERT INTO `user` (`id`, `username`, `password`, `location_id`, `active`, `role`, `first_name`, `last_name`, `biography`, `photo_url`) VALUES (3, 'ccordova', 'ccordova', 2, 1, NULL, 'Coen', 'Cordova', 'Workout junkie', 'https://i.pinimg.com/originals/5c/a8/e7/5ca8e7f5d3ecbe64fe1fb15ce2ee4cc4.jpg');
+INSERT INTO `user` (`id`, `username`, `password`, `location_id`, `active`, `role`, `first_name`, `last_name`, `biography`, `photo_url`) VALUES (4, 'csloan', 'csloan', 2, 1, NULL, 'Chester', 'Sloan', 'Young at heart', 'https://i.pinimg.com/564x/a2/65/88/a265880495df7ada87895e004089fd4e--italian-man-tall-man.jpg');
+INSERT INTO `user` (`id`, `username`, `password`, `location_id`, `active`, `role`, `first_name`, `last_name`, `biography`, `photo_url`) VALUES (5, 'sstubbs', 'sstubbs', 3, 1, NULL, 'Selina', 'Stubbs', 'Crazy cat lady.', 'http://img.thedailybeast.com/image/upload/v1492791632/articles/2013/01/04/kansas-s-new-cat-law-and-the-craziest-crazy-cat-lady-stories/cat-ladies-fallon-tease_s0gkcp.jpg');
+INSERT INTO `user` (`id`, `username`, `password`, `location_id`, `active`, `role`, `first_name`, `last_name`, `biography`, `photo_url`) VALUES (6, 'lshaw', 'lshaw', 3, 1, NULL, 'Lacy', 'Shaw', 'Love my dog.', 'https://i.pinimg.com/originals/67/01/79/670179bf2f640c22b01556a0af74a97a.jpg');
 
 COMMIT;
 
@@ -250,7 +260,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `petsleuthdb`;
-INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (1, 'Dog', 'Max', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (1, 'Dog', 'Max', 'Beagel', 'Dog likes to bark alot', 2, 1, 'brown/white/black', 'male', 1, 'mid age');
+INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (2, 'Cat', 'Atika', 'Sphinx ', 'Thinks its god', 3, 0, 'hairless', 'female', 0, 'elderly ');
+INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (3, 'Dog', 'Xeries', 'German Shepard', 'Loves to chase squirrels ', 6, 1, 'black/gold', 'female', 0, 'puppy ');
+INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (4, 'Cat', 'Rosalie', 'Siamese', 'Loves to make biscuits ', 5, 1, 'ligh brown/black', 'male', 1, 'kitten ');
+INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (5, 'Lizard', 'Gex', 'Iguana', 'Sleeps all day in the sunlight', 4, 0, 'green', '?', 0, '5');
+INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (6, 'Fish', 'Tot', 'Goldfish', 'Its a goldfish, whats there to know.', 1, 0, 'orange', '?', 0, '1');
 
 COMMIT;
 
@@ -260,7 +275,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `petsleuthdb`;
-INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (1, 'phone', NULL, NULL, 1, NULL);
+INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (2, 'phone', 'jiles@fakemail.com', '303-555-5467', 2, NULL);
+INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (3, 'email', 'ccordova@fakemail.com', '206-555-7539', 3, NULL);
+INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (4, 'phone', 'csloan@fakemail.com', '206-555-4239', 4, NULL);
+INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (1, 'email', 'admin@fakemail.com', '303-555-3278', 1, NULL);
+INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (5, 'phone', 'sstubbs@fakemail.com', '512-555-4467', 5, NULL);
+INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (6, 'email', 'lshaw@fakemail.com', '512-555-5623', 6, NULL);
 
 COMMIT;
 
@@ -270,7 +290,27 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `petsleuthdb`;
-INSERT INTO `post` (`id`, `posting_date`, `last_seen`, `description`, `active`, `reward`, `pet_id`, `user_id`, `contact_id`, `location_id`, `finder_id`, `date_found`, `rating`, `rating_comment`) VALUES (1, '2022-04-20', NULL, NULL, 1, NULL, 1, 1, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `post` (`id`, `posting_date`, `last_seen`, `description`, `active`, `reward`, `pet_id`, `user_id`, `contact_id`, `location_id`, `finder_id`, `date_found`, `rating`, `rating_comment`) VALUES (1, '2022-04-20', '2022-03-30', 'My dog got out of the house and hasn\'t returned', 1, '100', 1, 2, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `post` (`id`, `posting_date`, `last_seen`, `description`, `active`, `reward`, `pet_id`, `user_id`, `contact_id`, `location_id`, `finder_id`, `date_found`, `rating`, `rating_comment`) VALUES (2, '2022-04-15', '2022-03-27', 'Left my screen door open and my cat was no where to be seen', 1, '75', 2, 3, 2, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `post` (`id`, `posting_date`, `last_seen`, `description`, `active`, `reward`, `pet_id`, `user_id`, `contact_id`, `location_id`, `finder_id`, `date_found`, `rating`, `rating_comment`) VALUES (3, '2022-04-10', '2022-03-21', 'Kids were playing outside and left the gate open', 0, '250', 3, 6, 3, 2, NULL, '2022-04-23', NULL, NULL);
+INSERT INTO `post` (`id`, `posting_date`, `last_seen`, `description`, `active`, `reward`, `pet_id`, `user_id`, `contact_id`, `location_id`, `finder_id`, `date_found`, `rating`, `rating_comment`) VALUES (4, '2022-04-08', '2022-03-17', 'Usually my cat comes back but hasn\'t. If anyone is holding on to him. He has a home. ', 1, '100', 4, 5, 4, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `post` (`id`, `posting_date`, `last_seen`, `description`, `active`, `reward`, `pet_id`, `user_id`, `contact_id`, `location_id`, `finder_id`, `date_found`, `rating`, `rating_comment`) VALUES (5, '2022-04-01', '2022-03-11', 'Lizard broke out of his cage', 0, '25', 5, 4, 5, 3, NULL, '2022-04-21', NULL, NULL);
+INSERT INTO `post` (`id`, `posting_date`, `last_seen`, `description`, `active`, `reward`, `pet_id`, `user_id`, `contact_id`, `location_id`, `finder_id`, `date_found`, `rating`, `rating_comment`) VALUES (6, '2022-03-30', '2022-03-07', 'Fish jumped out of his bowl so he couldn\'t of gotten far.', 0, 'high five', 6, 1, 6, 3, NULL, '2022-04-20', NULL, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `pet_photo`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `petsleuthdb`;
+INSERT INTO `pet_photo` (`id`, `photo_url`, `description`, `date_added`, `pet_id`) VALUES (1, 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2016/06/24151048/Beagle-standing-in-a-frosty-field-on-a-cold-morning.jpg', 'beagel', '2022-04-20', 1);
+INSERT INTO `pet_photo` (`id`, `photo_url`, `description`, `date_added`, `pet_id`) VALUES (2, 'https://images.immediate.co.uk/production/volatile/sites/4/2020/05/GettyImages-696252463-c-034e516.jpg?quality=90&resize=768,574', 'sphinx', '2022-03-17', 2);
+INSERT INTO `pet_photo` (`id`, `photo_url`, `description`, `date_added`, `pet_id`) VALUES (3, 'https://www.google.com/search?q=german+shepherd+puppy&tbm=isch&ved=2ahUKEwiNrtLzsqv3AhWLX80KHbPqAAIQ2-cCegQIABAA&oq=german+shepherd+puppy&gs_lcp=CgNpbWcQAzIHCAAQsQMQQzIHCAAQsQMQQzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEOgcIIxDvAxAnOggIABCABBCxAzoECAAQQzoKCAAQsQMQgwEQQzoLCAAQgAQQsQMQgwFQtA9YxxxghR9oAHAAeACAAT2IAekCkgEBN5gBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=rpNkYo2fK4u_tQaz1YMQ&bih=1103&biw=1087&rlz=1C5CHFA_enUS990US990#imgrc=j-gOsn5bbfqT-M', 'german shepard', '2022-04-02', 3);
+INSERT INTO `pet_photo` (`id`, `photo_url`, `description`, `date_added`, `pet_id`) VALUES (4, 'https://nationaltoday.com/wp-content/uploads/2019/04/national-siamese-cat-day-640x514.jpg', 'siamese ', '2022-02-14', 4);
+INSERT INTO `pet_photo` (`id`, `photo_url`, `description`, `date_added`, `pet_id`) VALUES (5, 'https://www.thoughtco.com/thmb/jJcmtfmXfZcpYdQ61upD8WdHa0c=/1000x1000/smart/filters:no_upscale()/iguana2-b554e81fc1834989a715b69d1eb18695.jpg', 'iguana', '2022-03-23', 5);
+INSERT INTO `pet_photo` (`id`, `photo_url`, `description`, `date_added`, `pet_id`) VALUES (6, 'https://www.petmd.com/sites/default/files/styles/article_image/public/goldfish-swimmingtoward_285011336_0.jpg?itok=ZZaLxiFQ', 'goldfish', '2022-04-01', 6);
 
 COMMIT;
 
