@@ -44,7 +44,7 @@ class PetTest {
 	}
 
 	@Test
-	@DisplayName("Testing basic pet mapping")
+	@DisplayName("Testing basic Pet mapping")
 	void test() {
 		/*
 		 * SELECT * FROM pet where id = 1;
