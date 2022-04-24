@@ -71,6 +71,6 @@ class PetTest {
 		assertNotNull(pet);
 		assertEquals("admin", pet.getUser().getUsername());
 	}
-	
 
+	
 }
