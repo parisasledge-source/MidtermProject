@@ -17,7 +17,6 @@ public class UserDaoImpl implements UserDAO {
 
 	@Override
 	public User findById(int userId) {
-		// TODO Auto-generated method stub
 		return em.find(User.class, userId);
 	}
 
@@ -26,6 +25,13 @@ public class UserDaoImpl implements UserDAO {
 		User newUser = user;
 		em.persist(newUser);
 		return newUser;
+	}
+	@Override
+	public User findExistingUser(String userName, String password) {
+		String sql = "SELECT user FROM User user WHERE user.username = :userName AND user.password = :password ";
+		User user = em.createQuery(sql, User.class).setParameter("userName", userName).setParameter("password", password).getSingleResult();
+		return user;
+		
 	}
 		
 	

@@ -7,6 +7,8 @@ public interface UserDAO {
 	User findById(int userId);
 	
 	User createNewUser(User user);
+	
+	public User findExistingUser(String userName, String password);
 		
 }
 
