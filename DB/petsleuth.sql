@@ -301,6 +301,18 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `post_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `petsleuthdb`;
+INSERT INTO `post_comment` (`id`, `content`, `user_id`, `post_id`, `comment_date`, `in_reply_to_id`) VALUES (1, 'Think I saw you dog down the road', 2, 1, '2022-04-22', NULL);
+INSERT INTO `post_comment` (`id`, `content`, `user_id`, `post_id`, `comment_date`, `in_reply_to_id`) VALUES (2, 'I saw Atika hanging out on someones patio.', 4, 2, '2022-04-17', NULL);
+INSERT INTO `post_comment` (`id`, `content`, `user_id`, `post_id`, `comment_date`, `in_reply_to_id`) VALUES (3, 'Saw Rosalie making biscuits thorugh your neighbors window', 6, 4, '2022-04-10', NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `pet_photo`
 -- -----------------------------------------------------
 START TRANSACTION;
