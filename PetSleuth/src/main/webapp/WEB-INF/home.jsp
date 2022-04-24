@@ -10,6 +10,7 @@
 	${DEBUG}
 	
 	<a href="signupPage.do">Sign up</a>
+	<a href="loginPage.do">Login</a>
 
 </body>
 </html>
