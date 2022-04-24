@@ -25,6 +25,19 @@ public class UserController {
 	public String home(Model model, User user) {
 		model.addAttribute("user", userDao.createNewUser(user));
 		return "signupResult";
+	}
+	
+	@RequestMapping( path = {"loginPage.do"})
+	public String userLogin(Model model) {
+		return "login";
+		
+	}	
+	
+	@RequestMapping( path = {"login.do"}, method = RequestMethod.POST)
+	public String homeLogin(Model model, String username, String password) {
+		User user = userDao.findExistingUser(username, password);
+		model.addAttribute("user", user);
+		return "loginResult";
 	}	
 	
 }
