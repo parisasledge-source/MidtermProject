@@ -49,5 +49,21 @@ class PostTest {
 		assertEquals(20,post.getPostingDate().getDayOfMonth());
 		
 	}
+	
+	@Test
+	@DisplayName("Testing relationship between Post and Contact")
+	void test2() {
+		assertNotNull(post.getContact());
+		assertEquals(1, post.getContact().getId());
+		
+	}
+	
+	@Test
+	@DisplayName("Testing relationship between Post and User")
+	void test3() {
+		assertNotNull(post.getUser());
+		assertEquals(1, post.getUser().getId());
+		
+	}
 
 }

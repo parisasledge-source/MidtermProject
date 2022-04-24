@@ -2,6 +2,7 @@ package com.skilldistillery.petsleuth.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -46,6 +47,13 @@ class LocationTest {
 		assertNotNull(location);	
 		assertEquals("Denver", location.getCity());
 		assertEquals("CO", location.getState());
+	}
+	
+	@Test
+	void test2() {
+		
+		assertTrue(location.getPost().size() > 0);	
+		assertEquals(2, location.getPost().size());
 	}
 
 }

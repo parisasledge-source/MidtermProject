@@ -27,7 +27,6 @@ public class Location {
 	@OneToMany(mappedBy = "location")
 	private List<Post> post;
 	
-	
 	//method
 	
 	public Location() {}
