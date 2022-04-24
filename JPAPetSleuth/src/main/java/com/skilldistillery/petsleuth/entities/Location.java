@@ -1,5 +1,6 @@
 package com.skilldistillery.petsleuth.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Location {
@@ -21,6 +23,12 @@ public class Location {
 	
 	@Column(name="zip_code")
 	private String zipcode;
+	
+	@OneToMany(mappedBy = "location")
+	private List<Post> post;
+	
+	
+	//method
 	
 	public Location() {}
 
@@ -62,6 +70,14 @@ public class Location {
 
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
+	}
+
+	public List<Post> getPost() {
+		return post;
+	}
+
+	public void setPost(List<Post> post) {
+		this.post = post;
 	}
 
 	@Override

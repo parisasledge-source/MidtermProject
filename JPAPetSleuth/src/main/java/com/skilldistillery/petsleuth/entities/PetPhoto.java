@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,7 +27,7 @@ public class PetPhoto {
 	@Column(name="date_added")
 	private LocalDate dateAdded;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "pet_id")
 	private Pet petId;
 	

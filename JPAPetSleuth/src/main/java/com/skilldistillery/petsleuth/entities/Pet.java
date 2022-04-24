@@ -1,5 +1,6 @@
 package com.skilldistillery.petsleuth.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 
 @Entity
 public class Pet {
@@ -30,6 +33,7 @@ public class Pet {
 	
 	private Boolean chip;
 	
+
 	private String color;
 	
 	private String gender;
@@ -38,7 +42,11 @@ public class Pet {
 	
 	private String age;
 	
+	@OneToMany(mappedBy = "petId")
+	private List<PetPhoto> photos;
 
+	@OneToMany(mappedBy = "pet")
+	private List<Post> post;
 	
 	//Default Constructor
 	public Pet() {
@@ -140,7 +148,6 @@ public class Pet {
 		return age;
 	}
 
-
 	public void setAge(String age) {
 		this.age = age;
 	}
@@ -152,6 +159,24 @@ public class Pet {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+
+	public List<PetPhoto> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(List<PetPhoto> photos) {
+		this.photos = photos;
+	}
+
+	public List<Post> getPost() {
+		return post;
+	}
+
+	public void setPost(List<Post> post) {
+		this.post = post;
+	}
+
 
 	@Override
 	public String toString() {
