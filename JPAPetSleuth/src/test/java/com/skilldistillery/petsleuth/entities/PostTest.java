@@ -62,7 +62,7 @@ class PostTest {
 	@DisplayName("Testing relationship between Post and User")
 	void test3() {
 		assertNotNull(post.getUser());
-		assertEquals(1, post.getUser().getId());
+		assertEquals(2, post.getUser().getId());
 		
 	}
 
