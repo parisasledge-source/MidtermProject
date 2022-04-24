@@ -34,7 +34,7 @@ public class PostComment {
 	private LocalDateTime commentDate;
 	
 	@Column(name = "in_reply_to_id")
-	private int inReplyToCommentId;
+	private Integer inReplyToCommentId;
 	
 	//Default Constructor
 	public PostComment() {}
@@ -80,11 +80,11 @@ public class PostComment {
 		this.post = post;
 	}
 
-	public int getInReplyToCommentId() {
+	public Integer getInReplyToCommentId() {
 		return inReplyToCommentId;
 	}
 
-	public void setInReplyToCommentId(int inReplyToCommentId) {
+	public void setInReplyToCommentId(Integer inReplyToCommentId) {
 		this.inReplyToCommentId = inReplyToCommentId;
 	}
 
