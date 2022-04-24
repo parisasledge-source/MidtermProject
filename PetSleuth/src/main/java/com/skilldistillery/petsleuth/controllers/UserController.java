@@ -34,8 +34,9 @@ public class UserController {
 	}	
 	
 	@RequestMapping( path = {"login.do"}, method = RequestMethod.POST)
-	public String homeLogin(Model model, User user) {
-		model.addAttribute("user", userDao.findById(user.getId()));
+	public String homeLogin(Model model, String username, String password) {
+		User user = userDao.findExistingUser(username, password);
+		model.addAttribute("user", user);
 		return "loginResult";
 	}	
 	
