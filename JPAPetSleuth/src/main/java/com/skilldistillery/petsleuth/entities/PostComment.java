@@ -98,12 +98,8 @@ public class PostComment {
 		this.post = post;
 	}
 
-	public Integer getInReplyToCommentId() {
+	public PostComment getInReplyToCommentId() {
 		return inReplyToCommentId;
-	}
-
-	public void setInReplyToCommentId(Integer inReplyToCommentId) {
-		this.inReplyToCommentId = inReplyToCommentId;
 	}
 
 	//hashcode and equals

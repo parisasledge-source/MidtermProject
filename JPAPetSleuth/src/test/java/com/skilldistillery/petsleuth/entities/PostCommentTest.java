@@ -44,6 +44,13 @@ class PostCommentTest {
 	@DisplayName("Testing basic PostComment mapping")
 	void test() {
 		
+//		mysql> SELECT * FROM post_comment WHERE id = 1;
+//		+----+-----------------------------------+---------+---------+---------------------+----------------+
+//		| id | content                           | user_id | post_id | comment_date        | in_reply_to_id |
+//		+----+-----------------------------------+---------+---------+---------------------+----------------+
+//		|  1 | Think I saw you dog down the road |       2 |       1 | 2022-04-22 00:00:00 |           NULL |
+//		+----+-----------------------------------+---------+---------+---------------------+----------------+
+
 		assertNotNull(postComment);
 		assertEquals("Think I saw you dog down the road", postComment.getContent());
 	}
