@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Pet {
@@ -33,6 +32,7 @@ public class Pet {
 	
 	private Boolean chip;
 	
+
 	private String color;
 	
 	private String gender;
@@ -157,6 +157,14 @@ public class Pet {
 		this.user = user;
 	}
 
+	public List<Post> getPost() {
+		return post;
+	}
+	
+	public void setPost(List<Post> post) {
+		this.post = post;
+	}
+	
 	@Override
 	public String toString() {
 		return "Pet [id=" + id + ", species=" + species + ", name=" + name + ", breed=" + breed + ", description="
