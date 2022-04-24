@@ -72,6 +72,14 @@ public class Location {
 		this.zipcode = zipcode;
 	}
 
+	public List<Post> getPost() {
+		return post;
+	}
+
+	public void setPost(List<Post> post) {
+		this.post = post;
+	}
+
 	@Override
 	public String toString() {
 		return "Location [id=" + id + ", street=" + street + ", city=" + city + ", state=" + state + ", zipcode="
