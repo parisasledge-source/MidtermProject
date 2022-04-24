@@ -33,6 +33,7 @@ public class Pet {
 	
 	private Boolean chip;
 	
+
 	private String color;
 	
 	private String gender;
@@ -159,6 +160,7 @@ public class Pet {
 		this.user = user;
 	}
 
+
 	public List<PetPhoto> getPhotos() {
 		return photos;
 	}
@@ -174,6 +176,7 @@ public class Pet {
 	public void setPost(List<Post> post) {
 		this.post = post;
 	}
+
 
 	@Override
 	public String toString() {
