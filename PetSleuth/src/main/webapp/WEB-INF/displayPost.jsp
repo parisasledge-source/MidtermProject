@@ -14,5 +14,13 @@
 		<li>${post.description}</li>
 		<li>${post.reward}</li>
 	</ul>
+	
+	<form action="displayPostComment.do" method="POST">
+		<input name="postId" type="hidden" value="${post.id}">
+		<input name="userId" type="hidden" value="${user.id}">
+		<input name="content" type="text" placeholder="Enter comment here">
+		<input name="submit" type="submit">
+	</form>
+	<br>
 </body>
 </html>
