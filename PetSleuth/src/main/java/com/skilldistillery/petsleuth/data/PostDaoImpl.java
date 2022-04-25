@@ -26,4 +26,17 @@ public class PostDaoImpl implements PostDAO {
 		return posts;
 	}
 
+
+
+	@Override
+	public boolean destroy(Integer id) {
+		boolean removePost = false;
+		Post deletedPost = em.find(Post.class, id);
+		if (deletedPost != null) {
+			em.remove(deletedPost);
+			removePost = !em.contains(deletedPost);
+		}
+		return removePost;
+	}
+
 }
