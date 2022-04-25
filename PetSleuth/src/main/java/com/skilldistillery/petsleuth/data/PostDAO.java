@@ -7,6 +7,9 @@ import com.skilldistillery.petsleuth.entities.Post;
 public interface PostDAO {
 	
 	List<Post> findByUserId(int userId);
+
 	public boolean destroy(Integer id);
 
+	Post updatePost(int postId, Post post);
+	
 }

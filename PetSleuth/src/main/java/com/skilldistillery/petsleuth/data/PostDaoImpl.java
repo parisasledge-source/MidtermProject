@@ -27,7 +27,6 @@ public class PostDaoImpl implements PostDAO {
 	}
 
 
-
 	@Override
 	public boolean destroy(Integer id) {
 		boolean removePost = false;
@@ -37,6 +36,20 @@ public class PostDaoImpl implements PostDAO {
 			removePost = !em.contains(deletedPost);
 		}
 		return removePost;
+	}
+
+	@Override
+	public Post updatePost(int postId, Post post) {
+		
+		Post updatePost = em.find(Post.class, postId);
+		
+		updatePost.setPostingDate(post.getPostingDate());
+		updatePost.setLastSeen(post.getLastSeen());
+		updatePost.setDescription(post.getDescription());
+		updatePost.setReward(post.getReward());
+		
+		return updatePost;
+		
 	}
 
 }
