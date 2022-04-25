@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `pet_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `contact_id` INT NOT NULL,
-  `location_id` INT NOT NULL,
+  `location_id` INT NULL,
   `finder_id` INT NULL,
   `date_found` DATETIME NULL,
   `rating` INT NULL,
