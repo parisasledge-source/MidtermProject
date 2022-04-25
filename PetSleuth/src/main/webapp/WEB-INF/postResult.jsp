@@ -4,14 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Pet Sleuth</title>
+<title>Post Result</title>
 </head>
 <body>
-	${DEBUG}
-	
-	<a href="signupPage.do">Sign up</a>
-	<a href="loginPage.do">Login</a>
-	<a href="postPage.do">Post</a>
+
+<h1>Thank you for adding a new post!</h1>
+
+Username: ${user.username}
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.skilldistillery.petsleuth.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
@@ -13,15 +14,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	
 	@Column(name = "posting_date")
+	@CreationTimestamp
 	private LocalDateTime postingDate;
+	
 	@Column(name = "last_seen")
-	private LocalDateTime lastSeen;
+	private LocalDate lastSeen;
+	
 	private String description;
 	private boolean active;
 	private String reward;
@@ -79,10 +87,10 @@ public class Post {
 	public void setPostingDate(LocalDateTime postingDate) {
 		this.postingDate = postingDate;
 	}
-	public LocalDateTime getLastSeen() {
+	public LocalDate getLastSeen() {
 		return lastSeen;
 	}
-	public void setLastSeen(LocalDateTime lastSeen) {
+	public void setLastSeen(LocalDate lastSeen) {
 		this.lastSeen = lastSeen;
 	}
 	public String getDescription() {
