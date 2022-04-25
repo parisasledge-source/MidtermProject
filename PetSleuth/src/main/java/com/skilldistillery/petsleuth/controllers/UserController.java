@@ -23,8 +23,7 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 	
-	@Autowired
-	private PostDAO postDao;
+
 	
 	@RequestMapping( path = {"signupPage.do"})
 	public String user(Model model) {
@@ -76,15 +75,15 @@ public class UserController {
 		return "postResult";
 	}
 	
-	@RequestMapping( path = {"displayPosts.do"})
-	public String displayPosts(Model model, HttpSession session) {
-		User user = (User)session.getAttribute("user");
-		model.addAttribute("user", session.getAttribute("user"));
-		model.addAttribute("posts", postDao.findByUserId(user.getId()));
-		return "displayPosts";
-		
-	}	
-	
+//	@RequestMapping( path = {"displayPosts.do"})
+//	public String displayPosts(Model model, HttpSession session) {
+//		User user = (User)session.getAttribute("user");
+//		model.addAttribute("user", session.getAttribute("user"));
+//		model.addAttribute("posts", postDao.findByUserId(user.getId()));
+//		return "displayPosts";
+//		
+//	}	
+//	
 	@RequestMapping( path = {"displayPost.do"})
 	public String displayPost(Model model, HttpSession session, int id) {
 		model.addAttribute("user", session.getAttribute("user"));
