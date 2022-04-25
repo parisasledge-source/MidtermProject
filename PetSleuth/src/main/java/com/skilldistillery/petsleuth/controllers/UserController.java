@@ -3,6 +3,8 @@ package com.skilldistillery.petsleuth.controllers;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,9 +41,9 @@ public class UserController {
 	}	
 	
 	@RequestMapping( path = {"login.do"}, method = RequestMethod.POST)
-	public String homeLogin(Model model, String username, String password) {
+	public String homeLogin(String username, String password, HttpSession session) {
 		User user = userDao.findExistingUser(username, password);
-		model.addAttribute("user", user);
+		session.setAttribute("user", user);
 		return "home";
 	}	
 	
@@ -58,14 +60,15 @@ public class UserController {
 	}	
 	
 	@RequestMapping( path = {"post.do"}, method = RequestMethod.POST)
-	public String home(@RequestParam(name = "last") String lastSeen, Model model, Post post, int userId, int petId, int contactId, int locationId) {
-		User newUser = userDao.findById(userId);
+	public String home(@RequestParam(name = "last") String lastSeen, Model model, Post post, int petId, int contactId, int locationId, HttpSession session) {
+		User newUser = (User)session.getAttribute("user");
+		//User newUser = userDao.findById(userId);
 		post.setUser(newUser);
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate date = LocalDate.parse(lastSeen, formatter);
 		post.setLastSeen(date);
 		model.addAttribute("post", userDao.addPost(post, petId, contactId, locationId));
-		model.addAttribute("user", newUser);
+		//model.addAttribute("user", newUser);
 		return "postResult";
 	}
 	

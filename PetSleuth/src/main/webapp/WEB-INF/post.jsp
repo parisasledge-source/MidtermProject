@@ -24,7 +24,7 @@
 		<label for="locationId">Enter Location ID:</label> <input name="locationId" type="text">
 		<br>
 		
-		<input name ="userId" type="hidden" value="1"> 
+		<input name ="userId" type="hidden" value="${user.id}"> 
 		
 		<h1> Here is all your pets:</h1>
 		<ul>
