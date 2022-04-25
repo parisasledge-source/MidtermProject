@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `location_id` INT NOT NULL,
+  `location_id` INT NULL,
   `active` TINYINT NOT NULL,
   `role` VARCHAR(45) NULL,
   `first_name` VARCHAR(45) NULL,
