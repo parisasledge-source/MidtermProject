@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.skilldistillery.petsleuth.data.PostDAO;
 import com.skilldistillery.petsleuth.data.UserDAO;
 import com.skilldistillery.petsleuth.entities.Post;
 import com.skilldistillery.petsleuth.entities.User;
@@ -21,6 +22,9 @@ public class UserController {
 	
 	@Autowired
 	private UserDAO userDao;
+	
+	@Autowired
+	private PostDAO postDao;
 	
 	@RequestMapping( path = {"signupPage.do"})
 	public String user(Model model) {
@@ -72,4 +76,21 @@ public class UserController {
 		return "postResult";
 	}
 	
+	@RequestMapping( path = {"displayPosts.do"})
+	public String displayPosts(Model model, HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("user", session.getAttribute("user"));
+		model.addAttribute("posts", postDao.findByUserId(user.getId()));
+		return "displayPosts";
+		
+	}	
+	
+	@RequestMapping( path = {"displayPost.do"})
+	public String displayPost(Model model, HttpSession session, int id) {
+		model.addAttribute("user", session.getAttribute("user"));
+		model.addAttribute("post", userDao.findPostById(id));
+		
+		return "displayPost";
+		
+	}	
 }

@@ -12,6 +12,7 @@
 	<a href="signupPage.do">Sign up</a>
 	<a href="loginPage.do">Login</a>
 	<a href="postPage.do">Post</a>
+	<a href="displayPosts.do">See my Posts</a>
 
 </body>
 </html>
