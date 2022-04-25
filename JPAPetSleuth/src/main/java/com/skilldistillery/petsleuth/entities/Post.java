@@ -31,11 +31,16 @@ public class Post {
 	private LocalDate lastSeen;
 	
 	private String description;
+	
 	private boolean active;
+	
 	private String reward;
+	
 	@Column(name ="date_found")
 	private LocalDateTime dateFound;
+	
 	private Integer rating;
+	
 	@Column(name = "rating_comment")
 	private String ratingComment;
 	
