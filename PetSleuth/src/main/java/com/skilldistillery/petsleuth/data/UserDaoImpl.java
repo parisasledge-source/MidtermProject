@@ -64,6 +64,10 @@ public class UserDaoImpl implements UserDAO {
 		return em.find(Contact.class, contactId);
 	}
 
+	public Post findPostById(int postId) {
+		
+		return em.find(Post.class, postId);
+	}
 		
 	
 }

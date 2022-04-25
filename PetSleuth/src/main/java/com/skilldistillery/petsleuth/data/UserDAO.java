@@ -21,6 +21,8 @@ public interface UserDAO {
 	Contact findContactById(int petId);
 	
 	Pet findPetById(int petId);
+
+	Post findPostById(int id);
 		
 }
 
