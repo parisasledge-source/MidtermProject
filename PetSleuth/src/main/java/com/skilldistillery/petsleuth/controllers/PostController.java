@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.petsleuth.data.PostDAO;
+import com.skilldistillery.petsleuth.entities.Post;
 import com.skilldistillery.petsleuth.entities.User;
 
 @Controller
@@ -25,14 +27,14 @@ public class PostController {
 		
 	}	
 	
-//	@RequestMapping( path = {"displayPost.do"})
-//	public String displayPost(Model model, HttpSession session, int id) {
-//		model.addAttribute("user", session.getAttribute("user"));
-//		model.addAttribute("post", userDao.findPostById(id));
-//		
-//		return "displayPost";
-//		
-//	}	
+	@RequestMapping( path = {"updatePost.do"}, method = RequestMethod.POST)
+	public String updatePost(int postId, Model model, HttpSession session, Post post) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("user", session.getAttribute("user"));
+		model.addAttribute("post", postDao.updatePost(postId, post));
+		return "displayPost";
+		
+	}	
 	
 	@RequestMapping(path = {"destroyPost.do"})
 	public String destroyPost(Integer postId, Model model, HttpSession session) {
@@ -44,4 +46,5 @@ public class PostController {
 		return "displayPosts";
 	}
 
+	
 }

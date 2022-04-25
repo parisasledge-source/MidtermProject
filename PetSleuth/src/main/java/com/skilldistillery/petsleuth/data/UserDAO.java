@@ -23,6 +23,6 @@ public interface UserDAO {
 	Pet findPetById(int petId);
 
 	Post findPostById(int id);
-		
+
 }
 
