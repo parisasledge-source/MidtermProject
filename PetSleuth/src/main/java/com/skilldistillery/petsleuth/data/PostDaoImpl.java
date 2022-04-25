@@ -1,5 +1,7 @@
 package com.skilldistillery.petsleuth.data;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -43,7 +45,7 @@ public class PostDaoImpl implements PostDAO {
 		
 		Post updatePost = em.find(Post.class, postId);
 		
-		updatePost.setPostingDate(post.getPostingDate());
+		updatePost.setPostingDate(LocalDateTime.now());
 		updatePost.setLastSeen(post.getLastSeen());
 		updatePost.setDescription(post.getDescription());
 		updatePost.setReward(post.getReward());

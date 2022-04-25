@@ -36,15 +36,6 @@ public class PostController {
 		
 	}	
 	
-//	@RequestMapping( path = {"displayPost.do"})
-//	public String displayPost(Model model, HttpSession session, int id) {
-//		model.addAttribute("user", session.getAttribute("user"));
-//		model.addAttribute("post", userDao.findPostById(id));
-//		
-//		return "displayPost";
-//		
-//	}	
-	
 	@RequestMapping(path = {"destroyPost.do"})
 	public String destroyPost(Integer postId, Model model, HttpSession session) {
 		boolean post = postDao.destroy(postId);
