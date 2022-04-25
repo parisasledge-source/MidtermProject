@@ -1,12 +1,19 @@
 package com.skilldistillery.petsleuth.controllers;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.petsleuth.data.UserDAO;
+import com.skilldistillery.petsleuth.entities.Post;
 import com.skilldistillery.petsleuth.entities.User;
 
 @Controller
@@ -34,10 +41,35 @@ public class UserController {
 	}	
 	
 	@RequestMapping( path = {"login.do"}, method = RequestMethod.POST)
-	public String homeLogin(Model model, String username, String password) {
+	public String homeLogin(String username, String password, HttpSession session) {
 		User user = userDao.findExistingUser(username, password);
-		model.addAttribute("user", user);
-		return "loginResult";
+		session.setAttribute("user", user);
+		return "home";
 	}	
+	
+	@RequestMapping( path = {"postPage.do"})
+	public String post(Model model, User user) {
+		model.addAttribute("user", user);
+		model.addAttribute("pet", user.getPets());
+		model.addAttribute("contact", user.getContacts());
+		model.addAttribute("location", user.getLocation());
+		//model.addAttribute("finder", user.getFinderPosts());
+		
+		return "post";
+		
+	}	
+	
+	@RequestMapping( path = {"post.do"}, method = RequestMethod.POST)
+	public String home(@RequestParam(name = "last") String lastSeen, Model model, Post post, int petId, int contactId, int locationId, HttpSession session) {
+		User newUser = (User)session.getAttribute("user");
+		//User newUser = userDao.findById(userId);
+		post.setUser(newUser);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate date = LocalDate.parse(lastSeen, formatter);
+		post.setLastSeen(date);
+		model.addAttribute("post", userDao.addPost(post, petId, contactId, locationId));
+		//model.addAttribute("user", newUser);
+		return "postResult";
+	}
 	
 }

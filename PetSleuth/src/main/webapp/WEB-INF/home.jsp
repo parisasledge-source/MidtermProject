@@ -8,9 +8,10 @@
 </head>
 <body>
 	${DEBUG}
-	
+	<input name ="user" type="hidden" value="${user}">
 	<a href="signupPage.do">Sign up</a>
 	<a href="loginPage.do">Login</a>
+	<a href="postPage.do">Post</a>
 
 </body>
 </html>
