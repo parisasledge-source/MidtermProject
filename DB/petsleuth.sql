@@ -21,7 +21,7 @@ USE `petsleuthdb` ;
 DROP TABLE IF EXISTS `location` ;
 
 CREATE TABLE IF NOT EXISTS `location` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `street` VARCHAR(200) NULL,
   `city` VARCHAR(45) NOT NULL,
   `state` VARCHAR(45) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `location_id` INT NOT NULL,
+  `location_id` INT NULL,
   `active` TINYINT NOT NULL,
   `role` VARCHAR(45) NULL,
   `first_name` VARCHAR(45) NULL,
@@ -92,7 +92,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `contact` ;
 
 CREATE TABLE IF NOT EXISTS `contact` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `contact_preference` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NULL,
   `phone_number` VARCHAR(45) NULL,
