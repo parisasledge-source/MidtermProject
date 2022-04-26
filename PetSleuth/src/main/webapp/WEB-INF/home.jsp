@@ -13,6 +13,7 @@
 	<a href="loginPage.do">Login</a>
 	<a href="postPage.do">Post</a>
 	<a href="displayPosts.do">See my Posts</a>
+	<a href="displayLocations.do">See my location</a>
 
 </body>
 </html>
