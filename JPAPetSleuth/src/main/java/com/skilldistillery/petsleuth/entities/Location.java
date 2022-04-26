@@ -20,6 +20,7 @@ public class Location {
 	private String street;
 	private String city;
 	private String state;
+	private Boolean active;
 	
 	@Column(name="zip_code")
 	private String zipcode;
@@ -77,6 +78,14 @@ public class Location {
 
 	public void setPost(List<Post> post) {
 		this.post = post;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
 	@Override
