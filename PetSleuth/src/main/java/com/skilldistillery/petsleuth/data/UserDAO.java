@@ -26,7 +26,7 @@ public interface UserDAO {
 
 	Post findPostById(int id);
 	
-//	List<Location> findLocationsByUserId(int id);
+	List<Location> findLocationsByUserId(int id);
 	
 	List<Contact> findContactsByUserId(int id);
 	

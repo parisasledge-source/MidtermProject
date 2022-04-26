@@ -82,12 +82,12 @@ public class UserDaoImpl implements UserDAO {
 		return em.find(Post.class, postId);
 	}
 
-//	@Override
-//	public List<Location> findLocationsByUserId(int id) {
-//		String sql = "SELECT location FROM Location location WHERE location.user.id = :id";
-//		List<Location> locations = em.createQuery(sql, Location.class).setParameter("id", id).getResultList();
-//		return locations;
-//	}
+	@Override
+	public List<Location> findLocationsByUserId(int id) {
+		String sql = "SELECT location FROM Location location WHERE location.user.id = :id";
+		List<Location> locations = em.createQuery(sql, Location.class).setParameter("id", id).getResultList();
+		return locations;
+	}
 
 	@Override
 	public List<Contact> findContactsByUserId(int id) {

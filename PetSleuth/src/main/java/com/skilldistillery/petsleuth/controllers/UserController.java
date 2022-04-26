@@ -86,7 +86,7 @@ public class UserController {
 		System.out.println(userDao.findPostById(user.getId()));
 		System.out.println(userDao.findPetsByUserId(user.getId()));
 		System.out.println(userDao.findContactsByUserId(user.getId()));
-//		model.addAttribute("locations", userDao.findLocationsByUserId(id));
+		model.addAttribute("locations", userDao.findLocationsByUserId(user.getId()));
 		
 		return "displayPost";
 		
