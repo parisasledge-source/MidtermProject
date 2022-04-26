@@ -15,7 +15,7 @@
 		<c:choose>
 			<c:when test="${ p.active }">
 				<li> 
-					<a href = "displayPost.do?id=${p.id}"> ${p.id}</a>
+					<a href = "displayContact.do?id=${p.id}"> ${p.id}</a>
 				</li>
 			</c:when>
 		</c:choose>
@@ -33,7 +33,7 @@
 	<h3>Remove a Contact</h3>
 	
 	<form action="destroyContact.do" method="POST">
-	Enter a Contact ID: <input type="text" name="postId" /> 
+	Enter a Contact ID: <input type="text" name="contactId" /> 
 	<input type="submit" value="Submit" />
 	</form>
 	

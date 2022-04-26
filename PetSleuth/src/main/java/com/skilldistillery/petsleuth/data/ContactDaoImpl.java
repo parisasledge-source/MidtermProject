@@ -57,4 +57,9 @@ public class ContactDaoImpl implements ContactDAO {
 	public User findUserById(int userId) {
 		return em.find(User.class, userId);
 	}
+
+	@Override
+	public Contact findContactById(Integer contactId) {
+		return em.find(Contact.class, contactId);
+	}
 }

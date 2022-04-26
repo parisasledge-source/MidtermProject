@@ -31,13 +31,20 @@ public class ContactController {
 		return "contactResult";
 	}
 
+	@RequestMapping( path = {"displayContact.do"})
+	public String displayContact(Model model, HttpSession session, Integer id) {
+		model.addAttribute("user", session.getAttribute("user"));
+		System.out.println(id+"*****************");
+		model.addAttribute("contact", contactDao.findContactById(id));
+		return "displayContact";
+	}
+	
 	@RequestMapping(path = { "displayContacts.do" })
 	public String displayContacts(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", session.getAttribute("user"));
 		model.addAttribute("contacts", contactDao.findByUserId(user.getId()));
 		return "displayContacts";
-
 	}
 
 	@RequestMapping(path = { "updateContact.do" }, method = RequestMethod.POST)
@@ -46,7 +53,6 @@ public class ContactController {
 		model.addAttribute("user", session.getAttribute("user"));
 		model.addAttribute("contact", contactDao.updateContact(contactId, contact));
 		return "displayContact";
-
 	}
 
 	@RequestMapping(path = { "destroyContact.do" })
