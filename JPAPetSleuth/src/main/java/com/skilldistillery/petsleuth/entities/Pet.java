@@ -42,6 +42,8 @@ public class Pet {
 	
 	private String age;
 	
+	private boolean active;
+	
 	@OneToMany(mappedBy = "petId")
 	private List<PetPhoto> photos;
 
@@ -150,6 +152,14 @@ public class Pet {
 
 	public void setAge(String age) {
 		this.age = age;
+	}
+
+	public boolean getActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	public User getUser() {

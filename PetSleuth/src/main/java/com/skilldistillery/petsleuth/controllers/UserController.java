@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.skilldistillery.petsleuth.data.PostDAO;
 import com.skilldistillery.petsleuth.data.UserDAO;
 import com.skilldistillery.petsleuth.entities.Post;
 import com.skilldistillery.petsleuth.entities.User;
@@ -23,7 +22,6 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 	
-
 	
 	@RequestMapping( path = {"signupPage.do"})
 	public String user(Model model) {
