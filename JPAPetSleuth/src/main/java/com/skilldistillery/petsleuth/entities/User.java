@@ -1,5 +1,6 @@
 package com.skilldistillery.petsleuth.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -178,7 +179,27 @@ public class User {
 	public void setFinderPosts(List<Post> finderPosts) {
 		this.finderPosts = finderPosts;
 	}
-
+	
+	public void addContact(Contact contact) {
+		if (contacts == null) {
+			contacts = new ArrayList<>();
+		}
+		if(! contacts.contains(contact)) {
+			contacts.add(contact);
+			contact.setUser(this);
+		}
+	}
+	
+	public void addPet(Pet pet) {
+		if(pets == null) {
+			pets = new ArrayList<>();
+		}
+		if(! pets.contains(pet)) {
+			pets.add(pet);
+			pet.setUser(this);
+		}
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

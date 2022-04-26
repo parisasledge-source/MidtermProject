@@ -21,6 +21,10 @@
 
 	
 	<br>
+	<a href="contactPage.do"> Add a contact</a>
+	<a href="displayContacts.do"> Display contacts</a>
+	<a href="updateContact.do"> Update a contact</a>
+	<a href="destroyContact.do"> Remove a contact</a>
 	
 	<h3>Search</h3>
 
