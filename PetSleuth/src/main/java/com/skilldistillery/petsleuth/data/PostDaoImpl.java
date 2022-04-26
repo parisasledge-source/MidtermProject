@@ -31,10 +31,9 @@ public class PostDaoImpl implements PostDAO {
 	@Override
 	public boolean destroy(Integer id) {
 		boolean removePost = false;
-		Post deletedPost = em.find(Post.class, id);
-		if (deletedPost != null) {
-			em.remove(deletedPost);
-			removePost = !em.contains(deletedPost);
+		Post deactivatedPost = em.find(Post.class, id);
+		if (deactivatedPost.getActive()) {
+			deactivatedPost.setActive(false);
 		}
 		return removePost;
 	}

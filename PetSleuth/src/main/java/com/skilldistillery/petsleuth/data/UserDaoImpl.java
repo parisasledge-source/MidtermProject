@@ -43,6 +43,7 @@ public class UserDaoImpl implements UserDAO {
 		post.setPet(findPetById(petId));
 		post.setContact(findContactById(contactId));
 		post.setLocation(findLocationById(locationId));
+		post.setActive(true);
 		em.persist(post);
 		em.flush();
 		
