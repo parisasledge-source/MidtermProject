@@ -45,7 +45,7 @@ public class ContactDaoImpl implements ContactDAO {
 	}
 
 	@Override
-	public Contact updateContact(int contactId, Contact contact) {
+	public Contact updateContact(Integer contactId, Contact contact) {
 		Contact updateContact = em.find(Contact.class, contactId);
 		updateContact.setContactPreference(contact.getContactPreference());
 		updateContact.setContactInfo(contact.getContactInfo());
