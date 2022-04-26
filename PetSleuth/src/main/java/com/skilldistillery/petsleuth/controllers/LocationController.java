@@ -34,8 +34,11 @@ public class LocationController {
 		
 	}	
 	
-
-	
+	@RequestMapping( path = {"createLocation.do"}, method = RequestMethod.POST)
+	public String createLocations(Model model, HttpSession session, Location location) {
+		model.addAttribute("locations",locationDao.createNewLocation(location));
+		return "location";
+	}
 	
 	
 }
