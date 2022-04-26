@@ -79,10 +79,7 @@ public class UserController {
 	public String displayPost(Model model, HttpSession session, int id) {
 		model.addAttribute("user", session.getAttribute("user"));
 		model.addAttribute("post", userDao.findPostById(id));
-		
 		return "displayPost";
-		
-		
 	}	
 	
 	@RequestMapping( path = {"petPage.do"})

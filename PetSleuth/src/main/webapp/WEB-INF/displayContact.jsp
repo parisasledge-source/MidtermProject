@@ -15,7 +15,9 @@
 		<li>${contact.email}</li>
 		<li>${contact.phoneNumber}</li>
 	</ul>
+	
 	<br>
+	
 	<h3>Update your Contact Information</h3>
 	<form action="updateContact.do" method="POST">
 
