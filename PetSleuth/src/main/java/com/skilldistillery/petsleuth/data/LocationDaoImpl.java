@@ -2,7 +2,7 @@ package com.skilldistillery.petsleuth.data;
 
 
 
-import java.time.LocalDateTime;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -11,8 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.petsleuth.entities.Location;
-import com.skilldistillery.petsleuth.entities.Post;
-import com.skilldistillery.petsleuth.entities.User;
+
 
 
 @Service
@@ -52,8 +51,15 @@ public class LocationDaoImpl implements LocationDAO {
 		
 		return updateLocation;
 	}
-	
-	
 
-
+	@Override
+	public boolean deleteLocation(Integer id) {
+		boolean removeLocation = false;
+		Location deactivatedLocation = em.find(Location.class, id);
+		if(deactivatedLocation.getActive()) {
+			deactivatedLocation.setActive(false);
+		}
+		return removeLocation;
+	}
+	
 }

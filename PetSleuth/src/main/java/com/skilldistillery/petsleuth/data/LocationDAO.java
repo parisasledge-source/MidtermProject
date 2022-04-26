@@ -16,4 +16,6 @@ public interface LocationDAO {
 	
 	Location updateLocation(int locationId, Location location);
 	
+	boolean deleteLocation(Integer id);
+	
 }
