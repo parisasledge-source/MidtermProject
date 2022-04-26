@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Location {
@@ -16,7 +17,8 @@ public class Location {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+	@OneToOne(mappedBy = "location")
+	private User user;
 	private String street;
 	private String city;
 	private String state;
@@ -86,6 +88,14 @@ public class Location {
 
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

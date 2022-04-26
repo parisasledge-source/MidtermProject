@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,24 @@
 <title>Location</title>
 </head>
 <body>
+<c:choose>
+ <c:when test="${empty locations  }">
+ <h2>Create</h2>
+	<form action="createLocation.do" method = "POST">
+	Location ID  <input type="text" value="${locations.id}" name="id" /> 
+	<br>
+	State: <input type="text" value="${locations.state}" name="state" /> 
+	<br>
+	City: <input type="text" value ="${locations.city}" name="city" />
+	<br>
+	Street: <input type="text" value ="${locations.street}" name="street" />
+	<br>
+	Zip code: <input type="text" value ="${locations.zipcode}" name="zipcode" />
+	<br>
+	<input type="submit" value="Submit" />
+	</form>
+ 	</c:when>
+ <c:otherwise>
 	<h1>Location</h1>
 	State: ${locations.state}
 	<br>
@@ -30,5 +49,10 @@
 	<br>
 	<input type="submit" value="Submit" />
 	</form>
+	<br>
+	
+	</c:otherwise>
+</c:choose>
+
 </body>
 </html>

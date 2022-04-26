@@ -10,8 +10,10 @@ public interface ContactDAO {
 	
 	public boolean destroyContact(int contactId);
 	
-	Contact updateContact(int contactId, Contact contact);
+	public Contact updateContact(Integer contactId, Contact contact);
 
-	Contact addContact(Contact contact, int userId);
+	public Contact addContact(Contact contact, int userId);
+
+	public Contact findContactById(Integer contactId);
 
 }

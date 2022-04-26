@@ -25,7 +25,7 @@
 	<h3>Remove a Pet</h3>
 	
 	<form action="hidePet.do" method="POST">
-	Enter a Pet ID: <input type="text" name="petId" /> 
+	Enter Pet ID: <input type="text" name="petId" /> 
 	<input type="submit" value="Submit" />
 	</form>
 	

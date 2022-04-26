@@ -31,22 +31,28 @@ public class ContactController {
 		return "contactResult";
 	}
 
+	@RequestMapping( path = {"displayContact.do"})
+	public String displayContact(Model model, HttpSession session, Integer id) {
+		model.addAttribute("user", session.getAttribute("user"));
+		System.out.println(id+"*****************");
+		model.addAttribute("contact", contactDao.findContactById(id));
+		return "displayContact";
+	}
+	
 	@RequestMapping(path = { "displayContacts.do" })
 	public String displayContacts(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", session.getAttribute("user"));
 		model.addAttribute("contacts", contactDao.findByUserId(user.getId()));
 		return "displayContacts";
-
 	}
 
 	@RequestMapping(path = { "updateContact.do" }, method = RequestMethod.POST)
-	public String updateContact(int contactId, Model model, HttpSession session, Contact contact) {
+	public String updateContact(Integer userId, Model model, HttpSession session, Contact contact) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", session.getAttribute("user"));
-		model.addAttribute("contact", contactDao.updateContact(contactId, contact));
+		model.addAttribute("contact", contactDao.updateContact(userId, contact));
 		return "displayContact";
-
 	}
 
 	@RequestMapping(path = { "destroyContact.do" })
