@@ -70,5 +70,4 @@ public class UserDaoImpl implements UserDAO {
 		return em.find(Post.class, postId);
 	}
 		
-	
 }
