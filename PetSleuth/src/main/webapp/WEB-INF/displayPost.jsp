@@ -61,8 +61,8 @@
 	<h3>Update a Post</h3>
 	<form action="updatePost.do" method="POST">
 
-		<label for="lastSeen">Enter the date last seen:</label> 
-		<input name="lastSeen" type="date"> <br> 		
+		<label for="last">Enter the date last seen:</label> 
+		<input name="last" type="date"> <br> 		
 		<label for="description">Write a description:</label> 		
 		<input name="description" type="text"> <br> 		
 		<label for="reward">How much would you like to offer:</label> <input name="reward" type="text">

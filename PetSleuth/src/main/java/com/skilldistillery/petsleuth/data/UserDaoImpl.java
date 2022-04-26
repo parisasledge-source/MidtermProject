@@ -51,6 +51,16 @@ public class UserDaoImpl implements UserDAO {
 		
 		return post;
 	}
+	
+	@Override
+	public Pet addPet(Pet pet) {
+		
+		pet.setActive(true);
+		em.persist(pet);
+		em.flush();
+		
+		return pet;
+	}
 
 	public Pet findPetById(int petId) {
 		

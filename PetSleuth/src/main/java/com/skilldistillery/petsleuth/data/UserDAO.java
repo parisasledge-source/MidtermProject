@@ -32,5 +32,7 @@ public interface UserDAO {
 	
 	List<Pet> findPetsByUserId(int id);
 
+	Pet addPet(Pet pet);
+
 }
 
