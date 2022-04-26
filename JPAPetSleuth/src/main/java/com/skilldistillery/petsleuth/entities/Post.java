@@ -104,7 +104,7 @@ public class Post {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public boolean isActive() {
+	public boolean getActive() {
 		return active;
 	}
 	public void setActive(boolean active) {

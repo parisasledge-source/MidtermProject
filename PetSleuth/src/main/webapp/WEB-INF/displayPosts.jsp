@@ -10,22 +10,24 @@
 <body>
 	<ul>
 	<c:forEach var = "p" items = "${posts}">
-	<li> 
-	<a href = "displayPost.do?id=${p.id}">
-	${p.id}
-	</a>
-	
-	</li>
-	
+		<c:choose>
+			<c:when test="${ p.active }">
+				<li> 
+					<a href = "displayPost.do?id=${p.id}"> ${p.id}</a>
+				</li>
+			</c:when>
+		</c:choose>
 	</c:forEach>
 	</ul>
 	
 	<br>
-			<h3>Remove a Post</h3>
-		<form action="destroyPost.do" method="POST">
-			Enter a Post ID: <input type="text" name="postId" /> <input
-				type="submit" value="Submit" />
-		</form>
+	
+	<h3>Remove a Post</h3>
+	
+	<form action="destroyPost.do" method="POST">
+	Enter a Post ID: <input type="text" name="postId" /> 
+	<input type="submit" value="Submit" />
+	</form>
 	
 
 </body>
