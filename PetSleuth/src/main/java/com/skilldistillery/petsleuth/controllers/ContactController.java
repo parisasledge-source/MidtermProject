@@ -48,10 +48,10 @@ public class ContactController {
 	}
 
 	@RequestMapping(path = { "updateContact.do" }, method = RequestMethod.POST)
-	public String updateContact(int contactId, Model model, HttpSession session, Contact contact) {
+	public String updateContact(Integer userId, Model model, HttpSession session, Contact contact) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", session.getAttribute("user"));
-		model.addAttribute("contact", contactDao.updateContact(contactId, contact));
+		model.addAttribute("contact", contactDao.updateContact(userId, contact));
 		return "displayContact";
 	}
 
