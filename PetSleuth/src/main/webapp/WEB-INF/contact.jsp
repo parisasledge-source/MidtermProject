@@ -11,9 +11,9 @@
 
 	<h1>Add Contact Information</h1>
 
-	<form action="contact.do" method="POST">
+	<form action="addContact.do" method="POST">
 
-		<label for="contactPreference">Your preferred contact method:</label> 
+		<label for="contactPreference">Preferred contact method:</label> 
 		<input name="contactPreference" type="text"> 
 		<br> 		
 		<label for="contactInfo">Contact Information:</label> 		

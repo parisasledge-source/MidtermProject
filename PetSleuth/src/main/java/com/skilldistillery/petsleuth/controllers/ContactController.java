@@ -23,7 +23,7 @@ public class ContactController {
 		return "contact";
 	}
 	
-	@RequestMapping( path = {"contact.do"}, method = RequestMethod.POST)
+	@RequestMapping( path = {"addContact.do"}, method = RequestMethod.POST)
 	public String addContact(Model model, Contact contact, HttpSession session, int userId) {
 		User newUser = (User)session.getAttribute("user");
 		contact.setUser(newUser);
