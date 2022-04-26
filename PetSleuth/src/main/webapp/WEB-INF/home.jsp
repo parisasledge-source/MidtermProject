@@ -7,13 +7,20 @@
 <title>Pet Sleuth</title>
 </head>
 <body>
-	${DEBUG}
 	<input name ="user" type="hidden" value="${user}">
 	<a href="signupPage.do">Sign up</a>
 	<a href="loginPage.do">Login</a>
 	<a href="postPage.do">Post</a>
 	<a href="displayPosts.do">See my Posts</a>
 	<a href="displayLocations.do">See my location</a>
+	
+	<br>
+	
+	<h3>Search</h3>
+
+	<form action="search.do" method="post">
+		<input type="text" name="word" placeholder="Enter search here"/> <input type="submit" name="submit" />
+	</form>
 
 </body>
 </html>

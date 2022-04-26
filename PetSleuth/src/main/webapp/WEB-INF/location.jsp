@@ -7,7 +7,16 @@
 <title>Location</title>
 </head>
 <body>
-	${locations}
+	<h1>Location</h1>
+	State: ${locations.state}
+	<br>
+	City: ${locations.city}
+	<br>
+	Street: ${locations.street}
+	<br>
+	Street: ${locations.zipcode}
+	<br>
+	<h2>Update</h2>
 	
 	<form action="updateLocations.do" method = "POST">
 	
