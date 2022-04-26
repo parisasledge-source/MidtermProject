@@ -69,7 +69,6 @@ public class Post {
 	
 	//methods
 	
-
 	public Post() {}
 	
 	public Pet getPet() {
