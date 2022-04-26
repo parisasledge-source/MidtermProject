@@ -12,6 +12,7 @@
 	<a href="loginPage.do">Login</a>
 	<a href="postPage.do">Post</a>
 	<a href="displayPosts.do">See my Posts</a>
+	<a href="displayPets.do">See my Pets</a>
 
 	<a href="displayLocations.do">See my location</a>
 
@@ -26,7 +27,6 @@
 		<input type="text" name="word" placeholder="Enter search here"/> <input type="submit" name="submit" />
 	</form>
 
-	<a href="displayPets.do">See Pets</a>
 
 
 </body>

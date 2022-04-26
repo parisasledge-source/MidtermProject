@@ -73,21 +73,21 @@ public class UserController {
 		return "postResult";
 	}
 	
-//	@RequestMapping( path = {"displayPosts.do"})
-//	public String displayPosts(Model model, HttpSession session) {
-//		User user = (User)session.getAttribute("user");
-//		model.addAttribute("user", session.getAttribute("user"));
-//		model.addAttribute("posts", postDao.findByUserId(user.getId()));
-//		return "displayPosts";
-//		
-//	}	
-//	
 	@RequestMapping( path = {"displayPost.do"})
 	public String displayPost(Model model, HttpSession session, int id) {
 		model.addAttribute("user", session.getAttribute("user"));
 		model.addAttribute("post", userDao.findPostById(id));
 		
 		return "displayPost";
+		
+		
+	}	
+	@RequestMapping( path = {"displayPet.do"})
+	public String displayPet(Model model, HttpSession session, int id) {
+		model.addAttribute("user", session.getAttribute("user"));
+		model.addAttribute("pet", userDao.findPetById(id));
+		
+		return "displayPet";
 		
 	}	
 }
