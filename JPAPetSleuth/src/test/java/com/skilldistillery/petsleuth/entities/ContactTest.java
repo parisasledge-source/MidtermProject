@@ -53,9 +53,9 @@ class ContactTest {
 //		|  1 | email              | admin@fakemail.com | 303-555-3278 |       1 | NULL         |
 //		+----+--------------------+--------------------+--------------+---------+--------------+	+----+--------------------+-------+--------------+---------+--------------+
 		assertNotNull(contact);
-		assertEquals("email", contact.getContacPreference());
+		assertEquals("email", contact.getContactPreference());
 		assertEquals("admin@fakemail.com", contact.getEmail());
-		assertEquals("303-555-3278", contact.getPhotoNumber());
+		assertEquals("303-555-3278", contact.getPhoneNumber());
 		assertEquals(null, contact.getContactInfo());
 
 	}

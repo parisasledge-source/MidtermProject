@@ -1,6 +1,7 @@
 package com.skilldistillery.petsleuth.entities;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,12 +32,12 @@ public class Contact {
 	private int id;
 	
 	@Column(name = "contact_preference")
-	private String contacPreference;
+	private String contactPreference;
 	
 	private String email;
 	
 	@Column(name = "phone_number")
-	private String photoNumber;
+	private String phoneNumber;
 	
 	@Column(name = "contact_info")
 	private String contactInfo;
@@ -47,6 +48,8 @@ public class Contact {
 	
 	@OneToMany(mappedBy = "contact")
 	private List<Post> posts;
+	
+	private boolean active;
 	
 	//method
 
@@ -62,12 +65,12 @@ public class Contact {
 		this.id = id;
 	}
 
-	public String getContacPreference() {
-		return contacPreference;
+	public String getContactPreference() {
+		return contactPreference;
 	}
 
-	public void setContacPreference(String contacPreference) {
-		this.contacPreference = contacPreference;
+	public void setContactPreference(String contactPreference) {
+		this.contactPreference = contactPreference;
 	}
 
 	public String getEmail() {
@@ -78,12 +81,12 @@ public class Contact {
 		this.email = email;
 	}
 
-	public String getPhotoNumber() {
-		return photoNumber;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPhotoNumber(String photoNumber) {
-		this.photoNumber = photoNumber;
+	public void setPhoneNumber(String photoNumber) {
+		this.phoneNumber = photoNumber;
 	}
 
 	public String getContactInfo() {
@@ -111,11 +114,37 @@ public class Contact {
 	}
 
 
+	public boolean getActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Contact other = (Contact) obj;
+		return id == other.id;
+	}
+	
 	@Override
 	public String toString() {
-		return "Contact [id=" + id + ", contacPreference=" + contacPreference + ", email=" + email + ", photoNumber="
-				+ photoNumber + ", contactInfo=" + contactInfo + "]";
+		return "Contact [id=" + id + ", contactPreference=" + contactPreference + ", email=" + email + ", phoneNumber="
+				+ phoneNumber + ", contactInfo=" + contactInfo + "]";
 	}
+
 	
 
 }
