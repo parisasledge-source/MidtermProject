@@ -5,27 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Display Pet</title>
+<title>Pet</title>
 </head>
 <body>
 
-	<ul>
-		<li>${pet.species}</li>
-		<li>${pet.name}</li>
-		<li>${pet.breed}</li>
-		<li>${pet.description}</li>
-		<li>${pet.chip}</li>
-		<li>${pet.color}</li>
-		<li>${pet.gender}</li>
-		<li>${pet.neutered}</li>
-		<li>${pet.age}</li>
-	</ul>
+	<h1>Add a Pet</h1>
 
-
-
-	<br>
-	<h3>Update a Pet Information</h3>
-	<form action="updatePet.do" method="POST">
+	<form action="pet.do" method="POST">
 
 		<label for="species">Enter the species:</label> 
 		<input name="species" type="text"> <br> 
@@ -52,20 +38,28 @@
 		<input name="neutered" type="text"> <br> 
 				
 		<label for="age">Enter the age:</label> 		
-		<input name="age" type="text"> <br> 		
-
-			
-		<label for="petId">Enter Pet ID:</label> <input name="petId" type="text">
-		<label for="contactId">Enter Contact ID:</label> <input name="contactId" type="text">
-		<label for="locationId">Enter Location ID:</label> <input name="locationId" type="text"> 
+		<input name="age" type="text"> <br> 	
 		<br>
-		<input name="petId" type="hidden" value="${pet.id}">
 		
-		<%-- <input name ="userId" type="hidden" value="${user.id}">  --%>
+		<input name ="userId" type="hidden" value="${user.id}"> 
 		
+		<h1> Here is all your pets:</h1>
+		<ul>
+			<c:forEach var="p" items="${pet}">
+			
+				<li>
+				${p.id} 
+				
+				</li>
+			
+			</c:forEach>
 		
+		</ul>
+		
+
 		<input name="submit" type="submit">
 
 	</form>
+
 </body>
 </html>

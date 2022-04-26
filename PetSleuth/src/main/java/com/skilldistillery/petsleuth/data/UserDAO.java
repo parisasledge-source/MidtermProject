@@ -24,5 +24,7 @@ public interface UserDAO {
 
 	Post findPostById(int id);
 
+	Pet addPet(Pet pet);
+
 }
 

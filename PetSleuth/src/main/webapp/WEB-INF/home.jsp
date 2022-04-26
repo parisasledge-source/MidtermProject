@@ -13,6 +13,7 @@
 	<a href="postPage.do">Post</a>
 	<a href="displayPosts.do">See my Posts</a>
 	<a href="displayPets.do">See my Pets</a>
+	<a href="petPage.do">Add a Pet</a>
 
 	<a href="displayLocations.do">See my location</a>
 

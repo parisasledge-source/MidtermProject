@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.petsleuth.data.UserDAO;
+import com.skilldistillery.petsleuth.entities.Pet;
 import com.skilldistillery.petsleuth.entities.Post;
 import com.skilldistillery.petsleuth.entities.User;
 
@@ -73,6 +74,7 @@ public class UserController {
 		return "postResult";
 	}
 	
+	
 	@RequestMapping( path = {"displayPost.do"})
 	public String displayPost(Model model, HttpSession session, int id) {
 		model.addAttribute("user", session.getAttribute("user"));
@@ -82,6 +84,29 @@ public class UserController {
 		
 		
 	}	
+	
+	@RequestMapping( path = {"petPage.do"})
+	public String pet(Model model, HttpSession session) {
+		User newUser = (User)session.getAttribute("user");
+		//model.addAttribute("user", user);
+//		model.addAttribute("pet", user.getPets());
+//		model.addAttribute("contact", user.getContacts());
+//		model.addAttribute("location", user.getLocation());
+		//model.addAttribute("finder", user.getFinderPosts());
+		
+		return "pet";
+		
+	}	
+	
+	@RequestMapping( path = {"pet.do"}, method = RequestMethod.POST)
+	public String home(Model model, Pet pet, HttpSession session) {
+		User newUser = (User)session.getAttribute("user");
+		pet.setUser(newUser);
+		model.addAttribute("pet", userDao.addPet(pet));
+		
+		return "postResult";
+	}
+		
 	@RequestMapping( path = {"displayPet.do"})
 	public String displayPet(Model model, HttpSession session, int id) {
 		model.addAttribute("user", session.getAttribute("user"));
