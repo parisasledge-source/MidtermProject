@@ -1,5 +1,7 @@
 package com.skilldistillery.petsleuth.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -68,6 +70,27 @@ public class UserDaoImpl implements UserDAO {
 	public Post findPostById(int postId) {
 		
 		return em.find(Post.class, postId);
+	}
+
+//	@Override
+//	public List<Location> findLocationsByUserId(int id) {
+//		String sql = "SELECT location FROM Location location WHERE location.user.id = :id";
+//		List<Location> locations = em.createQuery(sql, Location.class).setParameter("id", id).getResultList();
+//		return locations;
+//	}
+
+	@Override
+	public List<Contact> findContactsByUserId(int id) {
+		String sql = "SELECT contact FROM Contact contact WHERE contact.user.id = :id";
+		List<Contact> contacts = em.createQuery(sql, Contact.class).setParameter("id", id).getResultList();
+		return contacts;
+	}
+
+	@Override
+	public List<Pet> findPetsByUserId(int id) {
+		String sql = "SELECT pet FROM Pet pet WHERE pet.user.id = :id";
+		List<Pet> pets = em.createQuery(sql, Pet.class).setParameter("id", id).getResultList();
+		return pets;
 	}
 		
 }

@@ -85,9 +85,17 @@ public class UserController {
 //	}	
 //	
 	@RequestMapping( path = {"displayPost.do"})
-	public String displayPost(Model model, HttpSession session, int id) {
-		model.addAttribute("user", session.getAttribute("user"));
-		model.addAttribute("post", userDao.findPostById(id));
+	public String displayPost(Model model, HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("user", user);
+		model.addAttribute("post", userDao.findPostById(user.getId()));
+		model.addAttribute("pets", userDao.findPetsByUserId(user.getId()));
+		model.addAttribute("contacts", userDao.findContactsByUserId(user.getId()));
+		System.out.println(user.toString());
+		System.out.println(userDao.findPostById(user.getId()));
+		System.out.println(userDao.findPetsByUserId(user.getId()));
+		System.out.println(userDao.findContactsByUserId(user.getId()));
+//		model.addAttribute("locations", userDao.findLocationsByUserId(id));
 		
 		return "displayPost";
 		

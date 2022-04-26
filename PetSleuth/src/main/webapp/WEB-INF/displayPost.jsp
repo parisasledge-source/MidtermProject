@@ -77,7 +77,7 @@
 		
 		<h1> Here is all your pets:</h1>
 		<ul>
-			<c:forEach var="p" items="${pet}">
+			<c:forEach var="p" items="${pets}">
 			
 				<li>
 				${p.id} 
@@ -90,7 +90,7 @@
 		
 		<h1> Here is all your contact options:</h1>
 		<ul>
-			<c:forEach var="c" items="${contact}">
+			<c:forEach var="c" items="${contacts}">
 			
 				<li>
 				${c.id} 
@@ -103,7 +103,7 @@
 		
 		<h1> Here is all your location options:</h1>
 		<ul>
-			<c:forEach var="l" items="${location}">
+			<c:forEach var="l" items="${locations}">
 			
 				<li>
 				${l.id} 
