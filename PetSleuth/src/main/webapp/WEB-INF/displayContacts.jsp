@@ -5,27 +5,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Display Pets</title>
+<title>Display Contacts</title>
 </head>
 <body>
 	<ul>
-	<c:forEach var = "p" items = "${pets}">
+	<c:choose>
+	<c:when test="${! empty contacts}">
+	<c:forEach var = "p" items = "${contacts}">
 		<c:choose>
 			<c:when test="${ p.active }">
 				<li> 
-					<a href = "displayPet.do?id=${p.id}"> ${p.id}</a>
+					<a href = "displayContact.do?id=${p.id}"> ${p.id}</a>
 				</li>
 			</c:when>
 		</c:choose>
 	</c:forEach>
+	</c:when>
+	<c:otherwise>
+	<h2>No contact information found!</h2>
+	</c:otherwise>
+	</c:choose>
 	</ul>
+	
 	
 	<br>
 	
-	<h3>Remove a Pet</h3>
+	<h3>Remove a Contact</h3>
 	
-	<form action="hidePet.do" method="POST">
-	Enter Pet ID: <input type="text" name="petId" /> 
+	<form action="destroyContact.do" method="POST">
+	Enter a Contact ID: <input type="text" name="contactId" /> 
 	<input type="submit" value="Submit" />
 	</form>
 	
