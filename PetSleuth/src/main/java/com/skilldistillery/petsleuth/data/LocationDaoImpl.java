@@ -4,6 +4,8 @@ package com.skilldistillery.petsleuth.data;
 
 
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -23,7 +25,13 @@ public class LocationDaoImpl implements LocationDAO {
 
 	@Override
 	public Location findLocationById(int locationId) {	
-		return em.find(Location.class, locationId);
+		Location location = null;
+		String sql = "SELECT location FROM Location location WHERE location.user.id = :id";
+		List<Location> resultset = em.createQuery(sql, Location.class).setParameter("id", locationId).getResultList();
+		if(!resultset.isEmpty()) {
+			location = resultset.get(0); 
+		}
+		return location;
 		}
 
 	@Override
@@ -42,6 +50,7 @@ public class LocationDaoImpl implements LocationDAO {
 	
 	@Override
 	public Location updateLocation(int locationId, Location location) {
+		
 		Location updateLocation = em.find(Location.class, locationId);
 		updateLocation.setState(location.getState());
 		updateLocation.setCity(location.getCity());
