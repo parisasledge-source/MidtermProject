@@ -88,11 +88,6 @@ public class UserController {
 	@RequestMapping( path = {"petPage.do"})
 	public String pet(Model model, HttpSession session) {
 		User newUser = (User)session.getAttribute("user");
-		//model.addAttribute("user", user);
-//		model.addAttribute("pet", user.getPets());
-//		model.addAttribute("contact", user.getContacts());
-//		model.addAttribute("location", user.getLocation());
-		//model.addAttribute("finder", user.getFinderPosts());
 		
 		return "pet";
 		
@@ -104,7 +99,7 @@ public class UserController {
 		pet.setUser(newUser);
 		model.addAttribute("pet", userDao.addPet(pet));
 		
-		return "postResult";
+		return "petResult";
 	}
 		
 	@RequestMapping( path = {"displayPet.do"})

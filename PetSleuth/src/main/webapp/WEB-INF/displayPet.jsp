@@ -9,22 +9,27 @@
 </head>
 <body>
 
-	<ul>
-		<li>${pet.species}</li>
-		<li>${pet.name}</li>
-		<li>${pet.breed}</li>
-		<li>${pet.description}</li>
-		<li>${pet.chip}</li>
-		<li>${pet.color}</li>
-		<li>${pet.gender}</li>
-		<li>${pet.neutered}</li>
-		<li>${pet.age}</li>
-	</ul>
-
-
-
+	<h1>Pet Profile</h1>
+	Species: ${pet.species}
 	<br>
-	<h3>Update a Pet Information</h3>
+	Name: ${pet.name}
+	<br>
+	Breed: ${pet.breed}
+	<br>
+	Description: ${pet.description}
+	<br>
+	Chip: ${pet.chip}
+	<br>
+	Color: ${pet.color}
+	<br>
+	Gender: ${pet.gender}
+	<br>
+	Neutered: ${pet.neutered}
+	<br>
+	Age: ${pet.age}
+	<br>
+	
+	<h3>Update Pet Information</h3>
 	<form action="updatePet.do" method="POST">
 
 		<label for="species">Enter the species:</label> 
@@ -55,9 +60,6 @@
 		<input name="age" type="text"> <br> 		
 
 			
-		<label for="petId">Enter Pet ID:</label> <input name="petId" type="text">
-		<label for="contactId">Enter Contact ID:</label> <input name="contactId" type="text">
-		<label for="locationId">Enter Location ID:</label> <input name="locationId" type="text"> 
 		<br>
 		<input name="petId" type="hidden" value="${pet.id}">
 		
