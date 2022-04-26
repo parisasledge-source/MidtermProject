@@ -12,7 +12,13 @@
 	<a href="loginPage.do">Login</a>
 	<a href="postPage.do">Post</a>
 	<a href="displayPosts.do">See my Posts</a>
+	<a href="displayPets.do">See my Pets</a>
+	<a href="petPage.do">Add a Pet</a>
+
 	<a href="displayLocations.do">See my location</a>
+
+
+
 	
 	<br>
 	<a href="contactPage.do"> Add a contact</a>
@@ -25,6 +31,8 @@
 	<form action="search.do" method="post">
 		<input type="text" name="word" placeholder="Enter search here"/> <input type="submit" name="submit" />
 	</form>
+
+
 
 </body>
 </html>
