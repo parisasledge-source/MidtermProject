@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `location` (
   `city` VARCHAR(45) NOT NULL,
   `state` VARCHAR(45) NOT NULL,
   `zip_code` VARCHAR(10) NULL,
+  `active` TINYINT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -39,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `location_id` INT NULL,
+  `location_id` INT NOT NULL,
   `active` TINYINT NOT NULL,
   `role` VARCHAR(45) NULL,
   `first_name` VARCHAR(45) NULL,
@@ -74,6 +75,7 @@ CREATE TABLE IF NOT EXISTS `pet` (
   `gender` VARCHAR(45) NULL,
   `neutered` TINYINT NULL,
   `age` VARCHAR(50) NULL,
+  `active` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_pet_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_pet_user1`
@@ -96,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `phone_number` VARCHAR(45) NULL,
   `user_id` INT NOT NULL,
   `contact_info` VARCHAR(200) NULL,
+  `active` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_contact_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_contact_user1`
@@ -121,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `pet_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `contact_id` INT NOT NULL,
-  `location_id` INT NOT NULL,
+  `location_id` INT NULL,
   `finder_id` INT NULL,
   `date_found` DATETIME NULL,
   `rating` INT NULL,
@@ -230,12 +233,12 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `petsleuthdb`;
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (1, 'Skylark Holt', 'Denver', 'CO', '80219');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (2, 'Regent Edge', 'Denver', 'CO', '80123');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (3, 'Twyford', 'Seattle', 'WA', '98101');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (4, 'Ibberson Ave', 'Seattle', 'WA', '98105');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (5, 'Hinxworth Road', 'Austin', 'TX', '73301');
-INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`) VALUES (6, 'Bacton Road', 'Austin', 'TX', '78660');
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`, `active`) VALUES (1, 'Skylark Holt', 'Denver', 'CO', '80219', 1);
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`, `active`) VALUES (2, 'Regent Edge', 'Denver', 'CO', '80123', 1);
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`, `active`) VALUES (3, 'Twyford', 'Seattle', 'WA', '98101', 1);
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`, `active`) VALUES (4, 'Ibberson Ave', 'Seattle', 'WA', '98105', 1);
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`, `active`) VALUES (5, 'Hinxworth Road', 'Austin', 'TX', '73301', 1);
+INSERT INTO `location` (`id`, `street`, `city`, `state`, `zip_code`, `active`) VALUES (6, 'Bacton Road', 'Austin', 'TX', '78660', 1);
 
 COMMIT;
 
@@ -260,12 +263,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `petsleuthdb`;
-INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (1, 'Dog', 'Max', 'Beagel', 'Dog likes to bark alot', 2, 1, 'brown/white/black', 'male', 1, 'mid age');
-INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (2, 'Cat', 'Atika', 'Sphinx ', 'Thinks its god', 3, 0, 'hairless', 'female', 0, 'elderly ');
-INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (3, 'Dog', 'Xeries', 'German Shepard', 'Loves to chase squirrels ', 6, 1, 'black/gold', 'female', 0, 'puppy ');
-INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (4, 'Cat', 'Rosalie', 'Siamese', 'Loves to make biscuits ', 5, 1, 'ligh brown/black', 'male', 1, 'kitten ');
-INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (5, 'Lizard', 'Gex', 'Iguana', 'Sleeps all day in the sunlight', 4, 0, 'green', '?', 0, '5');
-INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`) VALUES (6, 'Fish', 'Tot', 'Goldfish', 'Its a goldfish, whats there to know.', 1, 0, 'orange', '?', 0, '1');
+INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`, `active`) VALUES (1, 'Dog', 'Max', 'Beagel', 'Dog likes to bark alot', 2, 1, 'brown/white/black', 'male', 1, 'mid age', 1);
+INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`, `active`) VALUES (2, 'Cat', 'Atika', 'Sphinx ', 'Thinks its god', 3, 0, 'hairless', 'female', 0, 'elderly ', 1);
+INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`, `active`) VALUES (3, 'Dog', 'Xeries', 'German Shepard', 'Loves to chase squirrels ', 6, 1, 'black/gold', 'female', 0, 'puppy ', 1);
+INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`, `active`) VALUES (4, 'Cat', 'Rosalie', 'Siamese', 'Loves to make biscuits ', 5, 1, 'ligh brown/black', 'male', 1, 'kitten ', 1);
+INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`, `active`) VALUES (5, 'Lizard', 'Gex', 'Iguana', 'Sleeps all day in the sunlight', 4, 0, 'green', '?', 0, '5', 1);
+INSERT INTO `pet` (`id`, `species`, `name`, `breed`, `description`, `user_id`, `chip`, `color`, `gender`, `neutered`, `age`, `active`) VALUES (6, 'Fish', 'Tot', 'Goldfish', 'Its a goldfish, whats there to know.', 1, 0, 'orange', '?', 0, '1', 1);
 
 COMMIT;
 
@@ -275,12 +278,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `petsleuthdb`;
-INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (2, 'phone', 'jiles@fakemail.com', '303-555-5467', 2, NULL);
-INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (3, 'email', 'ccordova@fakemail.com', '206-555-7539', 3, NULL);
-INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (4, 'phone', 'csloan@fakemail.com', '206-555-4239', 4, NULL);
-INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (1, 'email', 'admin@fakemail.com', '303-555-3278', 1, NULL);
-INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (5, 'phone', 'sstubbs@fakemail.com', '512-555-4467', 5, NULL);
-INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`) VALUES (6, 'email', 'lshaw@fakemail.com', '512-555-5623', 6, NULL);
+INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`, `active`) VALUES (2, 'phone', 'jiles@fakemail.com', '303-555-5467', 2, NULL, 1);
+INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`, `active`) VALUES (3, 'email', 'ccordova@fakemail.com', '206-555-7539', 3, NULL, 1);
+INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`, `active`) VALUES (4, 'phone', 'csloan@fakemail.com', '206-555-4239', 4, NULL, 1);
+INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`, `active`) VALUES (1, 'email', 'admin@fakemail.com', '303-555-3278', 1, NULL, 1);
+INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`, `active`) VALUES (5, 'phone', 'sstubbs@fakemail.com', '512-555-4467', 5, NULL, 1);
+INSERT INTO `contact` (`id`, `contact_preference`, `email`, `phone_number`, `user_id`, `contact_info`, `active`) VALUES (6, 'email', 'lshaw@fakemail.com', '512-555-5623', 6, NULL, 1);
 
 COMMIT;
 
