@@ -30,6 +30,10 @@
 	<br>
 	Age: ${pet.age}
 	<br>
+	Photo: 
+	<%-- <img src="${pet.photos}"> --%>
+	<img src = "${pet.photos}" style="width:500px;height:400px;"/>
+	<br>
 	
 	<h3>Update Pet Information</h3>
 	<form action="updatePet.do" method="POST">
@@ -61,6 +65,8 @@
 		<label for="age">Enter the age:</label> 		
 		<input name="age" type="text"> <br> 		
 
+		<label for="photos">Enter the URL:</label> 		
+		<input name="photos" type="text"> <br> 		
 			
 		<br>
 		<input name="petId" type="hidden" value="${pet.id}">

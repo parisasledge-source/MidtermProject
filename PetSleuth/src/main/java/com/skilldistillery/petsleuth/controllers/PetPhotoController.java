@@ -18,32 +18,32 @@ public class PetPhotoController {
 	@Autowired
 	private PetPhotoDAO petPhotoDao;
 	
-	@RequestMapping( path = {"displayPets.do"})
-	public String displayPetPhotos(Model model, HttpSession session) {
-		User user = (User)session.getAttribute("user");
-		model.addAttribute("user", session.getAttribute("user"));
-		model.addAttribute("petPhotos", petPhotoDao.findByUserId(user.getId()));
-		return "displayPets";
-		
-	}	
-	
-	@RequestMapping( path = {"updatePet.do"}, method = RequestMethod.POST)
-	public String updatePetPhoto(int petPhotoId, Model model, HttpSession session, PetPhoto petPhoto) {
-		User user = (User)session.getAttribute("user");
-		model.addAttribute("user", session.getAttribute("user"));
-		model.addAttribute("petPhoto", petPhotoDao.updatePetPhoto(petPhotoId, petPhoto));
-		return "displayPet";
-		
-	}	
-
-	
-	@RequestMapping(path = {"hidePet.do"})
-	public String hidePetPhoto(Integer petPhotoId, Model model, HttpSession session) {
-		petPhotoDao.removePetPhoto(petPhotoId);
-		User user = (User)session.getAttribute("user");
-		//model.addAttribute("user", session.getAttribute("user"));
-		model.addAttribute("petPhotos", petPhotoDao.findByUserId(user.getId()));
-//		model.addAttribute("petPhoto", petPhoto);
-		return "displayPets";
-	}
+//	@RequestMapping( path = {"displayPetPhotos.do"})
+//	public String displayPetPhotos(Model model, HttpSession session) {
+//		User user = (User)session.getAttribute("user");
+//		model.addAttribute("user", session.getAttribute("user"));
+//		model.addAttribute("petPhotos", petPhotoDao.findByUserId(user.getId()));
+//		return "displayPets";
+//		
+//	}	
+//	
+//	@RequestMapping( path = {"updatePetPhoto.do"}, method = RequestMethod.POST)
+//	public String updatePetPhoto(int petPhotoId, Model model, HttpSession session, PetPhoto petPhoto) {
+//		User user = (User)session.getAttribute("user");
+//		model.addAttribute("user", session.getAttribute("user"));
+//		model.addAttribute("petPhoto", petPhotoDao.updatePetPhoto(petPhotoId, petPhoto));
+//		return "displayPet";
+//		
+//	}	
+//
+//	
+//	@RequestMapping(path = {"hidePetPhoto.do"})
+//	public String hidePetPhoto(Integer petPhotoId, Model model, HttpSession session) {
+//		petPhotoDao.removePetPhoto(petPhotoId);
+//		User user = (User)session.getAttribute("user");
+//		//model.addAttribute("user", session.getAttribute("user"));
+//		model.addAttribute("petPhotos", petPhotoDao.findByUserId(user.getId()));
+////		model.addAttribute("petPhoto", petPhoto);
+//		return "displayPets";
+//	}
 }
