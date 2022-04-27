@@ -7,6 +7,9 @@
 <title>Pet Sleuth</title>
 </head>
 <body>
+
+	<%@ include file="bootstrapSetup.jsp" %>
+
 	<input name ="user" type="hidden" value="${user}">
 	<a href="signupPage.do">Sign up</a>
 	<a href="loginPage.do">Login</a>

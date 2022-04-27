@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<%@ include file="bootstrapSetup.jsp" %>
+
 	<ul>
 		<li>${contact.contactPreference}</li>
 		<li>${contact.contactInfo}</li>

@@ -8,6 +8,8 @@
 <title>Display Pets</title>
 </head>
 <body>
+
+<%@ include file="bootstrapSetup.jsp" %>
 	<ul>
 	<c:choose>
 	<c:when test="${! empty pets}">

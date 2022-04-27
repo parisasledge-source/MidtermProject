@@ -8,7 +8,7 @@
 <title>Display Post</title>
 </head>
 <body>
-
+<%@ include file="bootstrapSetup.jsp" %>
 	<ul>
 		<li>${post.postingDate}</li>
 		<li>${post.lastSeen}</li>

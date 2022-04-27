@@ -8,6 +8,8 @@
 <title>Display Posts</title>
 </head>
 <body>
+
+<%@ include file="bootstrapSetup.jsp" %>
 	<ul>
 	<c:choose>
 	<c:when test="${! empty posts}">

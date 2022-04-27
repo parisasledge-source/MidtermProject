@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<%@ include file="bootstrapSetup.jsp" %>
+
 	<h1>Add a Post</h1>
 
 	<form action="post.do" method="POST">
