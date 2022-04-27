@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%@ include file="bootstrapSetup.jsp" %>
+
 <h1>Thank you for adding a new pet!</h1>
 
 Username: ${user.username}

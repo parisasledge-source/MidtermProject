@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<%@ include file="bootstrapSetup.jsp" %>
+
 	<h1>Add a Pet</h1>
 
 	<form action="pet.do" method="POST">
