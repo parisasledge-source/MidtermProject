@@ -60,6 +60,7 @@ public class PostController {
 		User user = (User)session.getAttribute("user");
 		model.addAttribute("user", user);
 		model.addAttribute("post", userDao.findPostById(id));
+		model.addAttribute("postcomments", userDao.findPostById(id).getPostComments());
 		model.addAttribute("pets", userDao.findPetsByUserId(user.getId()));
 		model.addAttribute("contacts", userDao.findContactsByUserId(user.getId()));
 		model.addAttribute("locations", userDao.findLocationsByUserId(user.getId()));
