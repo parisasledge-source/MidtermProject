@@ -21,8 +21,11 @@ public class User {
 	private int id;
 	
 	private String username;
+	
 	private String password;
+	
 	private boolean active;
+	
 	private String role;
 	
 	@Column(name = "first_name")
@@ -84,7 +87,7 @@ public class User {
 		this.password = password;
 	}
 
-	public boolean isActive() {
+	public boolean getActive() {
 		return active;
 	}
 
