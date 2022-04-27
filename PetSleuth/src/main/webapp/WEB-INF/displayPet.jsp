@@ -31,45 +31,14 @@
 	Age: ${pet.age}
 	<br>
 	
-	<h3>Update Pet Information</h3>
-	<form action="updatePet.do" method="POST">
-
-		<label for="species">Enter the species:</label> 
-		<input name="species" type="text"> <br> 
-		
-		<label for="name">Enter the name:</label> 
-		<input name="name" type="text"> <br> 
-		
-		<label for="breed">Enter the breed:</label> 
-		<input name="breed" type="text"> <br> 
-				
-		<label for="description">Enter the description:</label> 		
-		<input name="description" type="text"> <br> 
-				
-		<label for="chip">Is pet chipped (true/false):</label> 
-		<input name="chip" type="text"><br>
-		
-		<label for="color">Enter the color:</label> 
-		<input name="color" type="text"> <br> 
-		
-		<label for="gender">Enter the gender:</label> 
-		<input name="gender" type="text"> <br> 
-		
-		<label for="neutered">Is pet neutered (true/false):</label> 
-		<input name="neutered" type="text"> <br> 
-				
-		<label for="age">Enter the age:</label> 		
-		<input name="age" type="text"> <br> 		
-
-			
-		<br>
-		<input name="petId" type="hidden" value="${pet.id}">
-		
-		<%-- <input name ="userId" type="hidden" value="${user.id}">  --%>
-		
-		
-		<input name="submit" type="submit">
-
+	<form action="updatePetForm.do">
+	<button name="id" value="${pet.id}">Update Pet</button>
 	</form>
+	
+	<form action="hidePet.do">
+	<button name="petId" value="${pet.id}">Remove Pet</button>
+	</form>
+	
+	
 </body>
 </html>
