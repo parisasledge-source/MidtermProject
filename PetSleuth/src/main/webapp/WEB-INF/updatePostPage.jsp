@@ -5,9 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Post</title>
+<title>Display Post</title>
 </head>
 <body>
+<%@ include file="bootstrapSetup.jsp" %>
 
 <script type="text/javascript">
 
@@ -35,35 +36,25 @@ function locationValue(num) {
 
 </script>
 
-<%@ include file="bootstrapSetup.jsp" %>
+	<h3>Update a Post</h3>
+	<form action="updatePost.do" method="POST">
 
-	<h1>Add a Post</h1>
+		<label for="last">Enter the date last seen:</label> <input name="last"
+			type="date" value="${post.lastSeen}"> <br> <label for="description">Write
+			a description:</label> 
+			<input name="description" type="text" value="${post.description}"> 
+			<br>
+		<label for="reward">How much would you like to offer:</label> 
+		<input name="reward" type="text" value="${post.reward}"> 
+		 <input name="petId" type="hidden" value="${post.pet.id}" id="inputPet"> 
+		  <input name="contactId" type="hidden" value="${post.contact.id}" id="inputContact"> 
+		  <input name="locationId" type="hidden" value="${post.location.id}" id="inputLocation"> 
+		  <input name="postId" type="hidden" value="${post.id}">
+		  <br>
+			<input name="submit" type="submit">
 
-	<form action="post.do" method="POST">
-
-		<label for="last">Enter the date last seen:</label> 
-		<input name="last" type="date"> <br> 		
-		<br>
-		<label for="description">Write a description:</label> 		
-		<input name="description" type="text"> <br> 		
-		<br>
-		<label for="reward">How much would you like to offer:</label> <input name="reward" type="text">
-		<br>
-			
-		<br>
-		<label for="petId">Enter Pet ID:</label> <input name="petId" type="hidden" id="inputPet">
-		<br>
-		<label for="contactId">Enter Contact ID:</label> <input name="contactId" type="hidden" id="inputContact">
-		<br>
-		<label for="locationId">Enter Location ID:</label> <input name="locationId" type="hidden" id="inputLocation">
-		<br>
-		
-		<input name ="userId" type="hidden" value="${user.id}"> 
-		<input name ="submit" type="submit"> 
-		<br>
-		
-		</form>
-		
+	</form>
+	
 	<c:choose>
 		<c:when test="${empty pets}">
 			<h3>You don't have any pets saved to your profile! Add one here!</h3>

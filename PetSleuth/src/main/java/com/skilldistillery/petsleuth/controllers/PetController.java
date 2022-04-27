@@ -85,5 +85,26 @@ public class PetController {
 		model.addAttribute("pet", pet);
 		return "displayPets";
 	}
+	
+	@RequestMapping( path = {"updatePetPage.do"})
+	public String updatePetPageList(Model model, HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("pets", petDao.findByUserId(user.getId()));
+		return "updatePetPageList";
+	}
+	
+	@RequestMapping( path = {"updatePetForm.do"})
+	public String updatePetForm(Model model, HttpSession session, int id) {
+		model.addAttribute("user", session.getAttribute("user"));
+		model.addAttribute("pet", userDao.findPetById(id));
+		return "updatePetPage";
+	}
+	
+	@RequestMapping( path = {"removePetPage.do"})
+	public String removePetPage(Model model, HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("pets", petDao.findByUserId(user.getId()));
+		return "removePetPage";
+	}
 
 }
