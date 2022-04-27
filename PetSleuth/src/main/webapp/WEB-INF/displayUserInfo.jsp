@@ -9,12 +9,15 @@
 </head>
 <body>
 
+<%@ include file="bootstrapSetup.jsp" %>
+
 	<ul>
 		<li>Username: ${user.username}</li>
+		<li>UserId: ${user.id}</li>
 		<li>First Name: ${user.firstName}</li>
 		<li>Last Name: ${user.lastName}</li>
-		<li>Biography: ${user.biography}</li>
-		<li>Photo: ${user.photoURL}</li>
+		<li>Bio: ${user.biography}</li>
+		<li> <img src="${user.photoURL}"></li>
 	</ul>
 	
 	<br>
@@ -34,6 +37,7 @@
 		<label for="photoURL">Add a Photo URL:</label> 
 		<input name="photoURL" type="text"> 
 		<br> 
+		<input name="submit" type="submit">
 	</form>
 	
 </body>

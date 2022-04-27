@@ -40,13 +40,14 @@ public class UserDaoImpl implements UserDAO {
 		
 	}
 	
-	public User updateUser(User user) {
-		User updateUser = em.find(User.class, user);
-		updateUser.setFirstName(user.getFirstName());
-		updateUser.setLastName(user.getLastName());
-		updateUser.setBiography(user.getBiography());
-		updateUser.setPhotoURL(user.getPhotoURL());
-		updateUser.setActive(user.getActive());
+	public User updateUser(User newUser, User user) {
+		User updateUser = em.find(User.class, user.getId());
+		updateUser.setFirstName(newUser.getFirstName());
+		updateUser.setLastName(newUser.getLastName());
+		updateUser.setBiography(newUser.getBiography());
+		updateUser.setPhotoURL(newUser.getPhotoURL());
+		updateUser.setActive(newUser.getActive());
+		em.persist(updateUser);
 		return updateUser;
 		
 	}

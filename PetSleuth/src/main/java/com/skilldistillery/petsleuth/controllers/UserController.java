@@ -47,9 +47,15 @@ public class UserController {
 		return "home";
 	}	
 	
+	@RequestMapping( path = {"displayUserInfo.do"})
+	public String displayUser(Model model) {
+		return "displayUserInfo";
+	}
+	
 	@RequestMapping( path = {"updateUser.do"}, method = RequestMethod.POST)
-	public String updateUser(Model model, User user) {
-		model.addAttribute("user", userDao.updateUser(user));
+	public String updateUser(Model model, HttpSession session, User newUser) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("user", userDao.updateUser(newUser, user));
 		return "displayUserInfo";
 	}
 	
