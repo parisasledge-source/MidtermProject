@@ -56,24 +56,16 @@
 				</c:choose>
 			</c:forEach></li>
 	</ul>
-
 	<br>
-	<h3>Update a Post</h3>
-	<form action="updatePost.do" method="POST">
-
-		<label for="last">Enter the date last seen:</label> <input name="last"
-			type="date"> <br> <label for="description">Write
-			a description:</label> <input name="description" type="text"> <br>
-		<label for="reward">How much would you like to offer:</label> <input
-			name="reward" type="text"> <label for="petId">Enter
-			Pet ID:</label> <input name="petId" type="text"> <label
-			for="contactId">Enter Contact ID:</label> <input name="contactId"
-			type="text"> <label for="locationId">Enter Location
-			ID:</label> <input name="locationId" type="text"> <br> <input
-			name="postId" type="hidden" value="${post.id}">
-			<input name="submit" type="submit">
+	<form action="updatePostForm.do">
+	<button name="id" value="${post.id}">Update Post</button>
 
 	</form>
+	
+	<form action="destroyPost.do">
+	<button name="postId" value="${post.id}">Remove Post</button>
+	</form>
+	
 	<%-- <input name ="userId" type="hidden" value="${user.id}">  --%>
 </body>
 </html>

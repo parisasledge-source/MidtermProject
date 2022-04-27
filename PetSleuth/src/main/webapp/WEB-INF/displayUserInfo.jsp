@@ -17,7 +17,7 @@
 		<li>First Name: ${user.firstName}</li>
 		<li>Last Name: ${user.lastName}</li>
 		<li>Bio: ${user.biography}</li>
-		<li> <img src="${user.photoURL}"></li>
+		<li> <img src="${user.photoUrl}"></li>
 	</ul>
 	
 	<br>
@@ -26,16 +26,16 @@
 	
 	<form action="updateUser.do" method="post">
 		<label for="firstName">First Name:</label> 
-		<input name="firstName" type="text"> 
+		<input name="firstName" type="text" value="${user.firstName}"> 
 		<br> 
 		<label for="lastName">Last Name:</label> 
-		<input name="lastName" type="text"> 
+		<input name="lastName" type="text" value="${user.lastName}"> 
 		<br> 
 		<label for="biography">Biography:</label> 
-		<input name="biography" type="text"> 
+		<input name="biography" type="text" value="${user.biography}"> 
 		<br> 
 		<label for="photoURL">Add a Photo URL:</label> 
-		<input name="photoURL" type="text"> 
+		<input name="photoURL" type="text" value="${user.photoUrl}"> 
 		<br> 
 		<input name="submit" type="submit">
 	</form>
