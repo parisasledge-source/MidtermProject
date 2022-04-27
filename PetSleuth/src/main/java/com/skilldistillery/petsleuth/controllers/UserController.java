@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.petsleuth.data.UserDAO;
 import com.skilldistillery.petsleuth.entities.User;
@@ -25,8 +26,13 @@ public class UserController {
 	}	
 	
 	@RequestMapping( path = {"signup.do"}, method = RequestMethod.POST)
-	public String home(Model model, User user) {
-		model.addAttribute("user", userDao.createNewUser(user));
+	public String home(Model model, User user, RedirectAttributes redir) {
+		redir.addFlashAttribute("user", userDao.createNewUser(user));
+		return "redirect:signupRedir";
+	}
+	
+	@RequestMapping( path = {"signupRedir.do"}, method = RequestMethod.GET)
+	public String signupRedir() {
 		return "signupResult";
 	}
 	
@@ -40,7 +46,12 @@ public class UserController {
 	public String homeLogin(String username, String password, HttpSession session) {
 		User user = userDao.findExistingUser(username, password);
 		session.setAttribute("user", user);
+		return "redirect:loginRedir.do";
+	}
+	
+	@RequestMapping( path = {"loginRedir.do"}, method = RequestMethod.GET)
+	public String loginRedir() {
 		return "home";
-	}	
+	}
 	
 }

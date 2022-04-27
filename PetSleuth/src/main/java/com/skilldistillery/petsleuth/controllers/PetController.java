@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.petsleuth.data.PetDAO;
 import com.skilldistillery.petsleuth.data.UserDAO;
@@ -31,11 +32,16 @@ public class PetController {
 	}	
 	
 	@RequestMapping( path = {"pet.do"}, method = RequestMethod.POST)
-	public String home(Model model, Pet pet, HttpSession session) {
+	public String home(Model model, Pet pet, HttpSession session, RedirectAttributes redir) {
 		User newUser = (User)session.getAttribute("user");
 		pet.setUser(newUser);
-		model.addAttribute("pet", userDao.addPet(pet));
+		redir.addFlashAttribute("pet", userDao.addPet(pet));
 		
+		return "redirect:petRedir.do";
+	}
+	
+	@RequestMapping( path = {"petRedir.do"}, method = RequestMethod.GET)
+	public String petRedir() {
 		return "petResult";
 	}
 		

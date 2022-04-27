@@ -46,6 +46,11 @@ public class PostController {
 		post.setLastSeen(date);
 		model.addAttribute("post", userDao.addPost(post, petId, contactId, locationId));
 		//model.addAttribute("user", newUser);
+		return "redirect:postRedir.do";
+	}
+	
+	@RequestMapping( path = {"postRedir.do"}, method = RequestMethod.GET)
+	public String postRedir() {
 		return "postResult";
 	}
 	
