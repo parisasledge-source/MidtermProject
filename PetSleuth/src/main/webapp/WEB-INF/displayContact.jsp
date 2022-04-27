@@ -24,16 +24,16 @@
 	<form action="updateContact.do" method="POST">
 
 		<label for="contactPreference">Preferred contact method:</label> 
-		<input name="contactPreference" type="text"> 
+		<input name="contactPreference" type="text" value="${contact.contactPreference}"> 
 		<br> 		
 		<label for="contactInfo">Contact Information:</label> 		
-		<input name="contactInfo" type="text"> 
+		<input name="contactInfo" type="text" value="${contact.contactInfo}"> 
 		<br> 		
 		<label for="email">Email address:</label> 
-		<input name="email" type="text">
+		<input name="email" type="text" value="${contact.email}">
 		<br>
 		<label for="phoneNumber">Phone number:</label> 
-		<input name="phoneNumber" type="text">
+		<input name="phoneNumber" type="text" value="${contact.phoneNumber}">
 		<br>
 		<input name ="userId" type="hidden" value="${user.id}"> 
 		<br>

@@ -17,7 +17,7 @@
 	</ul>
 
 	<form action="displayPostComment.do" method="POST">
-		<input name="postId" type="hidden" value="${post.id}"> <input
+		<input name="id" type="hidden" value="${post.id}"> <input
 			name="userId" type="hidden" value="${user.id}"> <input
 			name="inReplyToCommentId" type="hidden" value="0"> <input
 			name="content" type="text" placeholder="Enter comment here">
@@ -26,7 +26,7 @@
 	<br>
 
 	<ul>
-		<li><c:forEach var="c" items="${post.postComments}">
+		<li><c:forEach var="c" items="${postcomments}">
 				<c:choose>
 					<c:when test="${empty c.inReplyToCommentId}">
 						<ul>
@@ -43,7 +43,7 @@
 							</c:forEach>
 							<li>
 								<form action="displayPostComment.do" method="POST">
-									<input name="postId" type="hidden" value="${post.id}">
+									<input name="id" type="hidden" value="${post.id}">
 									<input name="userId" type="hidden" value="${user.id}">
 									<input name="inReplyToCommentId" type="hidden" value="${c.id}">
 									<input name="content" type="text"
