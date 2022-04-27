@@ -25,14 +25,14 @@ public class UserController {
 	}	
 	
 	@RequestMapping( path = {"signup.do"}, method = RequestMethod.POST)
-	public String home(Model model, User user, RedirectAttributes redir) {
-		redir.addFlashAttribute("user", userDao.createNewUser(user));
-		return "redirect:signupRedir";
+	public String home(Model model, User user, RedirectAttributes redir, HttpSession session) {
+		session.setAttribute("user", userDao.createNewUser(user));
+		return "redirect:signupRedir.do";
 	}
 	
 	@RequestMapping( path = {"signupRedir.do"}, method = RequestMethod.GET)
 	public String signupRedir() {
-		return "signupResult";
+		return "home";
 	}
 	
 	@RequestMapping( path = {"loginPage.do"})
