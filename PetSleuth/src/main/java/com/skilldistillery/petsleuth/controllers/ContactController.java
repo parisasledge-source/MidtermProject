@@ -35,7 +35,7 @@ public class ContactController {
 	
 	@RequestMapping( path = {"addContactRedir.do"}, method = RequestMethod.GET)
 	public String addContactRedir() {
-		return "contactResult";
+		return "displayContact";
 	}
 
 	@RequestMapping( path = {"displayContact.do"})

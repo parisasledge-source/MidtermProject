@@ -41,7 +41,7 @@ public class PetController {
 	
 	@RequestMapping( path = {"petRedir.do"}, method = RequestMethod.GET)
 	public String petRedir() {
-		return "petResult";
+		return "displayPet";
 	}
 		
 	@RequestMapping( path = {"displayPet.do"})
