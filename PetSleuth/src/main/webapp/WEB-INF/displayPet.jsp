@@ -30,6 +30,10 @@
 	<br>
 	Age: ${pet.age}
 	<br>
+	Photo: 
+	<%-- <img src="${pet.photos}"> --%>
+	<img src = "${pet.photos}" style="width:500px;height:400px;"/>
+	<br>
 	
 	<form action="updatePetForm.do">
 	<button name="id" value="${pet.id}">Update Pet</button>

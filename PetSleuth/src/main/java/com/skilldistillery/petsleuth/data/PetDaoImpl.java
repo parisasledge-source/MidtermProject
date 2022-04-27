@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.petsleuth.entities.Pet;
+import com.skilldistillery.petsleuth.entities.PetPhoto;
+import com.skilldistillery.petsleuth.entities.PostComment;
 
 @Service
 @Transactional
@@ -51,8 +53,16 @@ public class PetDaoImpl implements PetDAO {
 		updatePet.setGender(pet.getGender());
 		updatePet.setNeutered(pet.getNeutered());
 		updatePet.setAge(pet.getAge());
+		updatePet.setPhotos(findPetPhotoById(petId));
 		
 		return updatePet;
 		
+	}
+	
+	public List<PetPhoto> findPetPhotoById(int petId) {
+		String sql = "SELECT pc FROM PetPhoto pc WHERE pc.postId.id = :id";
+		List<PetPhoto> photos = em.createQuery(sql, PetPhoto.class).setParameter("id", petId).getResultList();
+		
+		return photos;
 	}
 }
