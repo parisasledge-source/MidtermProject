@@ -1,5 +1,7 @@
 package com.skilldistillery.petsleuth.data;
 
+import java.util.List;
+
 import com.skilldistillery.petsleuth.entities.Contact;
 import com.skilldistillery.petsleuth.entities.Location;
 import com.skilldistillery.petsleuth.entities.Pet;
@@ -23,6 +25,12 @@ public interface UserDAO {
 	Pet findPetById(int petId);
 
 	Post findPostById(int id);
+	
+	List<Location> findLocationsByUserId(int id);
+	
+	List<Contact> findContactsByUserId(int id);
+	
+	List<Pet> findPetsByUserId(int id);
 
 	Pet addPet(Pet pet);
 
