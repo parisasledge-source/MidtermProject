@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Display Post</title>
+<title>Display Pet</title>
 </head>
 <body>
 <%@ include file="bootstrapSetup.jsp" %>
