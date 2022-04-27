@@ -17,7 +17,7 @@
 		<li>First Name: ${user.firstName}</li>
 		<li>Last Name: ${user.lastName}</li>
 		<li>Bio: ${user.biography}</li>
-		<li> <img src="${user.photoUrl}"></li>
+		<li> <img src="${user.photoURL}"></li>
 	</ul>
 	
 	<br>
@@ -35,7 +35,7 @@
 		<input name="biography" type="text" value="${user.biography}"> 
 		<br> 
 		<label for="photoURL">Add a Photo URL:</label> 
-		<input name="photoURL" type="text" value="${user.photoUrl}"> 
+		<input name="photoURL" type="text" value="${user.photoURL}"> 
 		<br> 
 		<input name="submit" type="submit">
 	</form>
