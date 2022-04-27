@@ -138,7 +138,7 @@
             <li><a href="displayPets.do">Your Pets</a></li>
             <li><a href="petPage.do">Add A Pet</a></li>
             <li><a href="updatePetPage.do">Update Existing Pets</a></li>
-            <li><a href="destroyPetPage.do">Remove A Pet</a></li>
+            <li><a href="removePetPage.do">Remove A Pet</a></li>
           </ul>
         </li>
       </ul>

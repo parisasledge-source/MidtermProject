@@ -15,7 +15,7 @@
 	<table>
 	<thead>
 	<tr>
-	<th>Update</th>
+	<th>Remove</th>
 	<th>ID</th>
 	<th>Species</th>
 	<th>Name</th>
@@ -26,7 +26,7 @@
 		<c:choose>
 			<c:when test="${ p.active }">
 			<tr>
-			<td><form action="updatePetForm.do"><button name="id" value="${p.id}">Update</button></form></td>
+			<td><form action="hidePet.do"><button name="petId" value="${p.id}">Remove</button></form></td>
 			<td>${p.id}</td>
 			<td>${p.species}</td>
 			<td>${p.name}</td>
@@ -38,7 +38,7 @@
 	</table>
 	</c:when>
 	<c:otherwise>
-	<h2>No posts found to update!</h2>
+	<h2>No posts found to remove!</h2>
 	</c:otherwise>
 	</c:choose>
 	
