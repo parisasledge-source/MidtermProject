@@ -22,7 +22,6 @@ public class UserController {
 	@RequestMapping( path = {"signupPage.do"})
 	public String user(Model model) {
 		return "signup";
-		
 	}	
 	
 	@RequestMapping( path = {"signup.do"}, method = RequestMethod.POST)
@@ -39,7 +38,6 @@ public class UserController {
 	@RequestMapping( path = {"loginPage.do"})
 	public String userLogin(Model model) {
 		return "login";
-		
 	}	
 	
 	@RequestMapping( path = {"login.do"}, method = RequestMethod.POST)
@@ -54,4 +52,15 @@ public class UserController {
 		return "home";
 	}
 	
+	@RequestMapping( path = {"displayUserInfo.do"})
+	public String displayUser(Model model) {
+		return "displayUserInfo";
+	}
+	
+	@RequestMapping( path = {"updateUser.do"}, method = RequestMethod.POST)
+	public String updateUser(Model model, HttpSession session, User newUser) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("user", userDao.updateUser(newUser, user));
+		return "displayUserInfo";
+	}
 }

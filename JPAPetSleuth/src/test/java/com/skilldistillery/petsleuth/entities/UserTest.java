@@ -56,7 +56,7 @@ class UserTest {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
 		assertEquals("admin", user.getPassword());
-		assertTrue(user.isActive());
+		assertTrue(user.getActive());
 		assertEquals(null, user.getRole());
 		assertEquals(null, user.getFirstName());
 		assertEquals(null, user.getLastName());

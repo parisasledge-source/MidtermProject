@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.petsleuth.entities.Location;
+import com.skilldistillery.petsleuth.entities.User;
 
 
 
@@ -35,9 +36,13 @@ public class LocationDaoImpl implements LocationDAO {
 		}
 
 	@Override
-	public Location createNewLocation(Location location) {
+	public Location createNewLocation(Location location ,int userId, User user) {
 		Location newLocation = location;
+		user = em.find(User.class, userId);
+		newLocation.setUser(user);
 		em.persist(newLocation);
+		user.setLocation(newLocation);
+		em.persist(user);
 		return newLocation;
 	}
 
@@ -69,6 +74,10 @@ public class LocationDaoImpl implements LocationDAO {
 			deactivatedLocation.setActive(false);
 		}
 		return removeLocation;
+	}
+	
+	public User findUserById(int userId) {
+		return em.find(User.class, userId);
 	}
 	
 }

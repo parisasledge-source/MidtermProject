@@ -40,7 +40,8 @@ public class LocationController {
 	
 	@RequestMapping( path = {"createLocation.do"}, method = RequestMethod.POST)
 	public String createLocations(Model model, HttpSession session, Location location, RedirectAttributes redir) {
-		redir.addFlashAttribute("locations",locationDao.createNewLocation(location));
+		User user = (User)session.getAttribute("user");
+		redir.addFlashAttribute("locations",locationDao.createNewLocation(location, user.getId(), user));
 		return "redirect:createLocationRedir.do";
 	}
 	

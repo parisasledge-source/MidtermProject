@@ -39,6 +39,18 @@ public class UserDaoImpl implements UserDAO {
 		return user;
 		
 	}
+	
+	public User updateUser(User newUser, User user) {
+		User updateUser = em.find(User.class, user.getId());
+		updateUser.setFirstName(newUser.getFirstName());
+		updateUser.setLastName(newUser.getLastName());
+		updateUser.setBiography(newUser.getBiography());
+		updateUser.setPhotoURL(newUser.getPhotoURL());
+		updateUser.setActive(newUser.getActive());
+		em.persist(updateUser);
+		return updateUser;
+		
+	}
 
 	@Override
 	public Post addPost(Post post, int petId, int contactId, int locationId) {
