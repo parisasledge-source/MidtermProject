@@ -12,8 +12,7 @@
  <c:when test="${empty locations  }">
  <h2>Create</h2>
 	<form action="createLocation.do" method = "POST">
-	Location ID  <input type="text" value="${locations.id}" name="id" /> 
-	<br>
+	
 	State: <input type="text" value="${locations.state}" name="state" /> 
 	<br>
 	City: <input type="text" value ="${locations.city}" name="city" />
