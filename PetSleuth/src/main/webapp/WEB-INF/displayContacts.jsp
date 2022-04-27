@@ -16,9 +16,25 @@
 	<c:forEach var = "p" items = "${contacts}">
 		<c:choose>
 			<c:when test="${ p.active }">
-				<li> 
-					<a href = "displayContact.do?id=${p.id}"> ${p.id}</a>
-				</li>
+			<table>
+			<thead>
+			<tr>
+			<th>ID</th>
+			<th>E-Mail</th>
+			<th>Phone Number</th>			
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td><a href = "displayContact.do?id=${p.id}">${p.id}</a></td>
+			<td><a href = "displayContact.do?id=${p.id}">${p.email}</a></td>
+			<td><a href = "displayContact.do?id=${p.id}">${p.phoneNumber}</a></td>
+			</tr>
+			</tbody>
+			</table>
+				<%-- <li> 
+					<a href = "displayContact.do?id=${p.id}">${p.id} ${p.email}<br>${p.phoneNumber}</a>
+				</li> --%>
 			</c:when>
 		</c:choose>
 	</c:forEach>
