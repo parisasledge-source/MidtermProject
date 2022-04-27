@@ -3,6 +3,7 @@ package com.skilldistillery.petsleuth.data;
 import java.util.List;
 
 import com.skilldistillery.petsleuth.entities.Pet;
+import com.skilldistillery.petsleuth.entities.PetPhoto;
 
 public interface PetDAO {
 
@@ -10,7 +11,9 @@ public interface PetDAO {
 
 	public boolean hide(Integer id);
 
-	Pet updatePet(int petId, Pet pet);
+	public Pet updatePet(int petId, Pet pet);
+	
+	public void addPetPhoto(int petId, PetPhoto petPhoto);
 	
 	
 }

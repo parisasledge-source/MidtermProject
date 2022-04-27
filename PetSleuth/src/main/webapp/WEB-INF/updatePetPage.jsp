@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Display Post</title>
+<title>Display Pet</title>
 </head>
 <body>
 <%@ include file="bootstrapSetup.jsp" %>
@@ -40,9 +40,16 @@
 		<label for="age">Enter the age:</label> 		
 		<input name="age" type="text" value="${pet.age}"> <br> 	
 		
-		
-		<label for="photos">Enter the URL:</label> 		
-		<input name="photos" type="text" value="${pet.photos.get(0).photoUrl}"> <br> 	
+		<label for="photos">Enter the URL:</label> 
+		<c:choose>
+		<c:when test="${! empty pet.photos}">
+		<input name="photos" type="text" value="${pet.photos.get(0).photoUrl}"> <br>
+		</c:when>
+		<c:otherwise>
+		<input name="photos" type="text"> <br>
+		</c:otherwise>
+		</c:choose>
+		 	
 		
 		<br>
 		<input name="petId" type="hidden" value="${pet.id}">

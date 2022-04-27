@@ -17,7 +17,7 @@
 	</ul>
 
 	<form action="displayPostComment.do" method="POST">
-		<input name="postId" type="hidden" value="${post.id}"> <input
+		<input name="id" type="hidden" value="${post.id}"> <input
 			name="userId" type="hidden" value="${user.id}"> <input
 			name="inReplyToCommentId" type="hidden" value="0"> <input
 			name="content" type="text" placeholder="Enter comment here">
@@ -26,7 +26,7 @@
 	<br>
 
 	<ul>
-		<li><c:forEach var="c" items="${post.postComments}">
+		<li><c:forEach var="c" items="${postcomments}">
 				<c:choose>
 					<c:when test="${empty c.inReplyToCommentId}">
 						<ul>
@@ -43,7 +43,7 @@
 							</c:forEach>
 							<li>
 								<form action="displayPostComment.do" method="POST">
-									<input name="postId" type="hidden" value="${post.id}">
+									<input name="id" type="hidden" value="${post.id}">
 									<input name="userId" type="hidden" value="${user.id}">
 									<input name="inReplyToCommentId" type="hidden" value="${c.id}">
 									<input name="content" type="text"
@@ -56,24 +56,16 @@
 				</c:choose>
 			</c:forEach></li>
 	</ul>
-
 	<br>
-	<h3>Update a Post</h3>
-	<form action="updatePost.do" method="POST">
-
-		<label for="last">Enter the date last seen:</label> <input name="last"
-			type="date"> <br> <label for="description">Write
-			a description:</label> <input name="description" type="text"> <br>
-		<label for="reward">How much would you like to offer:</label> <input
-			name="reward" type="text"> <label for="petId">Enter
-			Pet ID:</label> <input name="petId" type="text"> <label
-			for="contactId">Enter Contact ID:</label> <input name="contactId"
-			type="text"> <label for="locationId">Enter Location
-			ID:</label> <input name="locationId" type="text"> <br> <input
-			name="postId" type="hidden" value="${post.id}">
-			<input name="submit" type="submit">
+	<form action="updatePostForm.do">
+	<button name="id" value="${post.id}">Update Post</button>
 
 	</form>
+	
+	<form action="destroyPost.do">
+	<button name="postId" value="${post.id}">Remove Post</button>
+	</form>
+	
 	<%-- <input name ="userId" type="hidden" value="${user.id}">  --%>
 </body>
 </html>
