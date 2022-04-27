@@ -109,6 +109,13 @@ public class PostController {
 		return "updatePostPageList";
 	}
 	
+	@RequestMapping(path = {"removePostPage.do"})
+	public String removePostPage(HttpSession session, Model model) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("posts", postDao.findByUserId(user.getId()));
+		return "removePostPage";
+	}
+	
 	@RequestMapping(path = {"updatePostForm.do"})
 	public String updatePostForm(HttpSession session, Model model, int id) {
 		User user = (User)session.getAttribute("user");

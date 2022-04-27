@@ -125,7 +125,7 @@
             <li><a href="displayPosts.do">Your Posts</a></li>
             <li><a href="postPage.do">Add A Post</a></li>
             <li><a href="updatePostPage.do">Update Posts</a></li>
-            <li><a href="destroyPostPage.do">Remove A Post</a></li>
+            <li><a href="removePostPage.do">Remove A Post</a></li>
           </ul>
         </li>
       </ul>
