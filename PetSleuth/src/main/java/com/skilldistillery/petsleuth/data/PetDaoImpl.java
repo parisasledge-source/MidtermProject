@@ -51,6 +51,7 @@ public class PetDaoImpl implements PetDAO {
 		updatePet.setGender(pet.getGender());
 		updatePet.setNeutered(pet.getNeutered());
 		updatePet.setAge(pet.getAge());
+		//updatePet.setPhotos(pet.getPhotos());
 		
 		return updatePet;
 		
