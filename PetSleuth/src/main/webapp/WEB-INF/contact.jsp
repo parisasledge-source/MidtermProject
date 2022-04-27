@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<%@ include file="bootstrapSetup.jsp" %>
+
 	<h1>Add Contact Information</h1>
 
 	<form action="addContact.do" method="POST">

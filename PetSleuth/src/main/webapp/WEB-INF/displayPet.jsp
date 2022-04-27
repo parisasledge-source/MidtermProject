@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<%@ include file="bootstrapSetup.jsp" %>
+
 	<h1>Pet Profile</h1>
 	Species: ${pet.species}
 	<br>

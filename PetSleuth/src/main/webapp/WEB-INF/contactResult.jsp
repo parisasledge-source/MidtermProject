@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%@ include file="bootstrapSetup.jsp" %>
+
 <h1>Thank you for adding a new contact!</h1>
 
 Username: ${user.username}
