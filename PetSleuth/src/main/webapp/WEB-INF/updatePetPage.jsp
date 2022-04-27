@@ -38,9 +38,12 @@
 		<input name="neutered" type="text" value="${pet.neutered}"> <br> 
 				
 		<label for="age">Enter the age:</label> 		
-		<input name="age" type="text" value="${pet.age}"> <br> 		
-
-			
+		<input name="age" type="text" value="${pet.age}"> <br> 	
+		
+		
+		<label for="photos">Enter the URL:</label> 		
+		<input name="photos" type="text" value="${pet.photos.get(0).photoUrl}"> <br> 	
+		
 		<br>
 		<input name="petId" type="hidden" value="${pet.id}">
 		
