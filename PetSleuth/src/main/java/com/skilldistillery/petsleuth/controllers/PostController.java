@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.petsleuth.data.PostDAO;
+import com.skilldistillery.petsleuth.data.UserDAO;
 import com.skilldistillery.petsleuth.entities.Post;
 import com.skilldistillery.petsleuth.entities.User;
 
@@ -21,6 +22,45 @@ public class PostController {
 	
 	@Autowired
 	private PostDAO postDao;
+	
+	@Autowired
+	private UserDAO userDao;
+	
+	@RequestMapping( path = {"postPage.do"})
+	public String post(Model model, HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("user", user);
+		model.addAttribute("pets", userDao.findPetsByUserId(user.getId()));
+		model.addAttribute("contacts", userDao.findContactsByUserId(user.getId()));
+		model.addAttribute("locations", userDao.findLocationsByUserId(user.getId()));
+		return "post";
+	}
+	
+	@RequestMapping( path = {"post.do"}, method = RequestMethod.POST)
+	public String home(@RequestParam(name = "last") String lastSeen, Model model, Post post, int petId, int contactId, int locationId, HttpSession session) {
+		User newUser = (User)session.getAttribute("user");
+		//User newUser = userDao.findById(userId);
+		post.setUser(newUser);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate date = LocalDate.parse(lastSeen, formatter);
+		post.setLastSeen(date);
+		model.addAttribute("post", userDao.addPost(post, petId, contactId, locationId));
+		//model.addAttribute("user", newUser);
+		return "postResult";
+	}
+	
+	
+	@RequestMapping( path = {"displayPost.do"})
+	public String displayPost(Model model, HttpSession session, int id) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("user", user);
+		model.addAttribute("post", userDao.findPostById(id));
+		model.addAttribute("pets", userDao.findPetsByUserId(user.getId()));
+		model.addAttribute("contacts", userDao.findContactsByUserId(user.getId()));
+		model.addAttribute("locations", userDao.findLocationsByUserId(user.getId()));
+		
+		return "displayPost";
+	}	
 	
 	@RequestMapping( path = {"displayPosts.do"})
 	public String displayPosts(Model model, HttpSession session) {

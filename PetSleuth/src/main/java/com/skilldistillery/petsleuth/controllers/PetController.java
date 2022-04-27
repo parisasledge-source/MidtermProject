@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.petsleuth.data.PetDAO;
+import com.skilldistillery.petsleuth.data.UserDAO;
 import com.skilldistillery.petsleuth.entities.Pet;
 import com.skilldistillery.petsleuth.entities.User;
 
@@ -17,6 +18,35 @@ public class PetController {
 	
 	@Autowired
 	private PetDAO petDao;
+	
+	@Autowired
+	private UserDAO userDao;
+	
+	@RequestMapping( path = {"petPage.do"})
+	public String pet(Model model, HttpSession session) {
+		User newUser = (User)session.getAttribute("user");
+		
+		return "pet";
+		
+	}	
+	
+	@RequestMapping( path = {"pet.do"}, method = RequestMethod.POST)
+	public String home(Model model, Pet pet, HttpSession session) {
+		User newUser = (User)session.getAttribute("user");
+		pet.setUser(newUser);
+		model.addAttribute("pet", userDao.addPet(pet));
+		
+		return "petResult";
+	}
+		
+	@RequestMapping( path = {"displayPet.do"})
+	public String displayPet(Model model, HttpSession session, int id) {
+		model.addAttribute("user", session.getAttribute("user"));
+		model.addAttribute("pet", userDao.findPetById(id));
+		
+		return "displayPet";
+		
+	}	
 	
 	@RequestMapping( path = {"displayPets.do"})
 	public String displayPets(Model model, HttpSession session) {
