@@ -108,7 +108,7 @@
         <li class="dropdown">
           <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/">Update Information</a></li>
+            <li><a href="displayUserInfo.do">Update Information</a></li>
             <li><a href="displayContacts.do">Contact Information</a></li>
             <li><a href="displayPets.do">Pets</a></li>
             <li><a href="displayPosts.do">Posts</a></li>
@@ -125,7 +125,7 @@
             <li><a href="displayPosts.do">Your Posts</a></li>
             <li><a href="postPage.do">Add A Post</a></li>
             <li><a href="updatePostPage.do">Update Posts</a></li>
-            <li><a href="destroyPostPage.do">Remove A Post</a></li>
+            <li><a href="removePostPage.do">Remove A Post</a></li>
           </ul>
         </li>
       </ul>
@@ -138,7 +138,7 @@
             <li><a href="displayPets.do">Your Pets</a></li>
             <li><a href="petPage.do">Add A Pet</a></li>
             <li><a href="updatePetPage.do">Update Existing Pets</a></li>
-            <li><a href="destroyPetPage.do">Remove A Pet</a></li>
+            <li><a href="removePetPage.do">Remove A Pet</a></li>
           </ul>
         </li>
       </ul>
