@@ -1,5 +1,6 @@
 package com.skilldistillery.petsleuth.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -187,7 +188,25 @@ public class Pet {
 		this.posts = post;
 	}
 
+	public void addPetPhoto(PetPhoto petPhoto) {
+		if (photos == null) {
+			photos = new ArrayList<>();
+			
+		}
+		
+		if (!photos.contains(petPhoto)) {
+			photos.add(petPhoto);
+			petPhoto.setPetId(this);
+		}
+	}
 
+	public void removePetPhoto(PetPhoto petPhoto) {
+		if (photos != null && photos.contains(petPhoto)) {
+			photos.remove(petPhoto);
+			petPhoto.setPetId(null);
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "Pet [id=" + id + ", species=" + species + ", name=" + name + ", breed=" + breed + ", description="
