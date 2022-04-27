@@ -28,7 +28,6 @@ public class PetController {
 		User newUser = (User)session.getAttribute("user");
 		
 		return "pet";
-		
 	}	
 	
 	@RequestMapping( path = {"pet.do"}, method = RequestMethod.POST)
@@ -107,4 +106,10 @@ public class PetController {
 		return "removePetPage";
 	}
 
+	@RequestMapping( path = {"addPetPhoto.do"}, method = RequestMethod.POST)
+	public String addPetPhoto(int petId, Model model, HttpSession session, Pet pet, RedirectAttributes redir) {
+		redir.addFlashAttribute("user", session.getAttribute("user"));
+		redir.addFlashAttribute("pet", petDao.updatePet(petId, pet));
+		return "redirect:updatePetRedir.do";
+	}	
 }

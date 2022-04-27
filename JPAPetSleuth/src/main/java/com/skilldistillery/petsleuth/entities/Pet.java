@@ -191,9 +191,7 @@ public class Pet {
 	public void addPetPhoto(PetPhoto petPhoto) {
 		if (photos == null) {
 			photos = new ArrayList<>();
-			
 		}
-		
 		if (!photos.contains(petPhoto)) {
 			photos.add(petPhoto);
 			petPhoto.setPetId(this);
