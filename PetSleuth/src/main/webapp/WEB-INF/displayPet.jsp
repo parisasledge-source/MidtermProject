@@ -39,9 +39,6 @@
 	</c:forEach>
 	</ul>
 	
-	
-	
-	
 	<form action="updatePetForm.do">
 	<button name="id" value="${pet.id}">Update Pet</button>
 

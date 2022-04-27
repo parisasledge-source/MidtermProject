@@ -29,15 +29,5 @@
 	</c:choose>
 	</ul>
 	
-	<br>
-	
-	<h3>Remove a Pet</h3>
-	
-	<form action="hidePet.do" method="POST">
-	Enter Pet ID: <input type="text" name="petId" /> 
-	<input type="submit" value="Submit" />
-	</form>
-	
-
 </body>
 </html>
