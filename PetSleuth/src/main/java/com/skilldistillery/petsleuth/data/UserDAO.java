@@ -16,6 +16,8 @@ public interface UserDAO {
 	
 	public User findExistingUser(String userName, String password);
 	
+	public User updateUser(User newUser, User user);
+	
 	Post addPost(Post post, int petId, int contactId, int locationId);
 	
 	Location findLocationById(int petId);
