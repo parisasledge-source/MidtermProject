@@ -31,7 +31,7 @@ function locationValue(num) {
     txt=num;
     document.getElementById("location").innerHTML=txt;
     document.getElementById("location").href="displayLocation.do?id="+txt;
-    document.getElementById("inputContact").value=txt;
+    document.getElementById("inputLocation").value=txt;
     }
 
 </script>

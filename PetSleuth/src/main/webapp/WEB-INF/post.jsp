@@ -9,6 +9,32 @@
 </head>
 <body>
 
+<script type="text/javascript">
+
+function petValue(num) {
+    var txt=document.getElementById("pet").innerHTML;
+    txt=num;
+    document.getElementById("pet").innerHTML=txt;
+    document.getElementById("pet").href="displayPet.do?id="+txt;
+    document.getElementById("inputPet").value=txt;
+    }
+function contactValue(num) {
+    var txt=document.getElementById("contact").innerHTML;
+    txt=num;
+    document.getElementById("contact").innerHTML=txt;
+    document.getElementById("contact").href="displayContact.do?id="+txt;
+    document.getElementById("inputContact").value=txt;
+    }
+function locationValue(num) {
+    var txt=document.getElementById("location").innerHTML;
+    txt=num;
+    document.getElementById("location").innerHTML=txt;
+    document.getElementById("location").href="displayLocation.do?id="+txt;
+    document.getElementById("inputLocation").value=txt;
+    }
+
+</script>
+
 <%@ include file="bootstrapSetup.jsp" %>
 
 	<h1>Add a Post</h1>
@@ -17,16 +43,24 @@
 
 		<label for="last">Enter the date last seen:</label> 
 		<input name="last" type="date"> <br> 		
+		<br>
 		<label for="description">Write a description:</label> 		
 		<input name="description" type="text"> <br> 		
+		<br>
 		<label for="reward">How much would you like to offer:</label> <input name="reward" type="text">
+		<br>
 			
-		<label for="petId">Enter Pet ID:</label> <input name="petId" type="text">
-		<label for="contactId">Enter Contact ID:</label> <input name="contactId" type="text">
-		<label for="locationId">Enter Location ID:</label> <input name="locationId" type="text">
+		<br>
+		<label for="petId">Enter Pet ID:</label> <input name="petId" type="hidden" id="inputPet">
+		<br>
+		<label for="contactId">Enter Contact ID:</label> <input name="contactId" type="hidden" id="inputContact">
+		<br>
+		<label for="locationId">Enter Location ID:</label> <input name="locationId" type="hidden" id="inputLocation">
 		<br>
 		
 		<input name ="userId" type="hidden" value="${user.id}"> 
+		<input name ="submit" type="submit"> 
+		<br>
 		
 		</form>
 		
@@ -57,6 +91,7 @@
 		</c:when>
 		<c:otherwise>
 			<h3>Is this post for any of these pets?</h3>
+			<p>Pet Selected For This Post: <a href="displayPet.do?id=0" id="pet"></a></p>
 			<table>
 				<thead>
 					<tr>
@@ -73,7 +108,7 @@
 						<c:choose>
 							<c:when test="${p.active}">
 								<tr>
-									<td><button>Select</button></td>
+									<td><button onclick="petValue(this.value)" class="btn btn-primary" style="button" name="petButton" value="${p.id}">Select</button></td>
 									<td>${p.id}</td>
 									<td>${p.name}</td>
 									<td>${p.breed}</td>
@@ -130,6 +165,7 @@
 		</c:when>
 		<c:otherwise>
 			<h3>Preferred contact method</h3>
+			<p>Contact Selected For This Post: <a href="displayContact.do?id=0" id="contact"></a></p>
 			<table>
 				<thead>
 					<tr>
@@ -146,7 +182,7 @@
 						<c:choose>
 							<c:when test="${p.active}">
 								<tr>
-									<td><button>Select</button></td>
+									<td><button onclick="contactValue(this.value)" class="btn btn-primary" style="button" name="contactButton" value="${p.id}">Select</button></td>
 									<td>${p.id}</td>
 									<td>${p.contactPreference}</td>
 									<td>${p.email}</td>
@@ -191,6 +227,7 @@
 		</c:when>
 		<c:otherwise>
 			<h3>Would you like to use the location in your profile?</h3>
+			<p>Location Selected For This Post: <a href="displayLocation.do?id=0" id="location"></a></p>
 			<table>
 				<thead>
 					<tr>
@@ -207,7 +244,7 @@
 						<c:choose>
 							<c:when test="${p.active}">
 								<tr>
-									<td><button>Select</button></td>
+									<td><button onclick="locationValue(this.value)" class="btn btn-primary" style="button" name="locationButton" value="${p.id}">Select</button></td>
 									<td>${p.id}</td>
 									<td>${p.street}</td>
 									<td>${p.city}</td>
