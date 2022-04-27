@@ -32,12 +32,17 @@
 	<br>
 	Photo: 
 	<%-- <img src="${pet.photos}"> --%>
+	<c:choose>
+	<c:when test="${! empty pet.photos}">
 	<ul>
 	<c:forEach var="p" items="${pet.photos}">
 	<li><img src = "${p.photoUrl}" style="width:500px;height:400px;"/>
 	<br></li>
 	</c:forEach>
 	</ul>
+	</c:when>
+	</c:choose>
+	
 	
 	<form action="updatePetForm.do">
 	<button name="id" value="${pet.id}">Update Pet</button>

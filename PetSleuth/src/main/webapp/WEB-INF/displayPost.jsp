@@ -58,12 +58,12 @@
 	</ul>
 	<br>
 	<form action="updatePostForm.do">
-	<button name="postId" value="${post.id}">Update Pet</button>
+	<button name="id" value="${post.id}">Update Post</button>
 
 	</form>
 	
 	<form action="destroyPost.do">
-	<button name="postId" value="${post.id}">Remove Pet</button>
+	<button name="postId" value="${post.id}">Remove Post</button>
 	</form>
 	
 	<%-- <input name ="userId" type="hidden" value="${user.id}">  --%>
