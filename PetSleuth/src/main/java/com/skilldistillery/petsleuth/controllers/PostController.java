@@ -77,13 +77,13 @@ public class PostController {
 	}	
 	
 	@RequestMapping( path = {"updatePost.do"}, method = RequestMethod.POST)
-	public String updatePost(@RequestParam(name = "last") String lastSeen, int postId, Model model, HttpSession session, Post post, RedirectAttributes redir) {
+	public String updatePost(@RequestParam(name = "last") String lastSeen, int postId, Model model, HttpSession session, Post post, RedirectAttributes redir, int petId, int contactId, int locationId) {
 		User user = (User)session.getAttribute("user");
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate date = LocalDate.parse(lastSeen, formatter);
 		post.setLastSeen(date);
-		redir.addFlashAttribute("user", session.getAttribute("user"));
-		redir.addFlashAttribute("post", postDao.updatePost(postId, post));
+		redir.addFlashAttribute("user", userDao.findById(user.getId()));
+		redir.addFlashAttribute("post", postDao.updatePost(postId, post, petId, contactId, locationId));
 		return "redirect:updatePostRedir.do";
 	}	
 	
@@ -101,6 +101,23 @@ public class PostController {
 		model.addAttribute("post", post);
 		return "displayPosts";
 	}
-
 	
+	@RequestMapping(path = {"updatePostPage.do"})
+	public String updatePostPage(HttpSession session, Model model) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("posts", postDao.findByUserId(user.getId()));
+		return "updatePostPageList";
+	}
+	
+	@RequestMapping(path = {"updatePostForm.do"})
+	public String updatePostForm(HttpSession session, Model model, int id) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("user", user);
+		model.addAttribute("post", userDao.findPostById(id));
+		model.addAttribute("pets", userDao.findPetsByUserId(user.getId()));
+		model.addAttribute("contacts", userDao.findContactsByUserId(user.getId()));
+		model.addAttribute("locations", userDao.findLocationsByUserId(user.getId()));
+		return "updatePostPage";
+	}
+
 }

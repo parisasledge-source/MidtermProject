@@ -108,7 +108,7 @@
         <li class="dropdown">
           <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/">Update Information</a></li>
+            <li><a href="displayUserInfo.do">Update Information</a></li>
             <li><a href="displayContacts.do">Contact Information</a></li>
             <li><a href="displayPets.do">Pets</a></li>
             <li><a href="displayPosts.do">Posts</a></li>
