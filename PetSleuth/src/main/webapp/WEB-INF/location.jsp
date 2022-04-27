@@ -34,7 +34,7 @@
 	<br>
 	Street: ${locations.street}
 	<br>
-	Street: ${locations.zipcode}
+	Zip code: ${locations.zipcode}
 	<br>
 	<h2>Update</h2>
 	

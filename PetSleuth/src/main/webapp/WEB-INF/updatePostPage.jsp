@@ -218,7 +218,7 @@ function locationValue(num) {
 		</c:when>
 		<c:otherwise>
 			<h3>Would you like to use the location in your profile?</h3>
-			<p>Location Selected For This Post: <a href="displayLocation.do?id=0" id="location"></a></p>
+			<p>Location Selected For This Post: <a href="displayLocations.do" id="location"></a></p>
 			<table>
 				<thead>
 					<tr>
