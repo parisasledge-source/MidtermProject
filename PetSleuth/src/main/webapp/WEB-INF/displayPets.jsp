@@ -8,7 +8,11 @@
 <title>Display Pets</title>
 </head>
 <body>
+
+<%@ include file="bootstrapSetup.jsp" %>
 	<ul>
+	<c:choose>
+	<c:when test="${! empty pets}">
 	<c:forEach var = "p" items = "${pets}">
 		<c:choose>
 			<c:when test="${ p.active }">
@@ -18,6 +22,11 @@
 			</c:when>
 		</c:choose>
 	</c:forEach>
+	</c:when>
+	<c:otherwise>
+	<h2>No pet profile found!</h2>
+	</c:otherwise>
+	</c:choose>
 	</ul>
 	
 	<br>

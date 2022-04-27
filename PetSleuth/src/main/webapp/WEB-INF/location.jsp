@@ -8,6 +8,8 @@
 <title>Location</title>
 </head>
 <body>
+
+<%@ include file="bootstrapSetup.jsp" %>
 <c:choose>
  <c:when test="${empty locations  }">
  <h2>Create</h2>

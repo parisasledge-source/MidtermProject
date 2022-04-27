@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%@ include file="bootstrapSetup.jsp" %>
+
 <h1>Login</h1>
 
 <form action="login.do" method="POST">

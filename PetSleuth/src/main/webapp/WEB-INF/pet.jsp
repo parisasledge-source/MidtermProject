@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<%@ include file="bootstrapSetup.jsp" %>
+
 	<h1>Add a Pet</h1>
 
 	<form action="pet.do" method="POST">
@@ -43,9 +45,9 @@
 		
 		<input name ="userId" type="hidden" value="${user.id}"> 
 		
-		<h1> Here is all your pets:</h1>
+<%-- 		<h1> Here is all your pets:</h1>
 		<ul>
-			<c:forEach var="p" items="${pet}">
+			<c:forEach var="p" items="${pets}">
 			
 				<li>
 				${p.id} 
@@ -55,7 +57,7 @@
 			</c:forEach>
 		
 		</ul>
-		
+		 --%>
 
 		<input name="submit" type="submit">
 

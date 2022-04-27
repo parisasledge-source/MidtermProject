@@ -7,6 +7,9 @@
 <title>Pet Sleuth</title>
 </head>
 <body>
+
+	<%@ include file="bootstrapSetup.jsp" %>
+
 	<input name ="user" type="hidden" value="${user}">
 	<a href="signupPage.do">Sign up</a>
 	<a href="loginPage.do">Login</a>
@@ -14,23 +17,20 @@
 	<a href="displayPosts.do">See my Posts</a>
 	<a href="displayPets.do">See my Pets</a>
 	<a href="petPage.do">Add a Pet</a>
-
 	<a href="displayLocations.do">See my location</a>
+	<a href="displayUserInfo.do">Update your information</a>
 
-
-
-	
 	<br>
 	<a href="contactPage.do"> Add a contact</a>
 	<a href="displayContacts.do"> Display contacts</a>
+	<br>
+	
 	
 	<h3>Search</h3>
 
 	<form action="search.do" method="post">
 		<input type="text" name="word" placeholder="Enter search here"/> <input type="submit" name="submit" />
 	</form>
-
-
 
 </body>
 </html>

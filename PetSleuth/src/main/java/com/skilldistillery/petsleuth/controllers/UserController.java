@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.skilldistillery.petsleuth.data.PostDAO;
 import com.skilldistillery.petsleuth.data.UserDAO;
 import com.skilldistillery.petsleuth.entities.Pet;
 import com.skilldistillery.petsleuth.entities.Post;
@@ -23,11 +24,9 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 	
-	
 	@RequestMapping( path = {"signupPage.do"})
 	public String user(Model model) {
 		return "signup";
-		
 	}	
 	
 	@RequestMapping( path = {"signup.do"}, method = RequestMethod.POST)
@@ -39,7 +38,6 @@ public class UserController {
 	@RequestMapping( path = {"loginPage.do"})
 	public String userLogin(Model model) {
 		return "login";
-		
 	}	
 	
 	@RequestMapping( path = {"login.do"}, method = RequestMethod.POST)
@@ -49,16 +47,26 @@ public class UserController {
 		return "home";
 	}	
 	
+	@RequestMapping( path = {"displayUserInfo.do"})
+	public String displayUser(Model model) {
+		return "displayUserInfo";
+	}
+	
+	@RequestMapping( path = {"updateUser.do"}, method = RequestMethod.POST)
+	public String updateUser(Model model, HttpSession session, User newUser) {
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("user", userDao.updateUser(newUser, user));
+		return "displayUserInfo";
+	}
+	
 	@RequestMapping( path = {"postPage.do"})
-	public String post(Model model, User user) {
+	public String post(Model model, HttpSession session) {
+		User user = (User)session.getAttribute("user");
 		model.addAttribute("user", user);
-		model.addAttribute("pet", user.getPets());
-		model.addAttribute("contact", user.getContacts());
-		model.addAttribute("location", user.getLocation());
-		//model.addAttribute("finder", user.getFinderPosts());
-		
+		model.addAttribute("pets", userDao.findPetsByUserId(user.getId()));
+		model.addAttribute("contacts", userDao.findContactsByUserId(user.getId()));
+		model.addAttribute("locations", userDao.findLocationsByUserId(user.getId()));
 		return "post";
-		
 	}	
 	
 	@RequestMapping( path = {"post.do"}, method = RequestMethod.POST)
@@ -77,17 +85,19 @@ public class UserController {
 	
 	@RequestMapping( path = {"displayPost.do"})
 	public String displayPost(Model model, HttpSession session, int id) {
-		model.addAttribute("user", session.getAttribute("user"));
+		User user = (User)session.getAttribute("user");
+		model.addAttribute("user", user);
 		model.addAttribute("post", userDao.findPostById(id));
+		model.addAttribute("pets", userDao.findPetsByUserId(user.getId()));
+		model.addAttribute("contacts", userDao.findContactsByUserId(user.getId()));
+		model.addAttribute("locations", userDao.findLocationsByUserId(user.getId()));
 		return "displayPost";
 	}	
 	
 	@RequestMapping( path = {"petPage.do"})
 	public String pet(Model model, HttpSession session) {
 		User newUser = (User)session.getAttribute("user");
-		
 		return "pet";
-		
 	}	
 	
 	@RequestMapping( path = {"pet.do"}, method = RequestMethod.POST)
@@ -95,7 +105,6 @@ public class UserController {
 		User newUser = (User)session.getAttribute("user");
 		pet.setUser(newUser);
 		model.addAttribute("pet", userDao.addPet(pet));
-		
 		return "petResult";
 	}
 		
@@ -103,8 +112,6 @@ public class UserController {
 	public String displayPet(Model model, HttpSession session, int id) {
 		model.addAttribute("user", session.getAttribute("user"));
 		model.addAttribute("pet", userDao.findPetById(id));
-		
 		return "displayPet";
-		
 	}	
 }
