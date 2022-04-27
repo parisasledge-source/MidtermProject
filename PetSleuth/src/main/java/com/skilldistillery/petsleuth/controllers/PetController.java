@@ -64,15 +64,18 @@ public class PetController {
 	}	
 	
 	@RequestMapping( path = {"updatePet.do"}, method = RequestMethod.POST)
-	public String updatePet(int petId, Model model, HttpSession session, Pet pet) {
+	public String updatePet(int petId, Model model, HttpSession session, Pet pet, RedirectAttributes redir) {
 		User user = (User)session.getAttribute("user");
-		model.addAttribute("user", session.getAttribute("user"));
-		model.addAttribute("pet", petDao.updatePet(petId, pet));
-		return "displayPet";
-		
+		redir.addFlashAttribute("user", session.getAttribute("user"));
+		redir.addFlashAttribute("pet", petDao.updatePet(petId, pet));
+		return "redirect:updatePetRedir.do";
 	}	
-
 	
+	@RequestMapping( path = {"updatePetRedir.do"}, method = RequestMethod.GET)
+	public String updatePetRedir() {
+		return "displayPet";
+	}
+
 	@RequestMapping(path = {"hidePet.do"})
 	public String hidePet(Integer petId, Model model, HttpSession session) {
 		boolean pet = petDao.hide(petId);
