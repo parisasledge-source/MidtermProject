@@ -60,9 +60,7 @@ public class PetDaoImpl implements PetDAO {
 	
 	public List<PetPhoto> findPetPhotoById(int petId) {
 
-		//String sql = "SELECT pc FROM PetPhoto pc WHERE pc.petId.id = :id";
-
-		String sql = "SELECT pp FROM PetPhoto pp WHERE pp.petId.id = :id";
+		String sql = "SELECT pp FROM PetPhoto pp WHERE pp.pet.id = :id";
 
 		List<PetPhoto> photos = em.createQuery(sql, PetPhoto.class).setParameter("id", petId).getResultList();
 		

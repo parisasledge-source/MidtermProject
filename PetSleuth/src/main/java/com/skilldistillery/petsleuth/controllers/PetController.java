@@ -115,11 +115,16 @@ public class PetController {
 		return "redirect:updatePetRedir.do";
 	}	
 
-	@RequestMapping( path = {"updatePetPhoto.do"})
-	public String updatePetPhoto(Model model, HttpSession session, PetPhoto petPhoto) {
+	@RequestMapping( path = {"updatePetPhoto.do"}, method = RequestMethod.POST)
+	public String updatePetPhoto(Model model, HttpSession session, PetPhoto petPhoto, int petPhotoId, int petId) {
+		System.out.println(petPhoto);
+		PetPhoto updatedPetPhoto = petDao.updatePetPhoto(petPhotoId, petPhoto);
 		model.addAttribute("user", session.getAttribute("user"));
+		model.addAttribute("petPhoto", updatedPetPhoto);
+		model.addAttribute("pet", userDao.findPetById(petId));
+		System.out.println(updatedPetPhoto);
 		model.addAttribute("petPhoto", userDao.findPetPhotoById(petPhoto.getId()));
-		model.addAttribute("pet", userDao.findPetPhotoById(petPhoto.getId()).getPetId());
+		//model.addAttribute("pet", userDao.findPetPhotoById(petPhoto.getId()).getPetId());
 		return "displayPet";
 	}
 	

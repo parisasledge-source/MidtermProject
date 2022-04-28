@@ -36,7 +36,13 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public User findExistingUser(String userName, String password) {
 		String sql = "SELECT user FROM User user WHERE user.username = :userName AND user.password = :password ";
-		User user = em.createQuery(sql, User.class).setParameter("userName", userName).setParameter("password", password).getSingleResult();
+		User user = null;
+			try {
+				user =	em.createQuery(sql, User.class).setParameter("userName", userName).setParameter("password", password).getSingleResult();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		return user;
 		
 	}
