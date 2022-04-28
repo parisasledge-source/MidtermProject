@@ -35,7 +35,7 @@
             <h2>Search</h2>
 			<p>Interested in helping people find their pets? Become a Sleuth today by searching for a lost pet posting in your area!</p>
             <form class="form-inline my-2 my-lg-0" action="search.do" method="POST">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search For Posts" aria-label="Search">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search For Posts" aria-label="Search" name="word">
       <button class="btn btn-secondary" type="submit">Search</button>
     </form>
           </div>

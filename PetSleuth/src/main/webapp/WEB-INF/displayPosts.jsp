@@ -10,52 +10,53 @@
 <body>
 
 	<%@ include file="bootstrapSetup.jsp"%>
-		<c:choose>
-			<c:when test="${! empty posts}">
-				<c:forEach var="p" items="${posts}">
-					<c:choose>
-						<c:when test="${ p.active }">
-							<table class="table">
-								<thead>
-									<tr>
-										<th></th>
-										<th scope="col">ID</th>
-										<th scope="col">Posting Date</th>
-										<th scope="col">Description</th>
-										<th scope="col">Reward</th>
+	<c:choose>
+		<c:when test="${! empty posts}">
+			<thead>
+				<tr>
+					<th></th>
+					<th scope="col">ID</th>
+					<th scope="col">Posting Date</th>
+					<th scope="col">Description</th>
+					<th scope="col">Reward</th>
 
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><form action="displayPost.do">
-												<button type="submit" class="btn btn-primary" name="id"
-													value="${p.id}">View</button>
-											</form></td>
-										<td>${p.id}</td>
-										<td>${p.postingDate}</td>
-										<td>${p.description}</td>
-										<td>${p.reward}</td>
-									</tr>
-								</tbody>
-							</table>
-							<br>
+				</tr>
+			</thead>
+			<c:forEach var="p" items="${posts}">
+				<c:choose>
+					<c:when test="${ p.active }">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td><form action="displayPost.do">
+											<button type="submit" class="btn btn-primary" name="id"
+												value="${p.id}">View</button>
+										</form></td>
+									<td>${p.id}</td>
+									<td>${p.postingDate}</td>
+									<td>${p.description}</td>
+									<td>${p.reward}</td>
+								</tr>
+							</tbody>
+						</table>
+					</c:when>
+				</c:choose>
+			</c:forEach>
+						<br>
 
-							<h3>Remove a Post</h3>
 
-							<form action="destroyPost.do" method="POST">
-								Enter a Post ID: <input type="text" name="postId" /> <input
-									type="submit" class="btn btn-primary" value="Submit" />
-							</form>
-						</c:when>
-					</c:choose>
-				</c:forEach>
-			</c:when>
-			<c:otherwise>
-				<h3>No posts found!</h3>
-				<a href="postPage.do">Add A Post Here</a>
-			</c:otherwise>
-		</c:choose>
+			<h3>Remove a Post</h3>
+
+			<form action="destroyPost.do" method="POST">
+				Enter a Post ID: <input type="text" name="postId" /> <input
+					type="submit" class="btn btn-primary" value="Submit" />
+			</form>
+		</c:when>
+		<c:otherwise>
+			<h3>No posts found!</h3>
+			<a href="postPage.do">Add A Post Here</a>
+		</c:otherwise>
+	</c:choose>
 </body>
 </html>
 
