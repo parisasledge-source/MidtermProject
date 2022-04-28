@@ -24,3 +24,5 @@
 * JSession implementation for user login
 * Controllers and DAOs for each entity to help in organization, concurrent team work, and avoiding merge conflicts
 * MySQL Workbench deleted database inserts. Pulling the mwb file from a branch that had not pulled yet allowed us to refill the database inserts
+* Debugging takes a LOONNG time
+* Clear directions on todos

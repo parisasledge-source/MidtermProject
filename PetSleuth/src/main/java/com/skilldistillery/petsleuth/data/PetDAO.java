@@ -11,9 +11,16 @@ public interface PetDAO {
 
 	public boolean hide(Integer id);
 
+
 	public Pet updatePet(int petId, Pet pet);
 	
 	public void addPetPhoto(int petId, PetPhoto petPhoto);
 	
 	
+
+	//Pet updatePet(int petId, Pet pet);
+
+	PetPhoto updatePetPhoto(int petPhotoId, PetPhoto petPhoto);
+
+
 }

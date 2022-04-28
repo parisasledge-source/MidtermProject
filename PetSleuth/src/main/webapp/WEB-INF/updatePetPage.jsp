@@ -40,7 +40,7 @@
 		<label for="age">Enter the age:</label> 		
 		<input name="age" type="text" value="${pet.age}"> <br> 	
 		
-		<label for="photos">Enter the URL:</label> 
+		<%-- <label for="photos">Enter the URL:</label> 
 		<c:choose>
 		<c:when test="${! empty pet.photos}">
 		<input name="photos" type="text" value="${pet.photos.get(0).photoUrl}"> <br>
@@ -48,7 +48,7 @@
 		<c:otherwise>
 		<input name="photos" type="text"> <br>
 		</c:otherwise>
-		</c:choose>
+		</c:choose> --%>
 		 	
 		
 		<br>
