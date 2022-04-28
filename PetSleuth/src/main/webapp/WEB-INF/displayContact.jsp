@@ -11,15 +11,6 @@
 
 	<%@ include file="bootstrapSetup.jsp"%>
 
-<%-- 	<ul>
-		<li>${contact.contactPreference}</li>
-		<li>${contact.contactInfo}</li>
-		<li>${contact.email}</li>
-		<li>${contact.phoneNumber}</li>
-	</ul>
-
-	<br> --%>
-
 	<div class="container">
 		<div class="table-wrapper">
 			<div class="table-title">
@@ -43,7 +34,6 @@
 						<th>General Information</th>
 						<th>Email Address</th>
 						<th>Phone Number</th>
-						<th>Actions</th>
 					</tr>
 				</thead>
 							<tbody>
