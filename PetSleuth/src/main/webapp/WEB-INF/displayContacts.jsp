@@ -19,6 +19,7 @@
 						<table class="table">
   <thead>
     <tr>
+    	<th></th>
       <th scope="col">ID</th>
       <th scope="col">E-Mail</th>
       <th scope="col">Phone Number</th>
@@ -27,9 +28,10 @@
   </thead>
   <tbody>
     <tr>
-      <td><a href="displayContact.do?id=${p.id}">${p.id}</a></td>
-      <td><a href="displayContact.do?id=${p.id}">${p.email}</a></td>
-      <td><a href="displayContact.do?id=${p.id}">${p.phoneNumber}</a></td>
+      <td><form action="displayContact.do"><button type="submit" class="btn btn-primary" name="id" value="${p.id}">View</button></form></td>
+      <td>${p.id}</td>
+      <td>${p.email}</td>
+      <td>${p.phoneNumber}</td>
     </tr>
   </tbody>
 </table>
@@ -55,7 +57,7 @@
 
 							<form action="destroyContact.do" method="POST">
 								Enter a Contact ID: <input type="text" name="contactId" /> <input
-									type="submit" value="Submit" />
+									type="submit"  class="btn btn-primary" value="Submit" />
 							</form>
 							<%-- <li> 
 					<a href = "displayContact.do?id=${p.id}">${p.id} ${p.email}<br>${p.phoneNumber}</a>
