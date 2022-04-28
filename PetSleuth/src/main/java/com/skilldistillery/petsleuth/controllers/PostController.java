@@ -46,7 +46,7 @@ public class PostController {
 		LocalDate date = LocalDate.parse(lastSeen, formatter);
 		post.setLastSeen(date);
 		redir.addFlashAttribute("post", userDao.addPost(post, petId, contactId, locationId));
-		return "redirect:postRedir.do";
+		return "displayPost";
 	}
 	
 	@RequestMapping( path = {"postRedir.do"}, method = RequestMethod.GET)

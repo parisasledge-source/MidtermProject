@@ -772,7 +772,7 @@
 									</div>
 								</div>
 
-								<input type="hidden" name="id" value="${boxer.id}">
+								<input type="hidden" name="id" value="${user.id}">
 
 								<!-- Button -->
 								<div class="form-group">
@@ -900,7 +900,7 @@
 									</div>
 								</div>
 
-								<input type="hidden" name="id" value="${boxer.id}">
+								<input type="hidden" name="id" value="${user.id}">
 
 								<!-- Button -->
 								<div class="form-group">
