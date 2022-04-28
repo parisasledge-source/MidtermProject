@@ -19,6 +19,7 @@
     margin-top: -5%;
 }
 
+
 .centeredText {
     text-align:center;
 }

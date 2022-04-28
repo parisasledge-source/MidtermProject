@@ -29,8 +29,8 @@
 					</div>
 					<div class="col-sm-4">
 					<a href="contactPage.do">
-						<button type="button" class="btn btn-info add-new">
-							<i class="fa fa-plus"></i> Add New
+						<button type="button" class="btn btn-primary add-new">
+							<i></i> Add New
 						</button>
 					</a>
 					</div>
@@ -63,7 +63,6 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
 	
 	<br>
 	
@@ -80,8 +79,9 @@
 		<label for="phoneNumber">Phone number:</label> <input
 			name="phoneNumber" type="text" value="${contact.phoneNumber}">
 		<br> <input name="userId" type="hidden" value="${user.id}">
-		<br> <input name="submit" type="submit">
+		<br> <input name="submit" type="submit" class="btn btn-primary" value="submit">
 	</form>
+	</div>
 
 <%-- 	<h3>Add Separate Contact Information</h3>
 
