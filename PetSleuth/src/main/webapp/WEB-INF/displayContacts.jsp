@@ -49,7 +49,7 @@
 			</c:when>
 			<c:otherwise>
 				<h3>No contact information found!</h3>
-				<a href="addContact.do">Add A Contact Here</a>
+				<a href="addContactRedir.do">Add A Contact Here</a>
 			</c:otherwise>
 		</c:choose>
 	</ul>
