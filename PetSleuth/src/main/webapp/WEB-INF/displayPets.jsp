@@ -9,8 +9,7 @@
 </head>
 <body>
 
-<%@ include file="bootstrapSetup.jsp" %>
-	<ul>
+	<%@ include file="bootstrapSetup.jsp"%>
 	<c:choose>
 	<c:when test="${! empty pets}">
 			<table>
@@ -47,7 +46,9 @@
 	<h2>No pet profile found!</h2>
 	</c:otherwise>
 	</c:choose>
-	</ul>
-	
+
+
+
+
 </body>
 </html>
