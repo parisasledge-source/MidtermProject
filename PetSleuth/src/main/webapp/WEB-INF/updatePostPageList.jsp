@@ -9,10 +9,47 @@
 </head>
 <body>
 
-<%@ include file="bootstrapSetup.jsp" %>
+	<%@ include file="bootstrapSetup.jsp"%>
 	<c:choose>
-	<c:when test="${! empty posts}">
-	<table>
+		<c:when test="${! empty posts}">
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th scope="col">ID</th>
+						<th scope="col">Posting Date</th>
+						<th scope="col">Description</th>
+						<th scope="col">Reward</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="p" items="${posts}">
+						<c:choose>
+							<c:when test="${ p.active }">
+								<tr>
+									<td><form action="updatePostForm.do">
+											<button type="submit" class="btn btn-primary" name="id"
+												value="${p.id}">Update</button>
+										</form></td>
+									<td>${p.id}</td>
+									<td>${p.postingDate}</td>
+									<td>${p.description}</td>
+									<td>${p.reward}</td>
+								</tr>
+							</c:when>
+						</c:choose>
+					</c:forEach>
+				</tbody>
+			</table>
+		</c:when>
+		<c:otherwise>
+			<h2>No posts found to update!</h2>
+		</c:otherwise>
+	</c:choose>
+
+	<%-- <table>
 	<thead>
 	<tr>
 	<th>Update</th>
@@ -40,7 +77,7 @@
 	<c:otherwise>
 	<h2>No posts found to update!</h2>
 	</c:otherwise>
-	</c:choose>
-	
+	</c:choose> --%>
+
 </body>
 </html>
