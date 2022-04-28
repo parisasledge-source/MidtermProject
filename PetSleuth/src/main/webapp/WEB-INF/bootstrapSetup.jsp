@@ -10,66 +10,6 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 <style>
-.navbar-default {
-  background-color: #69899f;
-  border-color: #425766;
-}
-.navbar-default .navbar-brand {
-  color: #d7e2e9;
-}
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-  color: #e5dbdb;
-}
-.navbar-default .navbar-text {
-  color: #d7e2e9;
-}
-.navbar-default .navbar-nav > li > a {
-  color: #d7e2e9;
-}
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #e5dbdb;
-}
-.navbar-default .navbar-nav > li > .dropdown-menu {
-  background-color: #69899f;
-}
-.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
-  color: #d7e2e9;
-}
-.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
-.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
-  color: #e5dbdb;
-  background-color: #425766;
-}
-.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
-  background-color: #69899f;
-}
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #e5dbdb;
-  background-color: #425766;
-}
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  color: #e5dbdb;
-  background-color: #425766;
-}
-.navbar-default .navbar-toggle {
-  border-color: #425766;
-}
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: #425766;
-}
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: #d7e2e9;
-}
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
-  border-color: #d7e2e9;
-}
-.navbar-default .navbar-link {
-  color: #d7e2e9;
-}
-.navbar-default .navbar-link:hover {
-  color: #e5dbdb;
-}
 
 .centered {
     left: 50%;
@@ -83,143 +23,105 @@
     left: 25%;
 }
 
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #d7e2e9;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #e5dbdb;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #e5dbdb;
-    background-color: #425766;
-  }
-  
 }
 </style>
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">PetSleuth</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 <c:choose>
 <c:when test="${! empty user}">
-<div class="container-fluid">
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
 
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-    </div>
-
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="/">Home<span class="sr-only">(current)</span></a></li>
-      
-        <!-- First dropdown code -->
-        <li class="dropdown">
-          <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="displayUserInfo.do">Update Information</a></li>
-            <li><a href="displayContacts.do">Contact Information</a></li>
-            <li><a href="displayPets.do">Pets</a></li>
-            <li><a href="displayPosts.do">Posts</a></li>
-            <li><a href="displayLocations.do">Location Information</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-left">
-      
-      <!-- Second dropdown code -->
-     <li class="dropdown">
-          <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Post<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="displayPosts.do">Your Posts</a></li>
-            <li><a href="postPage.do">Add A Post</a></li>
-            <li><a href="updatePostPage.do">Update Posts</a></li>
-            <li><a href="removePostPage.do">Remove A Post</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-left">
-      
-       <!-- Third dropdown code -->
-     <li class="dropdown">
-          <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pets<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="displayPets.do">Your Pets</a></li>
-            <li><a href="petPage.do">Add A Pet</a></li>
-            <li><a href="updatePetPage.do">Update Existing Pets</a></li>
-            <li><a href="removePetPage.do">Remove A Pet</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search" action="search.do" method="POST">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search For Posts" name="word">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="displayUserInfo.do">Update Information</a>
+          <a class="dropdown-item" href="displayContacts.do">Contact Information</a>
+          <a class="dropdown-item" href="displayPets.do">Pets</a>
+          <a class="dropdown-item" href="displayPosts.do">Posts</a>
+          <a class="dropdown-item" href="displayLocations.do">Location Information</a>
         </div>
-        <button type="submit" class="btn btn-info">Go</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        
-		<li><a href="signout.do">Sign Out</a></li>
-        <!-- About dropdown code -->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="about.do">The Team</a></li>
-            <li><a href="https://github.com/parisasledge-source/MidtermProject" target="_blank">GitHub</a></li>
-          </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Post
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="displayPosts.do">Your Posts</a>
+          <a class="dropdown-item" href="postPage.do">Add A Post</a>
+          <a class="dropdown-item" href="updatePostPage.do">Update Posts</a>
+          <a class="dropdown-item" href="removePostPage.do">Remove A Post</a>
+        </div>
+      </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pet
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="displayPets.do">Your Pets</a>
+          <a class="dropdown-item" href="petPage.do">Add A Pet</a>
+          <a class="dropdown-item" href="updatePetPage.do">Update Pets</a>
+          <a class="dropdown-item" href="removePetPage.do">Remove A Pets</a>
+        </div>
+      </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          About
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="about.do">The Team</a>
+          <a class="dropdown-item" href="https://github.com/parisasledge-source/MidtermProject" target="_blank">GitHub</a>
+        </div>
+        </li>
+<li class="nav-item">
+        <a class="nav-link" href="signout.do">Sign Out</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" action="search.do" method="POST">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search For Posts" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</c:when>
+<c:otherwise>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+ <li class="nav-item">
+ 	<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+ 	<li>
+        <a class="nav-link" href="signupPage.do">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="loginPage.do">Log In</a>
+      </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          About
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="about.do">The Team</a>
+          <a class="dropdown-item" href="https://github.com/parisasledge-source/MidtermProject" target="_blank">GitHub</a>
+        </div>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+      </div>
+</c:otherwise>
+</c:choose>
 </nav>
-</div>
-        </c:when>
-        <c:otherwise>
-        <div class="container-fluid">
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-    </div>
 
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="/">Home<span class="sr-only">(current)</span></a></li>
-        <li><a href="signupPage.do">Sign Up</a></li>
-       	<li><a href="loginPage.do">Log In</a></li>
-       	</ul>
-       	        <!-- About dropdown code -->
-        <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="about.do">The Team</a></li>
-            <li><a href="https://github.com/parisasledge-source/MidtermProject" target="_blank">GitHub</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-</div>
 
-        </c:otherwise>
-        </c:choose>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
