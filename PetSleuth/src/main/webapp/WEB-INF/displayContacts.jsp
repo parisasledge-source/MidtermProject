@@ -16,7 +16,24 @@
 				<c:forEach var="p" items="${contacts}">
 					<c:choose>
 						<c:when test="${ p.active }">
-							<table>
+						<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">E-Mail</th>
+      <th scope="col">Phone Number</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="displayContact.do?id=${p.id}">${p.id}</a></td>
+      <td><a href="displayContact.do?id=${p.id}">${p.email}</a></td>
+      <td><a href="displayContact.do?id=${p.id}">${p.phoneNumber}</a></td>
+    </tr>
+  </tbody>
+</table>
+							<%-- <table>
 								<thead>
 									<tr>
 										<th>ID</th>
@@ -31,7 +48,7 @@
 										<td><a href="displayContact.do?id=${p.id}">${p.phoneNumber}</a></td>
 									</tr>
 								</tbody>
-							</table>
+							</table> --%>
 							<br>
 
 							<h3>Remove a Contact</h3>
