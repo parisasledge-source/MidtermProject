@@ -12,61 +12,193 @@
 <%@ include file="bootstrapSetup.jsp" %>
 <c:choose>
  <c:when test="${empty locations  }">
- <h2>Create</h2>
-	<form action="createLocation.do" method = "POST">
-	
-	State: <input type="text" value="${locations.state}" name="state" /> 
-	<br>
-	City: <input type="text" value ="${locations.city}" name="city" />
-	<br>
-	Street: <input type="text" value ="${locations.street}" name="street" />
-	<br>
-	Zip code: <input type="text" value ="${locations.zipcode}" name="zipcode" />
-	<br>
-	<input type="submit" value="Submit" />
-	</form>
+			<form class="well form-horizontal" action="createLocation.do" method="post"
+			id="contact_form">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Add A Location</legend>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Street</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="street" class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">City</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="city"
+								 class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label">State</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-envelope"></i></span> <input name="State"
+								 class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Zip Code</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-earphone"></i></span> <input
+								name="zipcode"
+								class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+				
+				<input type="hidden" name="id" value="${boxer.id}">
+
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label"></label>
+					<div class="col-md-4">
+						<button type="submit" class="btn btn-warning">
+							Submit <span class="glyphicon glyphicon-send"></span>
+						</button>
+					</div>
+				</div>
+
+			</fieldset>
+		</form>
  	</c:when>
  	
  <c:otherwise>
-	<h1>Location</h1>
-	State: ${locations.state}
-	<br>
-	City: ${locations.city}
-	<br>
-	Street: ${locations.street}
-	<br>
-	Zip code: ${locations.zipcode}
-	<br>
-	<h2>Update</h2>
-	
-	<form action="updateLocations.do" method = "POST">
-	
-	State: <input type="text" value="${locations.state}" name="state" /> 
-	<br>
-	City: <input type="text" value ="${locations.city}" name="city" />
-	<br>
-	Street: <input type="text" value ="${locations.street}" name="street" />
-	<br>
-	Zip code: <input type="text" value ="${locations.zipcode}" name="zipcode" />
-	<br>
-	<input type="submit" value="Submit" />
-	</form>
-	<br>
-	
-	 	<div>
-		<div class="card">
-			<h5 class="card-header">Location</h5>
-			<div class="card-body">
-				<h5 class="card-title">Your Location</h5>
-				<ul>
-					<li>Street: ${locations.street}</li>
-					<li>City: ${locations.city}</li>
-					<li>State: ${locations.state}</li>
-					<li>Zip Code: ${locations.zipcode}</li>
-				</ul>
+		<div class="container">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-8">
+						<h2>Location Information</h2>
+					</div>
+					<div class="col-sm-4">
+					</div>
+				</div>
 			</div>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Street</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Zip Code</th>
+					</tr>
+				</thead>
+							<tbody>
+								<tr>
+									<td>${locations.street}</td>
+									<td>${locations.city}</td>
+									<td>${locations.state}</td>
+									<td>${locations.zipcode}</td>
+								</tr>
+							
+				</tbody>
+			</table>
 		</div>
 	</div>
+	
+		
+		<br>
+	
+
+		<form class="well form-horizontal" action="updateLocations.do" method="post"
+			id="contact_form">
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>Update Your Location</legend>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Street</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="street"
+								value="${locations.street}" class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">City</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="city"
+								value="${locations.city}" class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label">State</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-envelope"></i></span> <input name="State"
+								value="${locations.state}" class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Zip Code</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-earphone"></i></span> <input
+								name="zipcode" value="${locations.zipcode}"
+								class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+				
+				<input type="hidden" name="id" value="${locations.id}">
+
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label"></label>
+					<div class="col-md-4">
+						<button type="submit" class="btn btn-warning">
+							Submit <span class="glyphicon glyphicon-send"></span>
+						</button>
+					</div>
+				</div>
+
+			</fieldset>
+		</form>
 	
 	</c:otherwise>
 </c:choose>
