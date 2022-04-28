@@ -48,7 +48,8 @@
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
-				<h2>No contact information found!</h2>
+				<h3>No contact information found!</h3>
+				<a href="addContact.do">Add A Contact Here</a>
 			</c:otherwise>
 		</c:choose>
 	</ul>
