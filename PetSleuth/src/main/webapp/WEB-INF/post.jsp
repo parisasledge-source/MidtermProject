@@ -29,7 +29,7 @@ function locationValue(num) {
     var txt=document.getElementById("location").innerHTML;
     txt=num;
     document.getElementById("location").innerHTML=txt;
-    document.getElementById("location").href="displayLocation.do?id="+txt;
+    document.getElementById("location").href="displayLocations.do?id="+txt;
     document.getElementById("inputLocation").value=txt;
     }
 

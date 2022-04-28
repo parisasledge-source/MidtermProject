@@ -248,9 +248,9 @@ function locationValue(num) {
 				</tbody>
 			</table>
 
-			<h3>Add a different location</h3>
+			<h3>Update location</h3>
 
-			<form action="createLocation.do" method="POST">
+			<form action="updateLocations.do" method="POST">
 
 				State: <input type="text" name="state" /> <br> City: <input
 					type="text" name="city" /> <br> Street: <input type="text"
