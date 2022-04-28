@@ -10,7 +10,7 @@
 <body>
 
 	<%@ include file="bootstrapSetup.jsp"%>
-
+<<<<<<< HEAD
 	<c:choose>
 	<c:when test="${! empty pets}">
 			
