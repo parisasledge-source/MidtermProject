@@ -63,4 +63,11 @@ public class UserController {
 		model.addAttribute("user", userDao.updateUser(newUser, user));
 		return "displayUserInfo";
 	}
+	
+	@RequestMapping( path = {"signout.do"})
+	public String homeSignout(HttpSession session) {
+		session.setAttribute("user", null);
+		return "home";
+	}
+	
 }
