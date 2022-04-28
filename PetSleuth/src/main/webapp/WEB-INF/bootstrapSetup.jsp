@@ -77,7 +77,7 @@
           <a class="dropdown-item" href="displayPets.do">Your Pets</a>
           <a class="dropdown-item" href="petPage.do">Add A Pet</a>
           <a class="dropdown-item" href="updatePetPage.do">Update Pets</a>
-          <a class="dropdown-item" href="removePetPage.do">Remove A Pets</a>
+          <a class="dropdown-item" href="removePetPage.do">Remove A Pet</a>
         </div>
       </li>
        <li class="nav-item dropdown">
