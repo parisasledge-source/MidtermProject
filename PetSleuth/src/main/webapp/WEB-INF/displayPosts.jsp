@@ -35,7 +35,6 @@
 								</tbody>
 							</table>
 							<br>
-
 							<h3>Remove a Post</h3>
 
 							<form action="destroyPost.do" method="POST">

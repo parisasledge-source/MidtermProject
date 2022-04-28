@@ -9,43 +9,53 @@
 </head>
 <body>
 
-<%@ include file="bootstrapSetup.jsp" %>
+	<%@ include file="bootstrapSetup.jsp"%>
 	<ul>
-	<c:choose>
-	<c:when test="${! empty pets}">
-	<c:forEach var = "p" items = "${pets}">
 		<c:choose>
-			<c:when test="${ p.active }">
-			<table>
-			<thead>
-			<tr>
-			<th>ID</th>
-			<th>Species</th>
-			<th>Breed</th>
-			<th>Name</th>			
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td><a href = "displayContact.do?id=${p.id}">${p.id}</a></td>
-			<td><a href = "displayContact.do?id=${p.id}">${p.species}</a></td>
-			<td><a href = "displayContact.do?id=${p.id}">${p.breed}</a></td>
-			<td><a href = "displayContact.do?id=${p.id}">${p.name}</a></td>
-			</tr>
-			</tbody>
-			</table>
-				<%-- <li> 
+			<c:when test="${! empty pets}">
+				<c:forEach var="p" items="${pets}">
+					<c:choose>
+						<c:when test="${ p.active }">
+							<table>
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Species</th>
+										<th>Breed</th>
+										<th>Name</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><a href="displayContact.do?id=${p.id}">${p.id}</a></td>
+										<td><a href="displayContact.do?id=${p.id}">${p.species}</a></td>
+										<td><a href="displayContact.do?id=${p.id}">${p.breed}</a></td>
+										<td><a href="displayContact.do?id=${p.id}">${p.name}</a></td>
+									</tr>
+								</tbody>
+							</table>
+							<br>
+							<h3>Remove a Pet</h3>
+
+							<form action="hidePet.do" method="POST">
+								Enter a Pet ID: <input type="text" name="petId" /> <input
+									type="submit" value="Submit" />
+							</form>
+							<%-- <li> 
 					<a href = "displayPet.do?id=${p.id}"> ${p.id}</a>
 				</li> --%>
+						</c:when>
+					</c:choose>
+				</c:forEach>
 			</c:when>
+			<c:otherwise>
+				<h2>No pet profile found!</h2>
+			</c:otherwise>
 		</c:choose>
-	</c:forEach>
-	</c:when>
-	<c:otherwise>
-	<h2>No pet profile found!</h2>
-	</c:otherwise>
-	</c:choose>
 	</ul>
-	
+
+
+
+
 </body>
 </html>
