@@ -63,4 +63,5 @@ public class UserController {
 		model.addAttribute("user", userDao.updateUser(newUser, user));
 		return "displayUserInfo";
 	}
+	
 }
