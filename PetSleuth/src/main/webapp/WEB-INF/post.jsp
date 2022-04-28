@@ -611,7 +611,7 @@
 
 					<div class="text-center">
 						<h5>If you don't see the necessary contact information, add
-							one here!</h5>
+							it here!</h5>
 
 						<button class="btn btn-primary" type="button"
 							data-toggle="collapse" data-target="#contactEmpty"
@@ -772,7 +772,7 @@
 									</div>
 								</div>
 
-								<input type="hidden" name="id" value="${boxer.id}">
+								<input type="hidden" name="id" value="${user.id}">
 
 								<!-- Button -->
 								<div class="form-group">
@@ -900,7 +900,7 @@
 									</div>
 								</div>
 
-								<input type="hidden" name="id" value="${boxer.id}">
+								<input type="hidden" name="id" value="${user.id}">
 
 								<!-- Button -->
 								<div class="form-group">

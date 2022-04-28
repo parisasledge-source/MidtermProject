@@ -78,7 +78,7 @@ public class PostController {
 	}	
 	
 	@RequestMapping( path = {"updatePost.do"}, method = RequestMethod.POST)
-	public String updatePost(@RequestParam(name = "last") String lastSeen, int postId, Model model, HttpSession session, Post post, RedirectAttributes redir, int petId, int contactId, int locationId) {
+	public String updatePost(@RequestParam(name = "last") String lastSeen, Integer postId, Model model, HttpSession session, Post post, RedirectAttributes redir, int petId, int contactId, int locationId) {
 		User user = (User)session.getAttribute("user");
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate date = LocalDate.parse(lastSeen, formatter);

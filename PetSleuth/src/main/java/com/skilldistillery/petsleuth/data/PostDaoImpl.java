@@ -41,7 +41,7 @@ public class PostDaoImpl implements PostDAO {
 	}
 
 	@Override
-	public Post updatePost(int postId, Post post, int petId, int contactId, int locationId) {
+	public Post updatePost(Integer postId, Post post, int petId, int contactId, int locationId) {
 
 		Post updatePost = em.find(Post.class, postId);
 

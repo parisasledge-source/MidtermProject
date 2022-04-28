@@ -14,7 +14,7 @@ public interface PostDAO {
 
 	public boolean destroy(Integer id);
 
-	Post updatePost(int postId, Post post, int petId, int contactId, int locationId);
+	Post updatePost(Integer postId, Post post, int petId, int contactId, int locationId);
 	
 	public Pet findPetById(int petId);
 	
