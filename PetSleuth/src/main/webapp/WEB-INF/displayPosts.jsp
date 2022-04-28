@@ -43,10 +43,10 @@
 					</c:choose>
 				</c:forEach>
 			</table>
+		</c:when>
 			<c:otherwise>
 				<h2>No posts found!</h2>
 			</c:otherwise>
-		</c:when>
 	</c:choose>
 
 </body>
