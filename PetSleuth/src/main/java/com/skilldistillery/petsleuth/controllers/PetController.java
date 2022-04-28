@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.skilldistillery.petsleuth.data.PetDAO;
 import com.skilldistillery.petsleuth.data.UserDAO;
 import com.skilldistillery.petsleuth.entities.Pet;
+import com.skilldistillery.petsleuth.entities.PetPhoto;
 import com.skilldistillery.petsleuth.entities.User;
 
 @Controller
@@ -41,7 +42,7 @@ public class PetController {
 	
 	@RequestMapping( path = {"petRedir.do"}, method = RequestMethod.GET)
 	public String petRedir() {
-		return "petResult";
+		return "displayPet";
 	}
 		
 	@RequestMapping( path = {"displayPet.do"})
@@ -99,6 +100,7 @@ public class PetController {
 		return "updatePetPage";
 	}
 	
+	
 	@RequestMapping( path = {"removePetPage.do"})
 	public String removePetPage(Model model, HttpSession session) {
 		User user = (User)session.getAttribute("user");
@@ -112,4 +114,26 @@ public class PetController {
 		redir.addFlashAttribute("pet", petDao.updatePet(petId, pet));
 		return "redirect:updatePetRedir.do";
 	}	
+
+	@RequestMapping( path = {"updatePetPhoto.do"}, method = RequestMethod.POST)
+	public String updatePetPhoto(Model model, HttpSession session, PetPhoto petPhoto, int petPhotoId, int petId) {
+		System.out.println(petPhoto);
+		PetPhoto updatedPetPhoto = petDao.updatePetPhoto(petPhotoId, petPhoto);
+		model.addAttribute("user", session.getAttribute("user"));
+		model.addAttribute("petPhoto", updatedPetPhoto);
+		model.addAttribute("pet", userDao.findPetById(petId));
+		System.out.println(updatedPetPhoto);
+		model.addAttribute("petPhoto", userDao.findPetPhotoById(petPhoto.getId()));
+		//model.addAttribute("pet", userDao.findPetPhotoById(petPhoto.getId()).getPetId());
+		return "displayPet";
+	}
+	
+//	@RequestMapping( path = {"updatePetPhoto.do"})
+//	public String updatePetPhoto(Model model, HttpSession session, int petPhotoId) {
+//		model.addAttribute("user", session.getAttribute("user"));
+//		model.addAttribute("petPhoto", userDao.findPetPhotoById(petPhotoId));
+//		model.addAttribute("pet", userDao.findPetPhotoById(petPhotoId).getPetId());
+//		return "displayPet";
+//	}
+
 }

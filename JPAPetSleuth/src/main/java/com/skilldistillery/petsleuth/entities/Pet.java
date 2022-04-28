@@ -45,7 +45,7 @@ public class Pet {
 	
 	private boolean active;
 	
-	@OneToMany(mappedBy = "petId")
+	@OneToMany(mappedBy = "pet")
 	private List<PetPhoto> photos;
 
 	@OneToMany(mappedBy = "pet")
@@ -194,14 +194,14 @@ public class Pet {
 		}
 		if (!photos.contains(petPhoto)) {
 			photos.add(petPhoto);
-			petPhoto.setPetId(this);
+			petPhoto.setPet(this);
 		}
 	}
 
 	public void removePetPhoto(PetPhoto petPhoto) {
 		if (photos != null && photos.contains(petPhoto)) {
 			photos.remove(petPhoto);
-			petPhoto.setPetId(null);
+			petPhoto.setPet(null);
 		}
 	}
 	

@@ -64,4 +64,12 @@ public class UserController {
 		return "displayUserInfo";
 	}
 	
+
+	@RequestMapping( path = {"signout.do"})
+	public String homeSignout(HttpSession session) {
+		session.setAttribute("user", null);
+		return "home";
+	}
+	
+
 }

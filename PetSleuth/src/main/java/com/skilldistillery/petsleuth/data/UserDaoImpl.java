@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.petsleuth.entities.Contact;
 import com.skilldistillery.petsleuth.entities.Location;
 import com.skilldistillery.petsleuth.entities.Pet;
+import com.skilldistillery.petsleuth.entities.PetPhoto;
 import com.skilldistillery.petsleuth.entities.Post;
 import com.skilldistillery.petsleuth.entities.User;
 
@@ -35,7 +36,13 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public User findExistingUser(String userName, String password) {
 		String sql = "SELECT user FROM User user WHERE user.username = :userName AND user.password = :password ";
-		User user = em.createQuery(sql, User.class).setParameter("userName", userName).setParameter("password", password).getSingleResult();
+		User user = null;
+			try {
+				user =	em.createQuery(sql, User.class).setParameter("userName", userName).setParameter("password", password).getSingleResult();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		return user;
 		
 	}
@@ -113,6 +120,12 @@ public class UserDaoImpl implements UserDAO {
 		String sql = "SELECT pet FROM Pet pet WHERE pet.user.id = :id";
 		List<Pet> pets = em.createQuery(sql, Pet.class).setParameter("id", id).getResultList();
 		return pets;
+	}
+
+	@Override
+	public PetPhoto findPetPhotoById(int petPhotoId) {
+		return em.find(PetPhoto.class, petPhotoId);
+		
 	}
 		
 }
