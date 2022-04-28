@@ -35,24 +35,41 @@
 	</c:choose>
 
 
+		<c:choose>
+			<c:when test="${! empty pet.photos}">
 	<form action="updatePetPhoto.do" method ="post">
 	<input name = "petId" value = "${pet.id}" type = "hidden">
 		<label for="photoUrl">Photo URL:</label>
-		<c:choose>
-			<c:when test="${! empty pet.photos}">
+				
+				<c:forEach var = "p" items="${pet.photos}">
 				<input name="photoUrl" type="text"
-					value="${pet.photos.get(0).photoUrl}">
+					value="${p.photoUrl}">
 				<br>
-				<button name="petPhotoId" value="${pet.photos.get(0).id}">Update
+				<button name="petPhotoId" value="${p.id}">Update
 					Photo</button>
+				</c:forEach>
+				
+	</form>
 			</c:when>
 			<c:otherwise>
-				<input name="photoUrl" type="text">
+			<form action="addPetPhoto.do" method="POST">
+			<input name="photoUrl" type="text">
+			<input name="species" type="hidden" value="${pet.species}">
+			<input name="name" type="hidden" value="${pet.name}">
+			<input name="description" type="hidden" value="${pet.description}">
+			<input name="breed" type="hidden" value="${pet.breed}">
+			<input name="chip" type="hidden" value="${pet.chip}">
+			<input name="color" type="hidden" value="${pet.color}">
+			<input name="gender" type="hidden" value="${pet.gender}">
+			<input name="neutered" type="hidden" value="${pet.neutered}">
+			<input name="age" type="hidden" value="${pet.age}">
+			<input name="petId" type="hidden" value="${pet.id}">
 				<br>
-				 <button name="id" value="${pet.photos.get(0).id}">Update Photo</button> 
+				 <button name="submit" type="submit">Add Photo</button> 
+			</form>
+				
 			</c:otherwise>
 		</c:choose>
-	</form>
 
 
 	<form action="updatePetForm.do">

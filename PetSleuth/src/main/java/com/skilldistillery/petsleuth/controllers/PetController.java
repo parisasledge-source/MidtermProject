@@ -109,7 +109,9 @@ public class PetController {
 	}
 
 	@RequestMapping( path = {"addPetPhoto.do"}, method = RequestMethod.POST)
-	public String addPetPhoto(int petId, Model model, HttpSession session, Pet pet, RedirectAttributes redir) {
+	public String addPetPhoto(int petId, Model model, HttpSession session, Pet pet, PetPhoto petPhoto, RedirectAttributes redir) {
+		petDao.addPetPhoto(petId, petPhoto);
+		System.out.println(petPhoto);
 		redir.addFlashAttribute("user", session.getAttribute("user"));
 		redir.addFlashAttribute("pet", petDao.updatePet(petId, pet));
 		return "redirect:updatePetRedir.do";

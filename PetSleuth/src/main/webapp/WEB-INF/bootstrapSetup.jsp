@@ -68,6 +68,12 @@
   color: #e5dbdb;
 }
 
+.centered {
+   margin-left: auto;
+    margin-right: auto;
+    width: 8em
+}
+
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #d7e2e9;
@@ -102,7 +108,7 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+        <li><a href="/">Home<span class="sr-only">(current)</span></a></li>
       
         <!-- First dropdown code -->
         <li class="dropdown">
@@ -150,7 +156,7 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         
-		<li class="active"><a href="signout.do">Sign Out</a></li>
+		<li><a href="signout.do">Sign Out</a></li>
         <!-- About dropdown code -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
@@ -183,7 +189,7 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+        <li><a href="/">Home<span class="sr-only">(current)</span></a></li>
         <li><a href="signupPage.do">Sign Up</a></li>
        	<li><a href="loginPage.do">Log In</a></li>
        	</ul>

@@ -71,7 +71,9 @@ public class PetDaoImpl implements PetDAO {
 	@Override
 	public void addPetPhoto(int petId, PetPhoto petPhoto) {
 		Pet pet = em.find(Pet.class, petId);
-		pet.addPetPhoto(petPhoto);
+//		pet.addPetPhoto(petPhoto);
+		petPhoto.setPet(pet);
+		em.persist(petPhoto);
 	}
 
 	

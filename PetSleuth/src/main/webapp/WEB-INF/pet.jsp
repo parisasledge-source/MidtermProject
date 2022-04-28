@@ -26,9 +26,12 @@
 				
 		<label for="description">Enter the description:</label> 		
 		<input name="description" type="text"> <br> 
-				
-		<label for="chip">Is pet chipped (true/false):</label> 
-		<input name="chip" type="text"><br>
+		
+		Is your pet chipped?		
+		<label for="chip">Yes</label> 
+		<input name="chip" type="radio" value="true">
+		<label for="chip">No</label> 
+		<input name="chip" type="radio" value="false"><br>
 		
 		<label for="color">Enter the color:</label> 
 		<input name="color" type="text"> <br> 
@@ -36,8 +39,11 @@
 		<label for="gender">Enter the gender:</label> 
 		<input name="gender" type="text"> <br> 
 		
-		<label for="neutered">Is pet neutered (true/false):</label> 
-		<input name="neutered" type="text"> <br> 
+		Is your pet neutered?		
+		<label for="neutered">Yes</label> 
+		<input name="neutered" type="radio" value="true">
+		<label for="neutered">No</label> 
+		<input name="neutered" type="radio" value="false"><br>
 				
 		<label for="age">Enter the age:</label> 		
 		<input name="age" type="text"> <br> 	
