@@ -55,16 +55,38 @@
 		</div>
 	</div>
 
+	<br>
 
+	<form action="updatePostForm.do">
+		<button name="id" value="${post.id}">Update Post</button>
 
+	</form>
+
+	<form action="destroyPost.do">
+		<button name="postId" value="${post.id}">Remove Post</button>
+	</form>
+
+	<br>
 
 	<form action="displayPostComment.do" method="POST">
-		<input name="id" type="hidden" value="${post.id}"> <input
-			name="userId" type="hidden" value="${user.id}"> <input
-			name="inReplyToCommentId" type="hidden" value="0"> <input
-			name="content" type="text" placeholder="Enter comment here">
-		<input name="submit" type="submit">
+
+		<div class="card" style="width: 20rem;">
+			<div class="card-body">
+				<h5 class="card-title">Post a comment</h5>
+				<h6 class="card-subtitle mb-2 text-muted">Comment on
+					${user.username}'s post</h6>
+				<input name="id" type="hidden" value="${post.id}"> <input
+					name="userId" type="hidden" value="${user.id}"> <input
+					name="inReplyToCommentId" type="hidden" value="0"> <input
+					name="content" type="text" placeholder="Enter comment here">
+				<input name="submit" type="submit">
+			</div>
+		</div>
+
+
 	</form>
+
+	<br>
 	<br>
 
 	<ul style="list-style: none;">
@@ -77,47 +99,49 @@
 								<h5 class="card-title">${c.user.username}'s comment</h5>
 								<h6 class="card-subtitle mb-2 text-muted">${c.commentDate}</h6>
 								<p class="card-text">${c.content}</p>
+								<h6 class="card-text">Replies:</h6>
+								<ul style="list-style: none;">
+									<c:forEach var="r" items="${c.replies}">
+										<li><br>
+											<div class="card" style="width: 20rem;">
+												<div class="card-body">
+													<h5 class="card-title">${r.user.username}'s reply</h5>
+													<h6 class="card-subtitle mb-2 text-muted">${r.commentDate}</h6>
+													<p class="card-text">${r.content}</p>
+												</div>
+											</div></li>
+										<li><br></li>
+									</c:forEach>
+								</ul>
 							</div>
 						</div>
 
-						<ul style="list-style: none;">
-							<c:forEach var="r" items="${c.replies}">
-								<li>
-									<div class="card" style="width: 20rem;">
-										<div class="card-body">
-											<h5 class="card-title">${r.user.username}'s comment</h5>
-											<h6 class="card-subtitle mb-2 text-muted">${r.commentDate}</h6>
-											<p class="card-text">${r.content}</p>
-										</div>
-									</div>
-								</li>
-								<li>
-								<form action="displayPostComment.do" method="POST">
+						<br>
+
+						<form action="displayPostComment.do" method="POST">
+
+							<div class="card" style="width: 20rem;">
+								<div class="card-body">
+									<h5 class="card-title">Post a reply</h5>
+									<h6 class="card-subtitle mb-2 text-muted">Reply to
+										${c.user.username}</h6>
 									<input name="id" type="hidden" value="${post.id}"> <input
 										name="userId" type="hidden" value="${user.id}"> <input
 										name="inReplyToCommentId" type="hidden" value="${c.id}">
 									<input name="content" type="text"
 										placeholder="Enter reply here"> <input name="submit"
 										type="submit">
-								</form>
-								<br>
-							</li>
-							</c:forEach>
-							</ul>
+								</div>
+							</div>
 							<br>
+
+						</form>
 					</c:when>
 				</c:choose>
+
 			</c:forEach><br></li>
 	</ul>
 	<br>
-	<form action="updatePostForm.do">
-		<button name="id" value="${post.id}">Update Post</button>
-
-	</form>
-
-	<form action="destroyPost.do">
-		<button name="postId" value="${post.id}">Remove Post</button>
-	</form>
 
 	<%-- <input name ="userId" type="hidden" value="${user.id}">  --%>
 </body>

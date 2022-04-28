@@ -12,20 +12,20 @@
 	<%@ include file="bootstrapSetup.jsp"%>
 	<c:choose>
 		<c:when test="${! empty posts}">
-			<thead>
-				<tr>
-					<th></th>
-					<th scope="col">ID</th>
-					<th scope="col">Posting Date</th>
-					<th scope="col">Description</th>
-					<th scope="col">Reward</th>
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th scope="col">ID</th>
+						<th scope="col">Posting Date</th>
+						<th scope="col">Description</th>
+						<th scope="col">Reward</th>
 
-				</tr>
-			</thead>
-			<c:forEach var="p" items="${posts}">
-				<c:choose>
-					<c:when test="${ p.active }">
-						<table class="table">
+					</tr>
+				</thead>
+				<c:forEach var="p" items="${posts}">
+					<c:choose>
+						<c:when test="${ p.active }">
 							<tbody>
 								<tr>
 									<td><form action="displayPost.do">
@@ -38,11 +38,11 @@
 									<td>${p.reward}</td>
 								</tr>
 							</tbody>
-						</table>
-					</c:when>
-				</c:choose>
-			</c:forEach>
-						<br>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+			</table>
+			<br>
 
 
 			<h3>Remove a Post</h3>
