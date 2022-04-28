@@ -19,6 +19,11 @@
     margin-top: -5%;
 }
 
+
+.centeredText {
+    text-align:center;
+}
+
 .cards{
     left: 15%;
 }
