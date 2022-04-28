@@ -42,6 +42,21 @@
 	</ul>
 	</c:when>
 	</c:choose>
+	 
+	 
+	 <form action="updatePetPhoto.do">
+	 <label for="photoUrl">Photo URL:</label> 
+		<c:choose>
+		<c:when test="${! empty pet.photos}">
+		<input name="photoUrl" type="text" value="${pet.photos.get(0).photoUrl}"> <br>
+		<button name="id" value="${pet.photos.get(0).id}">Update Photo</button>
+		</c:when>
+		<c:otherwise>
+		<input name="photoUrl" type="text"> <br>
+		<%-- <button name="id" value="${pet.photos.get(0).id}">Update Photo</button> --%>
+		</c:otherwise>
+		</c:choose> 
+	</form>
 	
 	
 	<form action="updatePetForm.do">

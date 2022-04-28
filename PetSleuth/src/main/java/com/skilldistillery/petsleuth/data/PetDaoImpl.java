@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.petsleuth.entities.Pet;
 import com.skilldistillery.petsleuth.entities.PetPhoto;
-import com.skilldistillery.petsleuth.entities.PostComment;
 
 @Service
 @Transactional
@@ -60,15 +59,34 @@ public class PetDaoImpl implements PetDAO {
 	}
 	
 	public List<PetPhoto> findPetPhotoById(int petId) {
-		String sql = "SELECT pc FROM PetPhoto pc WHERE pc.petId.id = :id";
+
+		//String sql = "SELECT pc FROM PetPhoto pc WHERE pc.petId.id = :id";
+
+		String sql = "SELECT pp FROM PetPhoto pp WHERE pp.petId.id = :id";
+
 		List<PetPhoto> photos = em.createQuery(sql, PetPhoto.class).setParameter("id", petId).getResultList();
 		
 		return photos;
 	}
+
 
 	@Override
 	public void addPetPhoto(int petId, PetPhoto petPhoto) {
 		Pet pet = em.find(Pet.class, petId);
 		pet.addPetPhoto(petPhoto);
 	}
+
+	
+	@Override
+	public PetPhoto updatePetPhoto(int petPhotoId, PetPhoto petPhoto) {
+		
+		PetPhoto updatePetPhoto = em.find(PetPhoto.class, petPhotoId);
+		
+		updatePetPhoto.setPhotoUrl(petPhoto.getPhotoUrl());
+		
+		return updatePetPhoto;
+		
+	}
+	
+
 }

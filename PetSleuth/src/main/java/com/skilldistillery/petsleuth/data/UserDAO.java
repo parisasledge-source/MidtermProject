@@ -5,6 +5,7 @@ import java.util.List;
 import com.skilldistillery.petsleuth.entities.Contact;
 import com.skilldistillery.petsleuth.entities.Location;
 import com.skilldistillery.petsleuth.entities.Pet;
+import com.skilldistillery.petsleuth.entities.PetPhoto;
 import com.skilldistillery.petsleuth.entities.Post;
 import com.skilldistillery.petsleuth.entities.User;
 
@@ -35,6 +36,8 @@ public interface UserDAO {
 	List<Pet> findPetsByUserId(int id);
 
 	Pet addPet(Pet pet);
+
+	PetPhoto findPetPhotoById(int petPhotoId);
 
 }
 
