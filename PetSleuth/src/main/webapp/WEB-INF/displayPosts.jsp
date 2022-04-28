@@ -9,8 +9,7 @@
 </head>
 <body>
 
-<%@ include file="bootstrapSetup.jsp" %>
-	<ul>
+	<%@ include file="bootstrapSetup.jsp"%>
 	<c:choose>
 	<c:when test="${! empty posts}">
 			<table>
@@ -36,18 +35,14 @@
 			</tr>
 			</tbody>
 			</c:when>
+			<c:otherwise>
+				<h2>No posts found!</h2>
+			</c:otherwise>
 		</c:choose>
-	</c:forEach>
-			</table>
-				<%-- <li> 
-					<a href = "displayPet.do?id=${p.id}"> ${p.id}</a>
-				</li> --%>
-	</c:when>
-	<c:otherwise>
-	<h2>No posts found!</h2>
-	</c:otherwise>
-	</c:choose>
-	</ul>
-	
+		</c:forEach>
+		</table>
+		</c:when>
+		</c:choose>
+
 </body>
 </html>
