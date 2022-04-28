@@ -75,6 +75,7 @@ public class UserDaoImpl implements UserDAO {
 	public Pet addPet(Pet pet) {
 		
 		pet.setActive(true);
+		System.out.println(pet);
 		em.persist(pet);
 		em.flush();
 		

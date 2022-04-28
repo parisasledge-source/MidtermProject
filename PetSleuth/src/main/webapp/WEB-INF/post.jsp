@@ -611,7 +611,7 @@
 
 					<div class="text-center">
 						<h5>If you don't see the necessary contact information, add
-							one here!</h5>
+							it here!</h5>
 
 						<button class="btn btn-primary" type="button"
 							data-toggle="collapse" data-target="#contactEmpty"
