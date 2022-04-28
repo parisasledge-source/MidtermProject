@@ -18,8 +18,8 @@
 			<c:when test="${! empty pet.photos}">
 				<ul>
 					<c:forEach var="p" items="${pet.photos}">
-						<li><img src="${p.photoUrl}"
-							style="width: 500px; height: 400px;" /> <br></li>
+						<img src="${p.photoUrl}"
+							style="width: 500px; height: 400px;" /> <br>
 					</c:forEach>
 				</ul>
 			</c:when>
