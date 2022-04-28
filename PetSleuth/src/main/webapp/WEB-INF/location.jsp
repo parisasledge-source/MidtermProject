@@ -26,6 +26,7 @@
 	<input type="submit" value="Submit" />
 	</form>
  	</c:when>
+ 	
  <c:otherwise>
 	<h1>Location</h1>
 	State: ${locations.state}
@@ -51,6 +52,21 @@
 	<input type="submit" value="Submit" />
 	</form>
 	<br>
+	
+	 	<div>
+		<div class="card">
+			<h5 class="card-header">Location</h5>
+			<div class="card-body">
+				<h5 class="card-title">Your Location</h5>
+				<ul>
+					<li>Street: ${locations.street}</li>
+					<li>City: ${locations.city}</li>
+					<li>State: ${locations.state}</li>
+					<li>Zip Code: ${locations.zipcode}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 	
 	</c:otherwise>
 </c:choose>
