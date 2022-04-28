@@ -10,20 +10,23 @@
 
 <%@ include file="bootstrapSetup.jsp" %>
 
-<form action="login.do" method="POST">
+<form action="login.do" method="POST" class="w-auto p-3 centered">
   <!-- Email input -->
   <div class="row mb-4">
   <div class="form-outline mb-4">
     <label class="form-label" for="form2Example1">Username</label>
     <input type="text" id="form2Example1" class="form-control" name="username" />
   </div>
+  
 
+  <br>
   <!-- Password input -->
   <div class="form-outline mb-4">
     <label class="form-label" for="form2Example2">Password</label>
     <input type="password" id="form2Example2" class="form-control" name="password"/>
   </div>
 
+  <br>
 
   <!-- Submit button -->
   <button type="submit" class="btn btn-primary btn-block mb-4">Log in</button>
