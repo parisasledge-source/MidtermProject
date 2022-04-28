@@ -68,7 +68,7 @@ class PetPhotoTest {
 +----+
 		 */
 		assertNotNull(petPhoto);
-		assertEquals(1, petPhoto.getPetId().getId());
+		assertEquals(1, petPhoto.getPet().getId());
 	}
 
 }

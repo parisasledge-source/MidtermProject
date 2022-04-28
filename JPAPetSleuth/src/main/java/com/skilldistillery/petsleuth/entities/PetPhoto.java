@@ -29,7 +29,7 @@ public class PetPhoto {
 	
 	@ManyToOne
 	@JoinColumn(name = "pet_id")
-	private Pet petId;
+	private Pet pet;
 	
 	public PetPhoto() {}
 
@@ -65,12 +65,12 @@ public class PetPhoto {
 		this.dateAdded = dateAdded;
 	}
 
-	public Pet getPetId() {
-		return petId;
+	public Pet getPet() {
+		return pet;
 	}
 	
-	public void setPetId(Pet petId) {
-		this.petId = petId;
+	public void setPet(Pet petId) {
+		this.pet = petId;
 	}
 	
 	@Override
