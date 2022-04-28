@@ -11,15 +11,22 @@
 
 <%@ include file="bootstrapSetup.jsp" %>
 
-	<ul>
+	<%-- <ul>
 		<li>Username: ${user.username}</li>
 		<li>UserId: ${user.id}</li>
 		<li>First Name: ${user.firstName}</li>
 		<li>Last Name: ${user.lastName}</li>
 		<li>Bio: ${user.biography}</li>
 		<li> <img src="${user.photoURL}"></li>
-	</ul>
-	
+	</ul> --%>
+	<ul class="list-group list-group-flush">
+  <li class="list-group-item"><img src="${user.photoURL}" class="rounded" alt="..." width="250" height="300" ></li>
+  <li class="list-group-item">User Id: ${user.id}</li>
+  <li class="list-group-item">Username: ${user.username}</li>
+  <li class="list-group-item">First Name: ${user.firstName}</li>
+  <li class="list-group-item">Last Name: ${user.lastName}</li>
+  <li class="list-group-item">Bio: ${user.biography}</li>
+</ul>
 	<br>
 	
 	<h3>Update your information</h3>
