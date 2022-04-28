@@ -20,7 +20,7 @@
 			<div class="table-title">
 				<div class="row">
 					<div class="col-sm-8">
-						<h2>View pet information</h2>
+						<h2>View pet Profile</h2>
 					</div>
 					<div class="col-sm-4">
 					<a href="contactPage.do">
@@ -59,7 +59,7 @@
 				</c:forEach>
 				</tbody>
 			</table>
-
+		</div>
 			<!-- <table>
 			<thead>
 			<tr>
@@ -94,6 +94,6 @@
 			<h2>No pet profile found!</h2>
 		</c:otherwise>
 	</c:choose>
-
+</div>
 </body>
 </html>
