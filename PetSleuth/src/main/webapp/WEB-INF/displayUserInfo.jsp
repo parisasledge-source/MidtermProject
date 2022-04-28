@@ -44,7 +44,7 @@
 		<label for="photoURL">Add a Photo URL:</label> 
 		<input name="photoURL" type="text" value="${user.photoURL}"> 
 		<br> 
-		<input name="submit" type="submit">
+		<input name="submit" class="btn btn-primary" type="submit">
 	</form>
 	
 </body>
