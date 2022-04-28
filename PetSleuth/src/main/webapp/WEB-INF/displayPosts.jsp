@@ -13,33 +13,35 @@
 	<ul>
 	<c:choose>
 	<c:when test="${! empty posts}">
-	<c:forEach var = "p" items = "${posts}">
-		<c:choose>
-			<c:when test="${ p.active }">
 			<table>
 			<thead>
 			<tr>
+			<th>View</th>
 			<th>ID</th>
 			<th>Posting Date</th>
 			<th>Description</th>
 			<th>Reward</th>			
 			</tr>
 			</thead>
+	<c:forEach var = "p" items = "${posts}">
+		<c:choose>
+			<c:when test="${ p.active }">
 			<tbody>
 			<tr>
-			<td><a href = "displayContact.do?id=${p.id}">${p.id}</a></td>
-			<td><a href = "displayContact.do?id=${p.id}">${p.postingDate}</a></td>
-			<td><a href = "displayContact.do?id=${p.id}">${p.description}</a></td>
-			<td><a href = "displayContact.do?id=${p.id}">${p.reward}</a></td>
+			<td><form action="displayPost.do"><button name="id" value="${p.id}">View</button></form></td>
+			<td>${p.id}</td>
+			<td>${p.postingDate}</td>
+			<td>${p.description}</td>
+			<td>${p.reward}</td>
 			</tr>
 			</tbody>
-			</table>
-				<%-- <li> 
-					<a href = "displayPost.do?id=${p.id}"> ${p.id}</a>
-				</li> --%>
 			</c:when>
 		</c:choose>
 	</c:forEach>
+			</table>
+				<%-- <li> 
+					<a href = "displayPet.do?id=${p.id}"> ${p.id}</a>
+				</li> --%>
 	</c:when>
 	<c:otherwise>
 	<h2>No posts found!</h2>
@@ -47,16 +49,5 @@
 	</c:choose>
 	</ul>
 	
-	
-	<br>
-	
-	<h3>Remove a Post</h3>
-	
-	<form action="destroyPost.do" method="POST">
-	Enter a Post ID: <input type="text" name="postId" /> 
-	<input type="submit" value="Submit" />
-	</form>
-	
-
 </body>
 </html>

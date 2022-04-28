@@ -150,6 +150,7 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         
+		<li class="active"><a href="signout.do">Sign Out</a></li>
         <!-- About dropdown code -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
@@ -200,6 +201,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 </div>
+
         </c:otherwise>
         </c:choose>
         
