@@ -18,7 +18,7 @@
 				<div class="input-group">
 					<span class="input-group-addon"><i
 						class="glyphicon glyphicon-user"></i></span> <input name="species"
-						class="form-control" type="text">
+						class="form-control" type="text" value="${pet.species}">
 				</div>
 			</div>
 		</div>
@@ -27,7 +27,7 @@
 			<div class="input-group">
 				<span class="input-group-addon"><i
 					class="glyphicon glyphicon-user"></i></span> <input name="breed"
-					class="form-control" type="text">
+					class="form-control" type="text" value="${pet.breed}">
 			</div>
 		</div>
 
@@ -36,7 +36,7 @@
 			<div class="input-group">
 				<span class="input-group-addon"><i
 					class="glyphicon glyphicon-user"></i></span> <input name="name"
-					class="form-control" type="text">
+					class="form-control" type="text" value="${pet.name}">
 			</div>
 		</div>
 
@@ -45,7 +45,7 @@
 			<div class="input-group">
 				<span class="input-group-addon"><i
 					class="glyphicon glyphicon-user"></i></span> <input name="description"
-					class="form-control" type="text">
+					class="form-control" type="text" value="${pet.description}">
 			</div>
 		</div>
 
@@ -54,7 +54,7 @@
 			<div class="input-group">
 				<span class="input-group-addon"><i
 					class="glyphicon glyphicon-user"></i></span> <input name="color"
-					class="form-control" type="text">
+					class="form-control" type="text" value="${pet.color}">
 			</div>
 		</div>
 
@@ -63,7 +63,7 @@
 			<div class="input-group">
 				<span class="input-group-addon"><i
 					class="glyphicon glyphicon-user"></i></span> <input name="gender"
-					class="form-control" type="text">
+					class="form-control" type="text" value="${pet.gender}">
 			</div>
 		</div>
 
@@ -72,7 +72,7 @@
 			<div class="input-group">
 				<span class="input-group-addon"><i
 					class="glyphicon glyphicon-user"></i></span> <input name="age"
-					class="form-control" type="text">
+					class="form-control" type="text" value="${pet.age}">
 			</div>
 		</div>
 
