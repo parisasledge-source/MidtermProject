@@ -6,7 +6,7 @@ import com.skilldistillery.petsleuth.entities.Contact;
 
 public interface ContactDAO {
 
-	public List<Contact> findByUserId(int userId);
+	public List<Contact> findByUserId(Integer userId);
 	
 	public boolean destroyContact(int contactId);
 	
