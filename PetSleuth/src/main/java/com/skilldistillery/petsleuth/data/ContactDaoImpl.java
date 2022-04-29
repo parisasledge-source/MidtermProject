@@ -28,7 +28,7 @@ public class ContactDaoImpl implements ContactDAO {
 	}
 	
 	@Override
-	public List<Contact> findByUserId(int userId) {
+	public List<Contact> findByUserId(Integer userId) {
 		String query = "SELECT contact FROM Contact contact WHERE contact.user.id = :userId";
 		List<Contact> contacts = em.createQuery(query, Contact.class).setParameter("userId", userId).getResultList();		
 		return contacts;

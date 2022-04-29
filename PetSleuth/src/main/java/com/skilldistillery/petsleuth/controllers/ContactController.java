@@ -26,7 +26,7 @@ public class ContactController {
 	}
 	
 	@RequestMapping( path = {"addContact.do"}, method = RequestMethod.POST)
-	public String addContact(Model model, Contact contact, HttpSession session, int userId, RedirectAttributes redir) {
+	public String addContact(Model model, Contact contact, HttpSession session, Integer userId, RedirectAttributes redir) {
 		User newUser = (User)session.getAttribute("user");
 		contact.setUser(newUser);
 		redir.addFlashAttribute("contact", contactDao.addContact(contact, userId));

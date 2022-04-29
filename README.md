@@ -16,7 +16,7 @@
 * Gradle
 * SpringBoot
 * Trello
-* Agile (SCRUM)
+* Agile (Scrum)
 
 
 ## Lessons Learned
@@ -26,3 +26,8 @@
 * MySQL Workbench deleted database inserts. Pulling the mwb file from a branch that had not pulled yet allowed us to refill the database inserts
 * Debugging takes a LOONNG time
 * Clear directions on todos
+
+## How To Use
+* User is prompted to create an account or log in to an existing account
+* Logged in user can toggle the navbar for Account, Pet, Post, Search, or Sign out.
+* The navbar presents drop down menus that allow the user to perform CRUD operations on their User data, Contact data, Post data, Location data, Pet data, and Pet Photo data.

@@ -118,7 +118,7 @@
 							<select name="pet">
 							<c:forEach var = "p" items="${contacts}">
 							<option value="${p.id }">
-							${p.name }
+							${p.contactPreference }
 							</option>
 							</c:forEach>
 							</select>
@@ -137,7 +137,7 @@
 							<select name="pet">
 							<c:forEach var = "p" items="${locations}">
 							<option value="${p.id }">
-							${p.name }
+							${p.street }
 							</option>
 							</c:forEach>
 							</select>
